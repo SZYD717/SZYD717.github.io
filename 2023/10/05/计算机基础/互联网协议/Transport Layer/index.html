@@ -87,7 +87,7 @@
 <meta property="og:description" content="hexo 部署测试，内容不保证准确给终端上的APP进程提供logical communication。发送端负责将APP的数据分成segmehexo 部署测试，内容不保证准确nts，向下传递到network层。接收端则是将受到的sements重新组合为原始信息，向上递给app层 network层不像transport细分到process，network负责host到host 不论TCP还是UDP都">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-05T07:10:00.000Z">
-<meta property="article:modified_time" content="2023-10-05T07:42:09.190Z">
+<meta property="article:modified_time" content="2023-10-05T07:45:21.208Z">
 <meta property="article:author" content="Rickye">
 <meta name="twitter:card" content="summary">
 
@@ -345,6 +345,7 @@
         <p>hexo 部署测试，内容不保证准确<br>给终端上的<strong>APP进程</strong>提供logical communication。<br>发送端负责将APP的数据分成segmehexo 部署测试，内容不保证准确nts，向下传递到network层。接收端则是将受到的sements重新组合为原始信息，向上递给app层</p>
 <p>network层不像transport细分到process，network负责host到host</p>
 <p>不论TCP还是UDP<strong>都不能保证延迟和带宽</strong></p>
+<span id="more"></span>
 <h1 id="multiplexing和demultiplexing"><a href="#multiplexing和demultiplexing" class="headerlink" title="multiplexing和demultiplexing"></a>multiplexing和demultiplexing</h1><h2 id="详细内容"><a href="#详细内容" class="headerlink" title="详细内容"></a>详细内容</h2><h3 id="multiplexing"><a href="#multiplexing" class="headerlink" title="multiplexing"></a>multiplexing</h3><p>把几个stream&#x2F;socket合并到一个stream中，例如email，web app的流量都被合并到一个stream中传输。</p>
 <h3 id="demultiplexing"><a href="#demultiplexing" class="headerlink" title="demultiplexing"></a>demultiplexing</h3><p>接收端根据header中包含的信息（端口号），拼接成stream后分到不同的stream和socket中</p>
 <h3 id="Connectionless-demultiplexing"><a href="#Connectionless-demultiplexing" class="headerlink" title="Connectionless demultiplexing"></a>Connectionless demultiplexing</h3><p>类似UDP这样的协议是Connectionless的，也就是没有end to end的1对1的socket对，完成demultiplexing的过程也是通过port number完成的。和TCP的区别就在于就在于UDP传输都是由一个socket完成的。</p>
