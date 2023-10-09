@@ -1,164 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Network Layer</title>
-    <url>/2023/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Network%20Layer/</url>
-    <content><![CDATA[<h1 id="Network-layer的概述"><a href="#Network-layer的概述" class="headerlink" title="Network layer的概述"></a>Network layer的概述</h1><p>Network层的sender端将来自传输层的segment封装为datagrams，并执行从host到host的传输，receiver端再解包成segment给传输层。Network层的两大作用是<strong>Forwarding和Routing</strong><br><strong>Forwarding-转发</strong>： 将packets从router的输入送到正确的输出（如何通过当前Router），通常只需要几纳秒<br><strong>Routing-路由选择</strong>：决定packets要到达目标IP该走哪条route（如何到达目的地，要经过哪些Route），通常为几秒<br>Router作为负责这一层的协调者，会检查每一个通过它的datagram的IP地址</p>
-<h2 id="Data-Plane"><a href="#Data-Plane" class="headerlink" title="Data Plane"></a>Data Plane</h2><p>从功能上来说，是Forwarding 转发。不涉及路线规划，只负责根据datagram的目标IP传输到正确的输出端口中。<br>根据现有的路由表和datagram的IP地址来决定转发到哪个端口</p>
-<span id="more"></span><!-- more -->
-<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>功能上是Routing。控制datagram如何从A到B，但是不关注具体如何在每个节点的具体执行。该部分决定了路由表，路由表是转发功能的实施基础。<br>具体来说，有两种方式</p>
-<ul>
-<li>传统的路由算法，在Router内部实现</li>
-<li>SDN，通过远程server中实现的方式来进行</li>
+    <title>互联网协议基本概念</title>
+    <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<p>hexo 部署测试，内容不保证准确</p>
+<h1 id="互联网的概念"><a href="#互联网的概念" class="headerlink" title="互联网的概念"></a>互联网的概念</h1><h2 id="什么是互联网？"><a href="#什么是互联网？" class="headerlink" title="什么是互联网？"></a>什么是互联网？</h2><h3 id="会用到的Terms"><a href="#会用到的Terms" class="headerlink" title="会用到的Terms"></a>会用到的Terms</h3><ul>
+<li>hosts&#x3D;end systems 终端设备，手机，电脑，车</li>
+<li>Communication links，例如光缆，电磁波，卫星</li>
+<li>Packet switches&#x3D;路由器、交换机，转发，分发数据包</li>
 </ul>
-<h2 id="网络服务模型"><a href="#网络服务模型" class="headerlink" title="网络服务模型"></a>网络服务模型</h2><p>对于host2host的传输通道来说，往往会注重不同的特性。例如单个datagram的时延，flow型datagram的到达顺序，最小带宽等等。</p>
-<h1 id="Router内部是什么"><a href="#Router内部是什么" class="headerlink" title="Router内部是什么"></a>Router内部是什么</h1><h2 id="组成结构及其功能"><a href="#组成结构及其功能" class="headerlink" title="组成结构及其功能"></a>组成结构及其功能</h2><ul>
-<li>路由处理：control plane的软件，负责产出routing table给data plane</li>
-<li>高速switching fabric：硬件，完成input端口到output端口的查找和转发执行</li>
-<li>输入端口：<ul>
-<li>line termination：物理层，接受bit级别的输入</li>
-<li>link layer protocol：数据链路层的协议，主要是接受数据</li>
-<li>lookup forwarding queueing：在这里，路由器使用datagram中的header在路由表中查找具体的输出端口，排队等待路由器找到输出并发送。在这里forwarding会有两种方式<ol>
-<li>基于目标IP的forwarding，只根据目标IP来决定forwarding</li>
-<li>总体的forwarding：基于一组header中的值来决定输出端口</li>
+<h3 id="互联网是Network-of-networks"><a href="#互联网是Network-of-networks" class="headerlink" title="互联网是Network of networks"></a>互联网是Network of networks</h3><p>构成互联网传输规则的两个部分：</p>
+<ul>
+<li>Protocols：协议定义了数据的发送，接受的过程</li>
+<li>Standards：标准，例如RFC，IETF这类标准<span id="more"></span></li>
+</ul>
+<h2 id="Network-Edge和Network-core"><a href="#Network-Edge和Network-core" class="headerlink" title="Network Edge和Network core"></a>Network Edge和Network core</h2><p>这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。<br>Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
+<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
+<h2 id="互联网的目的：数据传输"><a href="#互联网的目的：数据传输" class="headerlink" title="互联网的目的：数据传输"></a>互联网的目的：数据传输</h2><h3 id="数据包-packets"><a href="#数据包-packets" class="headerlink" title="数据包 packets"></a>数据包 packets</h3><ul>
+<li>这是数据在网络上传输的最小单元</li>
+<li>8 bits &#x3D; 1 Bytes，位和字节用来描述Packets的大小。</li>
+</ul>
+<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p>指代传输的速率，单位就是B&#x2F;s，b&#x2F;s，注意区分</p>
+<h3 id="物理的介质"><a href="#物理的介质" class="headerlink" title="物理的介质"></a>物理的介质</h3><p>网络的传输有众多介质，例如</p>
+<ul>
+<li>以太网线缆</li>
+<li>光纤</li>
+<li>WIFI</li>
+<li>移动通信技术</li>
+<li>卫星通信</li>
+</ul>
+<h2 id="Network-core"><a href="#Network-core" class="headerlink" title="Network core"></a>Network core</h2><p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）</p>
+<h3 id="Router间传输的过程"><a href="#Router间传输的过程" class="headerlink" title="Router间传输的过程"></a>Router间传输的过程</h3><ol>
+<li>在transportation层被分成packets，发送给第一个Router</li>
+<li>第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送</li>
+<li>重复2，直到到达目的地</li>
 </ol>
-</li>
+<h3 id="Network-core的两大主要功能"><a href="#Network-core的两大主要功能" class="headerlink" title="Network core的两大主要功能"></a>Network core的两大主要功能</h3><ul>
+<li>Routing：根据目的地决定packets的传输路线</li>
+<li>Forwarding：将packets从input发送到正确的output router去</li>
 </ul>
-</li>
+<h3 id="网络核心的生态"><a href="#网络核心的生态" class="headerlink" title="网络核心的生态"></a>网络核心的生态</h3><ul>
+<li>Tier 1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
+<li>Regional ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
+<li>access ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
+<li>content provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
+<li>content distribution networks（CDN），将互联网的内容向用户端推进</li>
 </ul>
-<h2 id="Forwarding的核心原则：longest-prefix-matching"><a href="#Forwarding的核心原则：longest-prefix-matching" class="headerlink" title="Forwarding的核心原则：longest prefix matching"></a>Forwarding的核心原则：longest prefix matching</h2><p>最长前缀匹配原则：在路由表中根据IP查找输出端口号时，由路由表中已有的前缀匹配长度最长的那条决定。<br>一般在TCAM上使用，TCAM是一种超高速内存，可以在一个时钟内完成地址查找</p>
-<h2 id="Switching-fabrics-交换电路"><a href="#Switching-fabrics-交换电路" class="headerlink" title="Switching fabrics 交换电路"></a>Switching fabrics 交换电路</h2><p>从input buffer中，将packet发送到正确的output buffer中。是路由器中的核心组成部分，直接实现了路由器中的转发的动作<br>从类别来分：</p>
-<ul>
-<li>基于内存：packet被复制到router的内存中进行操作，完全由CPU进行的switching。速度取决于内存的读写带宽</li>
-<li>总线设计：从input到output只有一条共享的总线作为通道，所以速度取决于总线的带宽</li>
-<li>纵横式：避免了总线设计的带宽问题，每个input都直接连接output</li>
-</ul>
-<h3 id="输入延迟"><a href="#输入延迟" class="headerlink" title="输入延迟"></a>输入延迟</h3><p>input buffer和output buffer同时只能发送&#x2F;接受一个packet，所以会导致类似死锁的情况</p>
-<ul>
-<li>Head of the Line（HOL）阻挡延迟：假设两条输入 A和B，两条输出 C和D。现在A和B各有一个包想发送到C。由于C同时只能接受一个input，所以此时B就被卡住，需要等待A传完才可以传自己的。但其实B后面还有一个包是传给D的，其实就发现B本可以先传给D，而不需要等着目前被卡住的C的通道。</li>
-</ul>
-<h3 id="输出延迟"><a href="#输出延迟" class="headerlink" title="输出延迟"></a>输出延迟</h3><p>输出的网络传输速度比switching电路慢，所以也会排队，因此需要在buffer中等待。<br>输出可能会优先传输那些网络条件较好的packet<br>选择下一个传输的包的三种方法：</p>
-<ol>
-<li>FIFO队列</li>
-<li>优先队列，根据重要程度来排序</li>
-<li>Round robin，根据从哪个input来的来轮，可以调整权重来修改传输的优先级</li>
+<h2 id="延迟、丢包和传输瓶颈"><a href="#延迟、丢包和传输瓶颈" class="headerlink" title="延迟、丢包和传输瓶颈"></a>延迟、丢包和传输瓶颈</h2><h3 id="丢包"><a href="#丢包" class="headerlink" title="丢包"></a>丢包</h3><p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失</p>
+<h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h3><ol>
+<li>对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）</li>
+<li>排队等待Router进行发送（由路由器的拥挤程度决定）</li>
+<li>发送带宽（L&#x2F;R，将Buffer中的数据发送到链路中）</li>
+<li>光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d&#x2F;s）</li>
 </ol>
-<h1 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h1><p>网络层除了IP协议，还有Routing的协议（用于路径规划，RIP，OSPF，BGP），ICMP协议（报错，trace route）</p>
-<h2 id="datagram-format-数据包的格式"><a href="#datagram-format-数据包的格式" class="headerlink" title="datagram format-数据包的格式"></a>datagram format-数据包的格式</h2><p>header的结构如下：</p>
-<ul>
-<li>IP协议的版本</li>
-<li>header的长度</li>
-<li>数据的类型，描述了优先级</li>
-<li>datagram长度</li>
-<li>用于分包重组的字段<ul>
-<li>16 位identifier</li>
-<li>flags</li>
-<li>fragment offset</li>
+<h3 id="传输速率"><a href="#传输速率" class="headerlink" title="传输速率"></a>传输速率</h3><p>取决于传输过程中速率最低的那个环节</p>
+<h1 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h1><p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的</p>
+<h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><ul>
+<li>Application</li>
+<li>Presentation</li>
+<li>Session</li>
+<li>Transport</li>
+<li>Network</li>
+<li>Data link</li>
+<li>Physical</li>
 </ul>
-</li>
-<li>time to live：定义最大hop数</li>
-<li>上层的协议</li>
-<li>header的checksum</li>
-<li>32位 source IP</li>
-<li>32位 desti IP</li>
-<li>可选的其他内容</li>
+<h2 id="TCP-IP5层模型及其对应的协议"><a href="#TCP-IP5层模型及其对应的协议" class="headerlink" title="TCP&#x2F;IP5层模型及其对应的协议"></a>TCP&#x2F;IP5层模型及其对应的协议</h2><ul>
+<li>Application：HTTP，SMTP</li>
+<li>Transport</li>
+<li>Network</li>
+<li>Data link</li>
+<li>Physical</li>
 </ul>
-<h2 id="fragmentation"><a href="#fragmentation" class="headerlink" title="fragmentation"></a>fragmentation</h2><p>MTU：可以接受的最大的单包大小<br>IP的datagram会在网内被分为几个fragment，大datagram被分为几个小的datagram方便传输。在dest被合成为原始大小</p>
-<h2 id="IPv4地址"><a href="#IPv4地址" class="headerlink" title="IPv4地址"></a>IPv4地址</h2><h3 id="IPv4的三种表示方式："><a href="#IPv4的三种表示方式：" class="headerlink" title="IPv4的三种表示方式："></a>IPv4的三种表示方式：</h3><ul>
-<li>二进制<br>  00000000 00000000 00000000 00000000</li>
-<li>小数点+十进制（最常见的）<br>  192.169.0.1</li>
-<li>16进制（每位表示4bits）<br>  4a 3b 11 00</li>
+<h2 id="各层对应的地址规格"><a href="#各层对应的地址规格" class="headerlink" title="各层对应的地址规格"></a>各层对应的地址规格</h2><ul>
+<li>link层&#x3D;mac地址</li>
+<li>Logical address layer 3&#x3D;IPV4和IPV6地址</li>
+<li>Port address&#x3D;layer 4 端口号</li>
+<li>Application &#x3D; URL</li>
 </ul>
-<h3 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h3><ul>
-<li>Interface：host&#x2F;router和物理link间的连接，例如Switch和Wi-Fi基站。指代的是形成一个子网的，一个网段的IP地址。</li>
-</ul>
-<h2 id="子网"><a href="#子网" class="headerlink" title="子网"></a>子网</h2><p>相互独立的网络叫做子网，子网内部的设备可以相互直接连接，<br>IP地址的一部分用来表示该IP的从属关系。从子网划分的角度来看，IP地址有两个部分：</p>
-<ol>
-<li>前半部分（subnet part）是用于表示当前IP所属的网络的编号，同一子网内具有相同的网络段</li>
-<li>后半部分（host part）用于表示IP在子网内部的编号。</li>
-</ol>
-<h3 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h3><p>这些网段不会作为实际的IP，互联网IP的保留字。因为它们被用在了不能被外部网络访问的内网中</p>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Netids</th>
-<th>Blocks</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A</td>
-<td>10.0.0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>B</td>
-<td>172.16-172.31</td>
-<td>16</td>
-</tr>
-<tr>
-<td>C</td>
-<td>192.168.0-192.168.255</td>
-<td>256</td>
-</tr>
-</tbody></table>
-<h3 id="子网掩码（地址分配策略Classless-Inlerdomain-Routing—CIDR）"><a href="#子网掩码（地址分配策略Classless-Inlerdomain-Routing—CIDR）" class="headerlink" title="子网掩码（地址分配策略Classless Inlerdomain Routing—CIDR）"></a>子网掩码（地址分配策略Classless Inlerdomain Routing—CIDR）</h3><p>&#x2F;24 就是子网掩码的一种写法，意思是有24个bit的IP地址用来作为subnet id，剩下了（32-24）bits作为host id<br>额外：Fly By Night ISP，ISP会宣称并接收所有对应其subnet id段的信息，即使它有一些subnets做为附属，这些信息在它内部按照相同的逻辑被转发给对应的subnet。这个使用一个subnet id（ISP的）来对应多个subnets（附属的）过程，就叫做路由聚合。</p>
-<h3 id="VLSM（变长的子网掩码）"><a href="#VLSM（变长的子网掩码）" class="headerlink" title="VLSM（变长的子网掩码）"></a>VLSM（变长的子网掩码）</h3><p>一个大网段，例如192.168.1.0&#x2F;24对应三个子网，这三个子网分别具有20、20、50个hosts，三个路由器相互连接。所以他们应该具备不同的subnet mask的层级<br>先从大的开始：</p>
-<ul>
-<li>50 host：至少有6个bits要作为host id  &#x3D;&gt; 192.168.1.0&#x2F;26</li>
-<li>20 host：至少有5个bits的host id &#x3D;&gt; 192.168.1.64&#x2F;27</li>
-<li>20 host：至少有5个bits的host id &#x3D;&gt; 192.168.1.96&#x2F;27</li>
-<li>3 host（给interface的，也就是链接子网的路由器的线路）：192.168.1.128&#x2F;30</li>
-</ul>
-<h3 id="DHCP-动态主机配置协议"><a href="#DHCP-动态主机配置协议" class="headerlink" title="DHCP 动态主机配置协议"></a>DHCP 动态主机配置协议</h3><p>刚刚解决了每个subnet是如何一块一块的分配IP地址的，但是这些IP地址仍未被下发到具体的host上。DHCP解决的就是这个问题，给一个刚刚加入这个网络的设备动态的分配一个IP地址。<br>DHCP主要有四个步骤</p>
-<ol>
-<li>host发出寻找DHCP的信息</li>
-<li>DHCP回应一个DHCP offer（带着IP地址，这里也叫Yiaddrr）</li>
-<li>host请求IP地址，发送DHCP request</li>
-<li>DHCP服务器发送 DHCP ack<br>DHCP不仅会返回分配的IP地址，它还</li>
-</ol>
-<ul>
-<li>给host发送first hop的router地址</li>
-<li>DNS 服务器的name 和IP</li>
-<li>子网掩码</li>
-</ul>
-<h2 id="Network-address-translation（NAT）"><a href="#Network-address-translation（NAT）" class="headerlink" title="Network address translation（NAT）"></a>Network address translation（NAT）</h2><p>这项技术的诞生背景就是IPv4地址已经要被用光了，这项技术可以将一个公网IP给多个Host用<br>一个公网IP：111.111.1.1，被Router映射到局域网内的多个设备。但是端口号还是一对一的，也就是111.111.1.1的80端口只会对应一个设备，对应关系由Router来管理。<br>NAT的三个部分：</p>
-<ol>
-<li>Router将外送的IP和端口号替换为公网的IP和端口号</li>
-<li>记录NAT的端口对应关系</li>
-<li>对进入内网的datagram的source IP和port进行替换</li>
-</ol>
-<h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><p>和NAT的动机一样，32位的IPv4快用光了。<br>IPv6的地址有40 byte定长的header，并且禁止了fragmentation 分片<br>除此之外，IPv6还有</p>
-<ul>
-<li>去掉了checksum，减少每个hop的处理时间</li>
-<li>options和Next header段合并了</li>
-<li>ICMPv6: 新版本的ICMP，支持了新的message type（Msg too big）和组管理</li>
-</ul>
-<h3 id="IPv6和IPv4的兼容"><a href="#IPv6和IPv4的兼容" class="headerlink" title="IPv6和IPv4的兼容"></a>IPv6和IPv4的兼容</h3><p>由于不是所有Router都支持IPv6的新协议，所以要确保IPv4和IPv6可以在网络内同时存在。<br>解决方案就是：tunneling<br>当知道下一个Hop是IPv4 Router时，IPv6的datagram作为IPv4的payload，确保IPv4 Router也可以处理</p>
-<h1 id="浅述-Forward和SDN"><a href="#浅述-Forward和SDN" class="headerlink" title="浅述 Forward和SDN"></a>浅述 Forward和SDN</h1><p>SDN是什么？<br>是一种Routing的算法，也就是Control plane的控制算法。<br>传统的Routing方法：</p>
-<ul>
-<li>使用forwarding table结合longest-prefix 匹配来进行forwarding</li>
-<li>control plane单机内计算forwarding table</li>
-<li>forwarding table只根据packets的IP来给出forward 方向<br>SDN：</li>
-<li>可编程的Routing算法</li>
-<li>可以用packet header中的所有字段来帮助forwarding的决策</li>
-<li>基于Match+action（flow table）的匹配规则</li>
-<li>中心化的控制方式</li>
-</ul>
-<p>得益于Match+Action的结构，Router实现的功能更丰富了，例如防火墙和NAT都可以在Router内通过规则的设定实现。</p>
-<h2 id="OpenFlow的例子（包括match-action）"><a href="#OpenFlow的例子（包括match-action）" class="headerlink" title="OpenFlow的例子（包括match+action）"></a>OpenFlow的例子（包括match+action）</h2><p>这是一种具体的SDN协议，具体有以下几个逻辑</p>
-<ul>
-<li>Pattern：match到符合这个pattern规定的packet</li>
-<li>Actions：各类型的操作，比如丢弃，forward，修改都可以</li>
-<li>Priority：避免同样pattern引发的混淆</li>
-<li>Counters：记录处理的Bytes</li>
-</ul>
-<p>Flow Table里记录了三个主要部分</p>
-<ol>
-<li>Rule 匹配规则</li>
-<li>Action 进行的处理</li>
-<li>Stats 统计Packet+byte counters</li>
-</ol>
 ]]></content>
       <categories>
         <category>计算机基础</category>
@@ -322,82 +240,164 @@
       </categories>
   </entry>
   <entry>
-    <title>互联网协议基本概念</title>
-    <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<p>hexo 部署测试，内容不保证准确</p>
-<h1 id="互联网的概念"><a href="#互联网的概念" class="headerlink" title="互联网的概念"></a>互联网的概念</h1><h2 id="什么是互联网？"><a href="#什么是互联网？" class="headerlink" title="什么是互联网？"></a>什么是互联网？</h2><h3 id="会用到的Terms"><a href="#会用到的Terms" class="headerlink" title="会用到的Terms"></a>会用到的Terms</h3><ul>
-<li>hosts&#x3D;end systems 终端设备，手机，电脑，车</li>
-<li>Communication links，例如光缆，电磁波，卫星</li>
-<li>Packet switches&#x3D;路由器、交换机，转发，分发数据包</li>
-</ul>
-<h3 id="互联网是Network-of-networks"><a href="#互联网是Network-of-networks" class="headerlink" title="互联网是Network of networks"></a>互联网是Network of networks</h3><p>构成互联网传输规则的两个部分：</p>
+    <title>Network Layer</title>
+    <url>/2023/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Network%20Layer/</url>
+    <content><![CDATA[<h1 id="Network-layer的概述"><a href="#Network-layer的概述" class="headerlink" title="Network layer的概述"></a>Network layer的概述</h1><p>Network层的sender端将来自传输层的segment封装为datagrams，并执行从host到host的传输，receiver端再解包成segment给传输层。Network层的两大作用是<strong>Forwarding和Routing</strong><br><strong>Forwarding-转发</strong>： 将packets从router的输入送到正确的输出（如何通过当前Router），通常只需要几纳秒<br><strong>Routing-路由选择</strong>：决定packets要到达目标IP该走哪条route（如何到达目的地，要经过哪些Route），通常为几秒<br>Router作为负责这一层的协调者，会检查每一个通过它的datagram的IP地址</p>
+<h2 id="Data-Plane"><a href="#Data-Plane" class="headerlink" title="Data Plane"></a>Data Plane</h2><p>从功能上来说，是Forwarding 转发。不涉及路线规划，只负责根据datagram的目标IP传输到正确的输出端口中。<br>根据现有的路由表和datagram的IP地址来决定转发到哪个端口</p>
+<span id="more"></span><!-- more -->
+<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>功能上是Routing。控制datagram如何从A到B，但是不关注具体如何在每个节点的具体执行。该部分决定了路由表，路由表是转发功能的实施基础。<br>具体来说，有两种方式</p>
 <ul>
-<li>Protocols：协议定义了数据的发送，接受的过程</li>
-<li>Standards：标准，例如RFC，IETF这类标准<span id="more"></span></li>
+<li>传统的路由算法，在Router内部实现</li>
+<li>SDN，通过远程server中实现的方式来进行</li>
 </ul>
-<h2 id="Network-Edge和Network-core"><a href="#Network-Edge和Network-core" class="headerlink" title="Network Edge和Network core"></a>Network Edge和Network core</h2><p>这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。<br>Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
-<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
-<h2 id="互联网的目的：数据传输"><a href="#互联网的目的：数据传输" class="headerlink" title="互联网的目的：数据传输"></a>互联网的目的：数据传输</h2><h3 id="数据包-packets"><a href="#数据包-packets" class="headerlink" title="数据包 packets"></a>数据包 packets</h3><ul>
-<li>这是数据在网络上传输的最小单元</li>
-<li>8 bits &#x3D; 1 Bytes，位和字节用来描述Packets的大小。</li>
+<h2 id="网络服务模型"><a href="#网络服务模型" class="headerlink" title="网络服务模型"></a>网络服务模型</h2><p>对于host2host的传输通道来说，往往会注重不同的特性。例如单个datagram的时延，flow型datagram的到达顺序，最小带宽等等。</p>
+<h1 id="Router内部是什么"><a href="#Router内部是什么" class="headerlink" title="Router内部是什么"></a>Router内部是什么</h1><h2 id="组成结构及其功能"><a href="#组成结构及其功能" class="headerlink" title="组成结构及其功能"></a>组成结构及其功能</h2><ul>
+<li>路由处理：control plane的软件，负责产出routing table给data plane</li>
+<li>高速switching fabric：硬件，完成input端口到output端口的查找和转发执行</li>
+<li>输入端口：<ul>
+<li>line termination：物理层，接受bit级别的输入</li>
+<li>link layer protocol：数据链路层的协议，主要是接受数据</li>
+<li>lookup forwarding queueing：在这里，路由器使用datagram中的header在路由表中查找具体的输出端口，排队等待路由器找到输出并发送。在这里forwarding会有两种方式<ol>
+<li>基于目标IP的forwarding，只根据目标IP来决定forwarding</li>
+<li>总体的forwarding：基于一组header中的值来决定输出端口</li>
+</ol>
+</li>
 </ul>
-<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p>指代传输的速率，单位就是B&#x2F;s，b&#x2F;s，注意区分</p>
-<h3 id="物理的介质"><a href="#物理的介质" class="headerlink" title="物理的介质"></a>物理的介质</h3><p>网络的传输有众多介质，例如</p>
+</li>
+</ul>
+<h2 id="Forwarding的核心原则：longest-prefix-matching"><a href="#Forwarding的核心原则：longest-prefix-matching" class="headerlink" title="Forwarding的核心原则：longest prefix matching"></a>Forwarding的核心原则：longest prefix matching</h2><p>最长前缀匹配原则：在路由表中根据IP查找输出端口号时，由路由表中已有的前缀匹配长度最长的那条决定。<br>一般在TCAM上使用，TCAM是一种超高速内存，可以在一个时钟内完成地址查找</p>
+<h2 id="Switching-fabrics-交换电路"><a href="#Switching-fabrics-交换电路" class="headerlink" title="Switching fabrics 交换电路"></a>Switching fabrics 交换电路</h2><p>从input buffer中，将packet发送到正确的output buffer中。是路由器中的核心组成部分，直接实现了路由器中的转发的动作<br>从类别来分：</p>
 <ul>
-<li>以太网线缆</li>
-<li>光纤</li>
-<li>WIFI</li>
-<li>移动通信技术</li>
-<li>卫星通信</li>
+<li>基于内存：packet被复制到router的内存中进行操作，完全由CPU进行的switching。速度取决于内存的读写带宽</li>
+<li>总线设计：从input到output只有一条共享的总线作为通道，所以速度取决于总线的带宽</li>
+<li>纵横式：避免了总线设计的带宽问题，每个input都直接连接output</li>
 </ul>
-<h2 id="Network-core"><a href="#Network-core" class="headerlink" title="Network core"></a>Network core</h2><p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）</p>
-<h3 id="Router间传输的过程"><a href="#Router间传输的过程" class="headerlink" title="Router间传输的过程"></a>Router间传输的过程</h3><ol>
-<li>在transportation层被分成packets，发送给第一个Router</li>
-<li>第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送</li>
-<li>重复2，直到到达目的地</li>
+<h3 id="输入延迟"><a href="#输入延迟" class="headerlink" title="输入延迟"></a>输入延迟</h3><p>input buffer和output buffer同时只能发送&#x2F;接受一个packet，所以会导致类似死锁的情况</p>
+<ul>
+<li>Head of the Line（HOL）阻挡延迟：假设两条输入 A和B，两条输出 C和D。现在A和B各有一个包想发送到C。由于C同时只能接受一个input，所以此时B就被卡住，需要等待A传完才可以传自己的。但其实B后面还有一个包是传给D的，其实就发现B本可以先传给D，而不需要等着目前被卡住的C的通道。</li>
+</ul>
+<h3 id="输出延迟"><a href="#输出延迟" class="headerlink" title="输出延迟"></a>输出延迟</h3><p>输出的网络传输速度比switching电路慢，所以也会排队，因此需要在buffer中等待。<br>输出可能会优先传输那些网络条件较好的packet<br>选择下一个传输的包的三种方法：</p>
+<ol>
+<li>FIFO队列</li>
+<li>优先队列，根据重要程度来排序</li>
+<li>Round robin，根据从哪个input来的来轮，可以调整权重来修改传输的优先级</li>
 </ol>
-<h3 id="Network-core的两大主要功能"><a href="#Network-core的两大主要功能" class="headerlink" title="Network core的两大主要功能"></a>Network core的两大主要功能</h3><ul>
-<li>Routing：根据目的地决定packets的传输路线</li>
-<li>Forwarding：将packets从input发送到正确的output router去</li>
+<h1 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h1><p>网络层除了IP协议，还有Routing的协议（用于路径规划，RIP，OSPF，BGP），ICMP协议（报错，trace route）</p>
+<h2 id="datagram-format-数据包的格式"><a href="#datagram-format-数据包的格式" class="headerlink" title="datagram format-数据包的格式"></a>datagram format-数据包的格式</h2><p>header的结构如下：</p>
+<ul>
+<li>IP协议的版本</li>
+<li>header的长度</li>
+<li>数据的类型，描述了优先级</li>
+<li>datagram长度</li>
+<li>用于分包重组的字段<ul>
+<li>16 位identifier</li>
+<li>flags</li>
+<li>fragment offset</li>
 </ul>
-<h3 id="网络核心的生态"><a href="#网络核心的生态" class="headerlink" title="网络核心的生态"></a>网络核心的生态</h3><ul>
-<li>Tier 1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
-<li>Regional ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
-<li>access ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
-<li>content provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
-<li>content distribution networks（CDN），将互联网的内容向用户端推进</li>
+</li>
+<li>time to live：定义最大hop数</li>
+<li>上层的协议</li>
+<li>header的checksum</li>
+<li>32位 source IP</li>
+<li>32位 desti IP</li>
+<li>可选的其他内容</li>
 </ul>
-<h2 id="延迟、丢包和传输瓶颈"><a href="#延迟、丢包和传输瓶颈" class="headerlink" title="延迟、丢包和传输瓶颈"></a>延迟、丢包和传输瓶颈</h2><h3 id="丢包"><a href="#丢包" class="headerlink" title="丢包"></a>丢包</h3><p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失</p>
-<h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h3><ol>
-<li>对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）</li>
-<li>排队等待Router进行发送（由路由器的拥挤程度决定）</li>
-<li>发送带宽（L&#x2F;R，将Buffer中的数据发送到链路中）</li>
-<li>光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d&#x2F;s）</li>
+<h2 id="fragmentation"><a href="#fragmentation" class="headerlink" title="fragmentation"></a>fragmentation</h2><p>MTU：可以接受的最大的单包大小<br>IP的datagram会在网内被分为几个fragment，大datagram被分为几个小的datagram方便传输。在dest被合成为原始大小</p>
+<h2 id="IPv4地址"><a href="#IPv4地址" class="headerlink" title="IPv4地址"></a>IPv4地址</h2><h3 id="IPv4的三种表示方式："><a href="#IPv4的三种表示方式：" class="headerlink" title="IPv4的三种表示方式："></a>IPv4的三种表示方式：</h3><ul>
+<li>二进制<br>  00000000 00000000 00000000 00000000</li>
+<li>小数点+十进制（最常见的）<br>  192.169.0.1</li>
+<li>16进制（每位表示4bits）<br>  4a 3b 11 00</li>
+</ul>
+<h3 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h3><ul>
+<li>Interface：host&#x2F;router和物理link间的连接，例如Switch和Wi-Fi基站。指代的是形成一个子网的，一个网段的IP地址。</li>
+</ul>
+<h2 id="子网"><a href="#子网" class="headerlink" title="子网"></a>子网</h2><p>相互独立的网络叫做子网，子网内部的设备可以相互直接连接，<br>IP地址的一部分用来表示该IP的从属关系。从子网划分的角度来看，IP地址有两个部分：</p>
+<ol>
+<li>前半部分（subnet part）是用于表示当前IP所属的网络的编号，同一子网内具有相同的网络段</li>
+<li>后半部分（host part）用于表示IP在子网内部的编号。</li>
 </ol>
-<h3 id="传输速率"><a href="#传输速率" class="headerlink" title="传输速率"></a>传输速率</h3><p>取决于传输过程中速率最低的那个环节</p>
-<h1 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h1><p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的</p>
-<h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><ul>
-<li>Application</li>
-<li>Presentation</li>
-<li>Session</li>
-<li>Transport</li>
-<li>Network</li>
-<li>Data link</li>
-<li>Physical</li>
+<h3 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h3><p>这些网段不会作为实际的IP，互联网IP的保留字。因为它们被用在了不能被外部网络访问的内网中</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Netids</th>
+<th>Blocks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>10.0.0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>172.16-172.31</td>
+<td>16</td>
+</tr>
+<tr>
+<td>C</td>
+<td>192.168.0-192.168.255</td>
+<td>256</td>
+</tr>
+</tbody></table>
+<h3 id="子网掩码（地址分配策略Classless-Inlerdomain-Routing—CIDR）"><a href="#子网掩码（地址分配策略Classless-Inlerdomain-Routing—CIDR）" class="headerlink" title="子网掩码（地址分配策略Classless Inlerdomain Routing—CIDR）"></a>子网掩码（地址分配策略Classless Inlerdomain Routing—CIDR）</h3><p>&#x2F;24 就是子网掩码的一种写法，意思是有24个bit的IP地址用来作为subnet id，剩下了（32-24）bits作为host id<br>额外：Fly By Night ISP，ISP会宣称并接收所有对应其subnet id段的信息，即使它有一些subnets做为附属，这些信息在它内部按照相同的逻辑被转发给对应的subnet。这个使用一个subnet id（ISP的）来对应多个subnets（附属的）过程，就叫做路由聚合。</p>
+<h3 id="VLSM（变长的子网掩码）"><a href="#VLSM（变长的子网掩码）" class="headerlink" title="VLSM（变长的子网掩码）"></a>VLSM（变长的子网掩码）</h3><p>一个大网段，例如192.168.1.0&#x2F;24对应三个子网，这三个子网分别具有20、20、50个hosts，三个路由器相互连接。所以他们应该具备不同的subnet mask的层级<br>先从大的开始：</p>
+<ul>
+<li>50 host：至少有6个bits要作为host id  &#x3D;&gt; 192.168.1.0&#x2F;26</li>
+<li>20 host：至少有5个bits的host id &#x3D;&gt; 192.168.1.64&#x2F;27</li>
+<li>20 host：至少有5个bits的host id &#x3D;&gt; 192.168.1.96&#x2F;27</li>
+<li>3 host（给interface的，也就是链接子网的路由器的线路）：192.168.1.128&#x2F;30</li>
 </ul>
-<h2 id="TCP-IP5层模型及其对应的协议"><a href="#TCP-IP5层模型及其对应的协议" class="headerlink" title="TCP&#x2F;IP5层模型及其对应的协议"></a>TCP&#x2F;IP5层模型及其对应的协议</h2><ul>
-<li>Application：HTTP，SMTP</li>
-<li>Transport</li>
-<li>Network</li>
-<li>Data link</li>
-<li>Physical</li>
+<h3 id="DHCP-动态主机配置协议"><a href="#DHCP-动态主机配置协议" class="headerlink" title="DHCP 动态主机配置协议"></a>DHCP 动态主机配置协议</h3><p>刚刚解决了每个subnet是如何一块一块的分配IP地址的，但是这些IP地址仍未被下发到具体的host上。DHCP解决的就是这个问题，给一个刚刚加入这个网络的设备动态的分配一个IP地址。<br>DHCP主要有四个步骤</p>
+<ol>
+<li>host发出寻找DHCP的信息</li>
+<li>DHCP回应一个DHCP offer（带着IP地址，这里也叫Yiaddrr）</li>
+<li>host请求IP地址，发送DHCP request</li>
+<li>DHCP服务器发送 DHCP ack<br>DHCP不仅会返回分配的IP地址，它还</li>
+</ol>
+<ul>
+<li>给host发送first hop的router地址</li>
+<li>DNS 服务器的name 和IP</li>
+<li>子网掩码</li>
 </ul>
-<h2 id="各层对应的地址规格"><a href="#各层对应的地址规格" class="headerlink" title="各层对应的地址规格"></a>各层对应的地址规格</h2><ul>
-<li>link层&#x3D;mac地址</li>
-<li>Logical address layer 3&#x3D;IPV4和IPV6地址</li>
-<li>Port address&#x3D;layer 4 端口号</li>
-<li>Application &#x3D; URL</li>
+<h2 id="Network-address-translation（NAT）"><a href="#Network-address-translation（NAT）" class="headerlink" title="Network address translation（NAT）"></a>Network address translation（NAT）</h2><p>这项技术的诞生背景就是IPv4地址已经要被用光了，这项技术可以将一个公网IP给多个Host用<br>一个公网IP：111.111.1.1，被Router映射到局域网内的多个设备。但是端口号还是一对一的，也就是111.111.1.1的80端口只会对应一个设备，对应关系由Router来管理。<br>NAT的三个部分：</p>
+<ol>
+<li>Router将外送的IP和端口号替换为公网的IP和端口号</li>
+<li>记录NAT的端口对应关系</li>
+<li>对进入内网的datagram的source IP和port进行替换</li>
+</ol>
+<h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><p>和NAT的动机一样，32位的IPv4快用光了。<br>IPv6的地址有40 byte定长的header，并且禁止了fragmentation 分片<br>除此之外，IPv6还有</p>
+<ul>
+<li>去掉了checksum，减少每个hop的处理时间</li>
+<li>options和Next header段合并了</li>
+<li>ICMPv6: 新版本的ICMP，支持了新的message type（Msg too big）和组管理</li>
 </ul>
+<h3 id="IPv6和IPv4的兼容"><a href="#IPv6和IPv4的兼容" class="headerlink" title="IPv6和IPv4的兼容"></a>IPv6和IPv4的兼容</h3><p>由于不是所有Router都支持IPv6的新协议，所以要确保IPv4和IPv6可以在网络内同时存在。<br>解决方案就是：tunneling<br>当知道下一个Hop是IPv4 Router时，IPv6的datagram作为IPv4的payload，确保IPv4 Router也可以处理</p>
+<h1 id="浅述-Forward和SDN"><a href="#浅述-Forward和SDN" class="headerlink" title="浅述 Forward和SDN"></a>浅述 Forward和SDN</h1><p>SDN是什么？<br>是一种Routing的算法，也就是Control plane的控制算法。<br>传统的Routing方法：</p>
+<ul>
+<li>使用forwarding table结合longest-prefix 匹配来进行forwarding</li>
+<li>control plane单机内计算forwarding table</li>
+<li>forwarding table只根据packets的IP来给出forward 方向<br>SDN：</li>
+<li>可编程的Routing算法</li>
+<li>可以用packet header中的所有字段来帮助forwarding的决策</li>
+<li>基于Match+action（flow table）的匹配规则</li>
+<li>中心化的控制方式</li>
+</ul>
+<p>得益于Match+Action的结构，Router实现的功能更丰富了，例如防火墙和NAT都可以在Router内通过规则的设定实现。</p>
+<h2 id="OpenFlow的例子（包括match-action）"><a href="#OpenFlow的例子（包括match-action）" class="headerlink" title="OpenFlow的例子（包括match+action）"></a>OpenFlow的例子（包括match+action）</h2><p>这是一种具体的SDN协议，具体有以下几个逻辑</p>
+<ul>
+<li>Pattern：match到符合这个pattern规定的packet</li>
+<li>Actions：各类型的操作，比如丢弃，forward，修改都可以</li>
+<li>Priority：避免同样pattern引发的混淆</li>
+<li>Counters：记录处理的Bytes</li>
+</ul>
+<p>Flow Table里记录了三个主要部分</p>
+<ol>
+<li>Rule 匹配规则</li>
+<li>Action 进行的处理</li>
+<li>Stats 统计Packet+byte counters</li>
+</ol>
 ]]></content>
       <categories>
         <category>计算机基础</category>
