@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>互联网协议基本概念</title>
+    <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<p>hexo 部署测试，内容不保证准确</p>
+<h1 id="互联网的概念"><a href="#互联网的概念" class="headerlink" title="互联网的概念"></a>互联网的概念</h1><h2 id="什么是互联网？"><a href="#什么是互联网？" class="headerlink" title="什么是互联网？"></a>什么是互联网？</h2><h3 id="会用到的Terms"><a href="#会用到的Terms" class="headerlink" title="会用到的Terms"></a>会用到的Terms</h3><ul>
+<li>hosts&#x3D;end systems 终端设备，手机，电脑，车</li>
+<li>Communication links，例如光缆，电磁波，卫星</li>
+<li>Packet switches&#x3D;路由器、交换机，转发，分发数据包</li>
+</ul>
+<h3 id="互联网是Network-of-networks"><a href="#互联网是Network-of-networks" class="headerlink" title="互联网是Network of networks"></a>互联网是Network of networks</h3><p>构成互联网传输规则的两个部分：</p>
+<ul>
+<li>Protocols：协议定义了数据的发送，接受的过程</li>
+<li>Standards：标准，例如RFC，IETF这类标准<span id="more"></span></li>
+</ul>
+<h2 id="Network-Edge和Network-core"><a href="#Network-Edge和Network-core" class="headerlink" title="Network Edge和Network core"></a>Network Edge和Network core</h2><p>这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。<br>Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
+<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
+<h2 id="互联网的目的：数据传输"><a href="#互联网的目的：数据传输" class="headerlink" title="互联网的目的：数据传输"></a>互联网的目的：数据传输</h2><h3 id="数据包-packets"><a href="#数据包-packets" class="headerlink" title="数据包 packets"></a>数据包 packets</h3><ul>
+<li>这是数据在网络上传输的最小单元</li>
+<li>8 bits &#x3D; 1 Bytes，位和字节用来描述Packets的大小。</li>
+</ul>
+<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p>指代传输的速率，单位就是B&#x2F;s，b&#x2F;s，注意区分</p>
+<h3 id="物理的介质"><a href="#物理的介质" class="headerlink" title="物理的介质"></a>物理的介质</h3><p>网络的传输有众多介质，例如</p>
+<ul>
+<li>以太网线缆</li>
+<li>光纤</li>
+<li>WIFI</li>
+<li>移动通信技术</li>
+<li>卫星通信</li>
+</ul>
+<h2 id="Network-core"><a href="#Network-core" class="headerlink" title="Network core"></a>Network core</h2><p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）</p>
+<h3 id="Router间传输的过程"><a href="#Router间传输的过程" class="headerlink" title="Router间传输的过程"></a>Router间传输的过程</h3><ol>
+<li>在transportation层被分成packets，发送给第一个Router</li>
+<li>第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送</li>
+<li>重复2，直到到达目的地</li>
+</ol>
+<h3 id="Network-core的两大主要功能"><a href="#Network-core的两大主要功能" class="headerlink" title="Network core的两大主要功能"></a>Network core的两大主要功能</h3><ul>
+<li>Routing：根据目的地决定packets的传输路线</li>
+<li>Forwarding：将packets从input发送到正确的output router去</li>
+</ul>
+<h3 id="网络核心的生态"><a href="#网络核心的生态" class="headerlink" title="网络核心的生态"></a>网络核心的生态</h3><ul>
+<li>Tier 1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
+<li>Regional ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
+<li>access ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
+<li>content provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
+<li>content distribution networks（CDN），将互联网的内容向用户端推进</li>
+</ul>
+<h2 id="延迟、丢包和传输瓶颈"><a href="#延迟、丢包和传输瓶颈" class="headerlink" title="延迟、丢包和传输瓶颈"></a>延迟、丢包和传输瓶颈</h2><h3 id="丢包"><a href="#丢包" class="headerlink" title="丢包"></a>丢包</h3><p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失</p>
+<h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h3><ol>
+<li>对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）</li>
+<li>排队等待Router进行发送（由路由器的拥挤程度决定）</li>
+<li>发送带宽（L&#x2F;R，将Buffer中的数据发送到链路中）</li>
+<li>光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d&#x2F;s）</li>
+</ol>
+<h3 id="传输速率"><a href="#传输速率" class="headerlink" title="传输速率"></a>传输速率</h3><p>取决于传输过程中速率最低的那个环节</p>
+<h1 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h1><p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的</p>
+<h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><ul>
+<li>Application</li>
+<li>Presentation</li>
+<li>Session</li>
+<li>Transport</li>
+<li>Network</li>
+<li>Data link</li>
+<li>Physical</li>
+</ul>
+<h2 id="TCP-IP5层模型及其对应的协议"><a href="#TCP-IP5层模型及其对应的协议" class="headerlink" title="TCP&#x2F;IP5层模型及其对应的协议"></a>TCP&#x2F;IP5层模型及其对应的协议</h2><ul>
+<li>Application：HTTP，SMTP</li>
+<li>Transport</li>
+<li>Network</li>
+<li>Data link</li>
+<li>Physical</li>
+</ul>
+<h2 id="各层对应的地址规格"><a href="#各层对应的地址规格" class="headerlink" title="各层对应的地址规格"></a>各层对应的地址规格</h2><ul>
+<li>link层&#x3D;mac地址</li>
+<li>Logical address layer 3&#x3D;IPV4和IPV6地址</li>
+<li>Port address&#x3D;layer 4 端口号</li>
+<li>Application &#x3D; URL</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Transport Layer</title>
     <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Transport%20Layer/</url>
     <content><![CDATA[<p>hexo 部署测试，内容不保证准确<br>给终端上的<strong>APP进程</strong>提供logical communication。<br>发送端负责将APP的数据分成segments，向下传递到network层。接收端则是将受到的sements重新组合为原始信息，向上递给app层</p>
@@ -104,7 +187,7 @@
 <li>MSS：指代从APP层传下来的Data payload的大小</li>
 <li>MTU：指代包括IP header, TCP header的包大小</li>
 </ul>
-<h2 id="Flow-Control流控制"><a href="#Flow-Control流控制" class="headerlink" title="Flow Control流控制"></a>Flow Control流控制</h2><p>receiver调节sender端的机制，这样避免了sender一下挤爆receiver的情况</p>
+<h2 id="Flow-Control流控制"><a href="#Flow-Control流控制" class="headerlink" title="Flow Control流控制"></a>Flow Control流控制</h2><p>receiver调节sender端的机制，这样<strong>避免了sender挤爆receiver</strong>的情况</p>
 <ul>
 <li>receiver通过回传一个rwnd的大小，来反馈给sender端，告诉自己的目前空闲的buffer space</li>
 <li>sender就会根据rwnd的大小来控制自己未被ACK的包的窗口大小</li>
@@ -123,21 +206,22 @@
 <li>当发送端产生数据很慢的时候（类似上个问题的情景）</li>
 <li>Receiver处理数据太慢的时候，所以空闲的buffer size总是太小<br>解决方式就是receiver别发送会让sender发小数据的rwnd</li>
 </ul>
-<h2 id="Congestion-control"><a href="#Congestion-control" class="headerlink" title="Congestion control"></a>Congestion control</h2><p>和Flow Control不同，Congestion Control是为了避免网络的负担太重而产生传输问题<br>通过一个cwnd窗口来限制传输的速率<br>具体方法：</p>
-<ul>
-<li>cwnd来限制传输的速率</li>
-<li>additive increase（慢增）每个RTT都增加1个MSS的size到cwnd，直到丢包发生</li>
-<li>multiplicative decrease（快减）直接把cwnd砍半</li>
-</ul>
+<h2 id="Congestion-control"><a href="#Congestion-control" class="headerlink" title="Congestion control"></a>Congestion control</h2><p>和Flow Control不同，Congestion Control是为了<strong>避免网络的负担</strong>太重而产生传输问题<br>通过一个cwnd窗口来限制传输的速率</p>
 <h3 id="不同丢包原因有不同的处理方式"><a href="#不同丢包原因有不同的处理方式" class="headerlink" title="不同丢包原因有不同的处理方式"></a>不同丢包原因有不同的处理方式</h3><ul>
-<li>超时导致的loss：cwnd直接设置为1MSS，重新开始slow start</li>
-<li>快速重传，发现3个相同的ACK：（TCP RENO）cwnd砍半后线性增长</li>
-<li>如果是TCP Tahoe，总是使用重设1mSS+Slow start</li>
+<li><strong>超时</strong>导致的loss：cwnd直接设置为1MSS，重新开始slow start</li>
+<li>快速重传，发现<strong>3个相同的ACK</strong>：（TCP RENO）cwnd砍半后线性增长</li>
+<li>如果是TCP Tahoe，上面两种情境的处理方式都一样，总是使用重设1mSS+Slow start</li>
 </ul>
 <h3 id="Slow-Start机制"><a href="#Slow-Start机制" class="headerlink" title="Slow Start机制"></a>Slow Start机制</h3><p>当连接刚刚开始的时候，增长不是additive increase，而是指数级的，直到丢包发生。之后切换slowstart到congestion avoidance模式。什么时候切换？</p>
 <ul>
 <li>当传输大小达到ssthresh时。如果发生丢包，ssthresh被重设为之前cwnd的一半</li>
 </ul>
+<h3 id="TCP的congestion-control：慢增快减"><a href="#TCP的congestion-control：慢增快减" class="headerlink" title="TCP的congestion control：慢增快减"></a>TCP的congestion control：慢增快减</h3><p>具体的cwnd设置逻辑如下：</p>
+<ol>
+<li>设置cwnd的初始大小</li>
+<li>慢增：每个RTT增加1MSS的大小到cwnd，直到丢包发生</li>
+<li>快减：如果发生丢包，cwnd变为原来的一半</li>
+</ol>
 <h1 id="TCP连接的建立和结束"><a href="#TCP连接的建立和结束" class="headerlink" title="TCP连接的建立和结束"></a>TCP连接的建立和结束</h1><h2 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h2><ol>
 <li>Client: SYN</li>
 <li>Server SYN+ACK</li>
@@ -149,89 +233,6 @@
 <li>Server: ACK</li>
 <li>Client: FIN<br>服务器要把关于client的连接处理完毕后再结束，所以1+2和3+4之间有一定的server处理的延迟</li>
 </ol>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>互联网协议</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>互联网协议基本概念</title>
-    <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<p>hexo 部署测试，内容不保证准确</p>
-<h1 id="互联网的概念"><a href="#互联网的概念" class="headerlink" title="互联网的概念"></a>互联网的概念</h1><h2 id="什么是互联网？"><a href="#什么是互联网？" class="headerlink" title="什么是互联网？"></a>什么是互联网？</h2><h3 id="会用到的Terms"><a href="#会用到的Terms" class="headerlink" title="会用到的Terms"></a>会用到的Terms</h3><ul>
-<li>hosts&#x3D;end systems 终端设备，手机，电脑，车</li>
-<li>Communication links，例如光缆，电磁波，卫星</li>
-<li>Packet switches&#x3D;路由器、交换机，转发，分发数据包</li>
-</ul>
-<h3 id="互联网是Network-of-networks"><a href="#互联网是Network-of-networks" class="headerlink" title="互联网是Network of networks"></a>互联网是Network of networks</h3><p>构成互联网传输规则的两个部分：</p>
-<ul>
-<li>Protocols：协议定义了数据的发送，接受的过程</li>
-<li>Standards：标准，例如RFC，IETF这类标准<span id="more"></span></li>
-</ul>
-<h2 id="Network-Edge和Network-core"><a href="#Network-Edge和Network-core" class="headerlink" title="Network Edge和Network core"></a>Network Edge和Network core</h2><p>这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。<br>Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
-<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
-<h2 id="互联网的目的：数据传输"><a href="#互联网的目的：数据传输" class="headerlink" title="互联网的目的：数据传输"></a>互联网的目的：数据传输</h2><h3 id="数据包-packets"><a href="#数据包-packets" class="headerlink" title="数据包 packets"></a>数据包 packets</h3><ul>
-<li>这是数据在网络上传输的最小单元</li>
-<li>8 bits &#x3D; 1 Bytes，位和字节用来描述Packets的大小。</li>
-</ul>
-<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p>指代传输的速率，单位就是B&#x2F;s，b&#x2F;s，注意区分</p>
-<h3 id="物理的介质"><a href="#物理的介质" class="headerlink" title="物理的介质"></a>物理的介质</h3><p>网络的传输有众多介质，例如</p>
-<ul>
-<li>以太网线缆</li>
-<li>光纤</li>
-<li>WIFI</li>
-<li>移动通信技术</li>
-<li>卫星通信</li>
-</ul>
-<h2 id="Network-core"><a href="#Network-core" class="headerlink" title="Network core"></a>Network core</h2><p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）</p>
-<h3 id="Router间传输的过程"><a href="#Router间传输的过程" class="headerlink" title="Router间传输的过程"></a>Router间传输的过程</h3><ol>
-<li>在transportation层被分成packets，发送给第一个Router</li>
-<li>第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送</li>
-<li>重复2，直到到达目的地</li>
-</ol>
-<h3 id="Network-core的两大主要功能"><a href="#Network-core的两大主要功能" class="headerlink" title="Network core的两大主要功能"></a>Network core的两大主要功能</h3><ul>
-<li>Routing：根据目的地决定packets的传输路线</li>
-<li>Forwarding：将packets从input发送到正确的output router去</li>
-</ul>
-<h3 id="网络核心的生态"><a href="#网络核心的生态" class="headerlink" title="网络核心的生态"></a>网络核心的生态</h3><ul>
-<li>Tier 1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
-<li>Regional ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
-<li>access ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
-<li>content provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
-<li>content distribution networks（CDN），将互联网的内容向用户端推进</li>
-</ul>
-<h2 id="延迟、丢包和传输瓶颈"><a href="#延迟、丢包和传输瓶颈" class="headerlink" title="延迟、丢包和传输瓶颈"></a>延迟、丢包和传输瓶颈</h2><h3 id="丢包"><a href="#丢包" class="headerlink" title="丢包"></a>丢包</h3><p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失</p>
-<h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h3><ol>
-<li>对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）</li>
-<li>排队等待Router进行发送（由路由器的拥挤程度决定）</li>
-<li>发送带宽（L&#x2F;R，将Buffer中的数据发送到链路中）</li>
-<li>光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d&#x2F;s）</li>
-</ol>
-<h3 id="传输速率"><a href="#传输速率" class="headerlink" title="传输速率"></a>传输速率</h3><p>取决于传输过程中速率最低的那个环节</p>
-<h1 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h1><p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的</p>
-<h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><ul>
-<li>Application</li>
-<li>Presentation</li>
-<li>Session</li>
-<li>Transport</li>
-<li>Network</li>
-<li>Data link</li>
-<li>Physical</li>
-</ul>
-<h2 id="TCP-IP5层模型及其对应的协议"><a href="#TCP-IP5层模型及其对应的协议" class="headerlink" title="TCP&#x2F;IP5层模型及其对应的协议"></a>TCP&#x2F;IP5层模型及其对应的协议</h2><ul>
-<li>Application：HTTP，SMTP</li>
-<li>Transport</li>
-<li>Network</li>
-<li>Data link</li>
-<li>Physical</li>
-</ul>
-<h2 id="各层对应的地址规格"><a href="#各层对应的地址规格" class="headerlink" title="各层对应的地址规格"></a>各层对应的地址规格</h2><ul>
-<li>link层&#x3D;mac地址</li>
-<li>Logical address layer 3&#x3D;IPV4和IPV6地址</li>
-<li>Port address&#x3D;layer 4 端口号</li>
-<li>Application &#x3D; URL</li>
-</ul>
 ]]></content>
       <categories>
         <category>计算机基础</category>
