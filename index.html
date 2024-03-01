@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy%E7%9A%84%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -312,7 +312,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy%E7%9A%84%E7%90%86%E8%A7%A3/" itemprop="url">Cross Entropy的理解</a></h1>
         
 
         <div class="post-meta">
@@ -324,7 +324,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-01T15:01:35+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-01T16:03:00+08:00">
                 2024-03-01
               </time>
             
@@ -334,6 +334,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -363,24 +396,16 @@
 
       
         
-          
-            <p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
+          <p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
 <h1 id="交叉熵的计算"><a href="#交叉熵的计算" class="headerlink" title="交叉熵的计算"></a>交叉熵的计算</h1><p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
 <p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马<br>输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。</p>
-<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：</p>
-<ul>
-<li>A概率：[0.4,0.2,0.2,0.2]</li>
-<li>B概率：[0.7,0.1,0.1,0.1]</li>
-</ul>
-<p>那么分别计算这两组交叉熵，可以得到：</p>
-<ul>
-<li>A组Cross-entropy：-(1*log(0.4)+0*log(0.2)+0*log(0.2)+0*log(0.2))</li>
-<li>B组Cross-entropy：-(1*log(0.7)+0*log(0.1)+0*log(0.1)+0*log(0.1))</li>
-</ul>
-<p>用文字描述这个计算过程，就是用真实的概率 乘以 预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
-<h1 id="如何理解交叉熵"><a href="#如何理解交叉熵" class="headerlink" title="如何理解交叉熵"></a>如何理解交叉熵</h1><p>所以交叉熵可以翻译为：<strong>实际情况下，这一预测所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度<br>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。<br>从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy%E7%9A%84%E7%90%86%E8%A7%A3/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -468,6 +493,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1556,7 +1603,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
