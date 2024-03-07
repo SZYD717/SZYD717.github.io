@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="设计模式之所以存在，是对代码结构设计中重复出现的解决方案及其思想进行了结构化的总结。设计模式的三要素  问题：在什么情况下使用当前的设计模式 解决方案：使用了哪些逻辑，组件来解决当前的问题 效果：如何解决了问题，以及该解决方案带来的副作用  &#x3D;&#x3D;⚠️请务必注意⚠️&#x3D;&#x3D;不要过度设计，为了应用某一种设计模式而应用。而是尽量准确的分析问题，找到最需要的特性。找到最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式的基础原则">
+<meta property="og:url" content="http://example.com/2023/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E5%88%99/index.html">
+<meta property="og:site_name" content="Rickye&#39;s Blog">
+<meta property="og:description" content="设计模式之所以存在，是对代码结构设计中重复出现的解决方案及其思想进行了结构化的总结。设计模式的三要素  问题：在什么情况下使用当前的设计模式 解决方案：使用了哪些逻辑，组件来解决当前的问题 效果：如何解决了问题，以及该解决方案带来的副作用  &#x3D;&#x3D;⚠️请务必注意⚠️&#x3D;&#x3D;不要过度设计，为了应用某一种设计模式而应用。而是尽量准确的分析问题，找到最需要的特性。找到最">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-17T08:10:00.000Z">
+<meta property="article:modified_time" content="2023-10-17T08:54:45.895Z">
+<meta property="article:author" content="Rickye">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2023/10/17/计算机基础/设计模式/设计模式的基础原则/"/>
+
+
+
+
+
+  <title>设计模式的基础原则 | Rickye's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rickye's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rickye's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">设计模式的基础原则</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-17T16:10:00+08:00">
+                2023-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。<br><strong>设计模式的三要素</strong></p>
+<ul>
+<li>问题：在<strong>什么情况下</strong>使用当前的设计模式</li>
+<li>解决方案：使用了<strong>哪些逻辑，组件</strong>来解决当前的问题</li>
+<li>效果：如何解决了问题，以及该解决方案带来的<strong>副作用</strong></li>
+</ul>
+<p>&#x3D;&#x3D;<strong>⚠️请务必注意⚠️</strong>&#x3D;&#x3D;不要过度设计，为了应用某一种设计模式而应用。而是尽量准确的分析问题，找到最需要的特性。<strong>找到最切合的设计模式，而不是最复杂的</strong></p>
+<p>以下这些原则对理解和记忆既有设计模式，并根据情况灵活改进是很重要的</p>
+<span id="more"></span>
+<h1 id="OCP-开闭原则"><a href="#OCP-开闭原则" class="headerlink" title="OCP 开闭原则"></a>OCP 开闭原则</h1><p>Open Closed Principle, OCP<br>对扩展开放，对修改关闭</p>
+<p>解释：设计一个软件的时候，模块和函数的设计应该对扩展开放而对修改关闭。在尽量不修改原有代码的情况下进行扩展。</p>
+<p>意义：对以后的升级、维护、变化有更好的支持，避免修改导致的混乱。</p>
+<h1 id="SRP-单一职责原则"><a href="#SRP-单一职责原则" class="headerlink" title="SRP 单一职责原则"></a>SRP 单一职责原则</h1><p>Single Responsibility Principle, SRP<br>一个类只负责一个功能领域中的相应职责</p>
+<p>解释：一个类&#x2F;模块有且仅有一个让其改变的原因。承担太多职责会导致完成其他职责的能力被削弱，对于变化引起的问题很脆弱。</p>
+<p>意义：解耦，增强内聚。对改变更加友好。</p>
+<p>Tips-实际情况下该原则执行时遇到的问题:<br>很难衡量一个类的职责，很难确定职责的粒度。<br>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：在分布式系统的微服务拆分中，团队间会为了哪个功能从属于哪个服务而有争论。这也是比较依赖架构或者业务经验的地方。</p>
+<h1 id="LSP-里氏代换原则（设计父类和子类的关系）"><a href="#LSP-里氏代换原则（设计父类和子类的关系）" class="headerlink" title="LSP 里氏代换原则（设计父类和子类的关系）"></a>LSP 里氏代换原则（设计父类和子类的关系）</h1><p>Liskov Substitution Principle，LSP<br>所有引用基类的地方必须能透明地使用其子类的对象</p>
+<p>解释：所有引用到父类的地方，必须能够透明的使用其子类的对象。也<strong>就是父类出现的地方，子类也一定可以出现</strong></p>
+<p>意义：子类可以直接替换父类，而不需要在其他地方做出额外的修改。父类可以被有效的复用，子类可以在父类的基础上增加新的特性和行为。LSP原则本质上是对抽象化实现（接口&#x2F;抽象类-&gt;实现类）的具体步骤的规范。</p>
+<p>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：父类的set方法接收字符串，子类的set方法继承自父类，但是进行了Override。实现了一个额外的合法性校验，如果失败则返回一个错误字符串的信息。<br>这是不符合里氏替换原则的。因为父类被替换为子类，子类实现了额外的功能。此时，当输入为非法字符串时，返回了错误信息，而不是继续执行。发生了逻辑上的改变。</p>
+<p><strong>等等，这和继承、多态有什么分别？</strong> 继承和多态已经可以让父类被直接替换为子类了，但是这并不能保证替换后程序逻辑像原本设计的那样进行。</p>
+<p>来看看里氏替换的更细致的规则：里氏替换原则要求子类要遵守父类在某些行为上的约定，例如对于输入输出、异常情况的约定等等。更具体来说有：</p>
+<ol>
+<li>子类的方法不能违反父类方法对于输入输出<strong>异常的约定</strong></li>
+<li>子类方法不能违反父类方法<strong>定义的功能</strong></li>
+<li>子类必须<strong>完全实现父类的抽象方法</strong>（不能在子类里无效的实现父类方法）</li>
+</ol>
+<h1 id="DIP-依赖倒转原则"><a href="#DIP-依赖倒转原则" class="headerlink" title="DIP 依赖倒转原则"></a>DIP 依赖倒转原则</h1><p>Dependency Inversion Principle，DIP<br>依赖于抽象，不能依赖于具体实现</p>
+<p>解释：程序依赖于抽象接口而不是依赖于具体的实现，面向接口编程</p>
+<p>意义：传递参数和关联关系中，尽量用高层次的抽象，用接口和抽象类进行声明，返回类型声明等，而不是具体的类。要List 而不是ArrayList或者LinkedList。从实践的角度来说，实现类应该<strong>只实现接口中有的方法</strong>，而不直接的添加额外的方法。</p>
+<p>Tips：</p>
+<ul>
+<li>高层模块和低层模块都应该依赖于抽象</li>
+<li>抽象不应该依赖于具体，具体应该依赖于抽象<br>针对抽象层编程，而将实现类的对象通过DI的方式注入到其他对象中。注入的方式有：</li>
+<li>构造注入</li>
+<li>Setter注入</li>
+<li>接口注入</li>
+</ul>
+<p>比如List对象，通过setter方法既可以指向ArrayList也可以指向LinkedList。而使用共有的方法不会出错</p>
+<h1 id="ISP-接口隔离原则"><a href="#ISP-接口隔离原则" class="headerlink" title="ISP 接口隔离原则"></a>ISP 接口隔离原则</h1><p>Interface Segregation Principle，ISP<br>类之间的依赖关系应该建立在最小的接口上</p>
+<p>解释：类之间的依赖关系应该通过尽量小的接口。接口要尽可能细化，接口中的方法要尽量少。<br>接口隔离原则是单一职责原则的更严格的要求。单一职责强调的是业务逻辑上的，接口隔离强调更细致的分割</p>
+<p>意义：提供更好的维护性和低耦合</p>
+<h1 id="CARP-合成-聚合复用原则"><a href="#CARP-合成-聚合复用原则" class="headerlink" title="CARP 合成&#x2F;聚合复用原则"></a>CARP 合成&#x2F;聚合复用原则</h1><p>Composite&#x2F;Aggregate Reuse Principle，CARP<br>尽量使用合成&#x2F;聚合，而不是通过继承达到复用的目的</p>
+<p>解释：在新的对象里使用一些已有的对象，使其成为新对象的一部分。通过对这些对象委派达到复用已有功能对目的，而不是通过继承实现</p>
+<p>聚合和合成的异同：</p>
+<ul>
+<li>聚合：一种较为松散的整体 部分关系，A持有B对象，不意味着B对象由A对象管理。B的生命周期由自己管理</li>
+<li>合成：一种更严格的整体和部分的关系，A和B具有一样的生命周期</li>
+</ul>
+<p>意义：</p>
+<h1 id="LKP-LOD-最少知识原则-迪米特法则"><a href="#LKP-LOD-最少知识原则-迪米特法则" class="headerlink" title="LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则"></a>LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则</h1><p>Least Knowledge Principle，LKP      Law of Demeter，LOD<br>一个软件实体应当尽可能少的与其他实体发生相互作用</p>
+<p>解释：每一个单位都对其他的单位有最少的知识，而且局限于那些密切相关的单位。</p>
+<p>意义：降低类之间的耦合，从功能上相互独立，通过中间类转达，而不是直接建立联系</p>
+<p>比如老板想知道员工的总人数。老板不需要掌握员工的列表，而应该设立一个中间类（HR）来实现人数清点，而HR有员工名单是非常合理的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Network%20Layer/" rel="next" title="Network Layer">
+                <i class="fa fa-chevron-left"></i> Network Layer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/DNS%E5%92%8CRDNS/" rel="prev" title="DNS和RDNS">
+                DNS和RDNS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OCP-%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">OCP 开闭原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SRP-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">SRP 单一职责原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LSP-%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99%EF%BC%88%E8%AE%BE%E8%AE%A1%E7%88%B6%E7%B1%BB%E5%92%8C%E5%AD%90%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">LSP 里氏代换原则（设计父类和子类的关系）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DIP-%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC%E5%8E%9F%E5%88%99"><span class="nav-number">4.</span> <span class="nav-text">DIP 依赖倒转原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ISP-%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-number">5.</span> <span class="nav-text">ISP 接口隔离原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CARP-%E5%90%88%E6%88%90-%E8%81%9A%E5%90%88%E5%A4%8D%E7%94%A8%E5%8E%9F%E5%88%99"><span class="nav-number">6.</span> <span class="nav-text">CARP 合成&#x2F;聚合复用原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LKP-LOD-%E6%9C%80%E5%B0%91%E7%9F%A5%E8%AF%86%E5%8E%9F%E5%88%99-%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99"><span class="nav-number">7.</span> <span class="nav-text">LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rickye</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
