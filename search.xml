@@ -22,86 +22,6 @@
       </categories>
   </entry>
   <entry>
-    <title>DNS和RDNS</title>
-    <url>/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/DNS%E5%92%8CRDNS/</url>
-    <content><![CDATA[<h1 id="DNS是什么？"><a href="#DNS是什么？" class="headerlink" title="DNS是什么？"></a>DNS是什么？</h1><p>《计算机网络：自顶向下方法》的2.4节的标题是一个很好的描述：<strong>internet的目录服务</strong><br>DNS的全称是Domain Name System 域名系统，它负责完成从域名到IP地址的映射。</p>
-<h2 id="为什么要有域名-IP地址，只留一个不行吗？"><a href="#为什么要有域名-IP地址，只留一个不行吗？" class="headerlink" title="为什么要有域名&#x2F;IP地址，只留一个不行吗？"></a>为什么要有域名&#x2F;IP地址，只留一个不行吗？</h2><ul>
-<li>IP地址是定长的，利于路由器做规则的处理</li>
-<li>域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr&#x2F;.hk&#x2F;.cn往往表示了该网站的所属的国家和地区<br>DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</li>
-</ul>
-<h2 id="DNS的结构-实现方式是什么"><a href="#DNS的结构-实现方式是什么" class="headerlink" title="DNS的结构&#x2F;实现方式是什么"></a>DNS的结构&#x2F;实现方式是什么</h2><p>DNS实现的具体方式：</p>
-<ul>
-<li>一个分层的DNS服务器组成的分布式数据库</li>
-<li>一个用于让主机查询分布式数据库的应用层（Layer 5）的协议</li>
-<li>DNS运行在UDP上，使用53号端口</li>
-<li>DNS一般是运行BIND软件的UNIX系统主机<span id="more"></span></li>
-</ul>
-<h2 id="DNS的流程-1"><a href="#DNS的流程-1" class="headerlink" title="DNS的流程[^1]"></a>DNS的流程[^1]</h2><ol>
-<li>用户主机上<strong>运行着DNS应用的客户端</strong>。  </li>
-<li>浏览器从上述URL中抽取岀主机名<a href="http://www.someschool.edu,并将这台主机名**传给/">www.someschool.edu,并将这台主机名**传给</a><br>DNS应用的客户端**。  </li>
-<li>DNS客户向DNS服务器<strong>发送一个包含主机名的请求</strong>。</li>
-<li>DNS客户最终会收到一份回答报文，其中<strong>含有对应于该主机名的IP地址</strong>。  </li>
-<li>一旦浏览器接收到来自DNS的该IP地址，它能够<strong>向位于该IP地址80端口的 HTTP服务器进程发起一个TCP连接。</strong></li>
-</ol>
-<h2 id="除了域名服务，DNS还能做什么？"><a href="#除了域名服务，DNS还能做什么？" class="headerlink" title="除了域名服务，DNS还能做什么？"></a>除了域名服务，DNS还能做什么？</h2><ul>
-<li>主机别名（Host Aliasing）：一般来说，主机拥有一个<strong>规范主机名（Canonical hostname）</strong>。同时可以有多个主机别名：例如google.com和<a href="http://www.google.com/">www.google.com</a></li>
-<li>邮件服务器别名（Mail Server Aliasing）：和上一条类似，邮箱后缀也可以通过别名来提供更容易记忆的邮箱地址。值得注意的是，MX记录可以实现Web服务器和邮件服务器同名的功能</li>
-<li>负载分配（Load distribution）：有时候一个域名可能对应多个服务器，因此DNS会通过轮询这类机制，来完成简单的负载分配</li>
-</ul>
-<h1 id="DNS的实现细节"><a href="#DNS的实现细节" class="headerlink" title="DNS的实现细节"></a>DNS的实现细节</h1><p>在这里主要讨论两个部分</p>
-<ol>
-<li>是如何通过分布式来实现对DNS服务的要求的</li>
-<li>交互的方式是什么样的，DNS协议的具体内容</li>
-</ol>
-<h2 id="分布式的-层次的数据库"><a href="#分布式的-层次的数据库" class="headerlink" title="分布式的 层次的数据库"></a>分布式的 层次的数据库</h2><p>有大量的DNS服务器遍布在整个互联网上，相互间具备一定的层次结构。没有任何一台服务器具备全部的映射关系，相反，这些映射分布在所有的DNS服务器上。从层级角度来说，有三类DNS服务器：</p>
-<ol>
-<li>根DNS服务器：全球有超过400个此类服务器，有13个不同的组织管理这些服务器。跟服务器提供TLD服务器的IP地址，而没有直接的域名和其服务器IP的映射</li>
-<li>顶级域名服务器（TLD）：每个顶级域名都有其TLD，TLD提供权威DNS服务器的IP地址</li>
-<li>权威DNS服务器：组织机构<strong>可以选择</strong>哪个服务器作为其权威DNS服务器来保存其域名 IP映射。</li>
-</ol>
-<h3 id="游离于层级之外的DNS服务器—本地DNS服务器"><a href="#游离于层级之外的DNS服务器—本地DNS服务器" class="headerlink" title="游离于层级之外的DNS服务器—本地DNS服务器"></a>游离于层级之外的DNS服务器—本地DNS服务器</h3><p>Local DNS一般在每个ISP中都会存在，Local DNS的好处就是更靠近用户端。<br>它的作用就是充当代理，将DNS请求转发到分为3层的DNS服务系统中。<br>一个可能的DNS查询流程是：</p>
-<ol>
-<li>向Local DNS发送DNS请求</li>
-<li>Local DNS向根DNS服务器发送DNS请求</li>
-<li>根DNS服务器根据域名，例如.com，返回一个对应的TLD的IP地址</li>
-<li>Local DNS向TLD发送DNS请求</li>
-<li>TLD根据具体的域名，例如google.com，返回一个对应的权威DNS的IP地址</li>
-<li>Local DNS向权威DNS发送DNS请求</li>
-<li>权威DNS根据查询的域名，例如maps.google.com，返回目标服务器的IP地址</li>
-<li>Local DNS向主机返回该IP地址<br>这个过程非常麻烦，一共有8份报文产生，Local DNS花了很长时间来解决一个域名的查询。但其实还可能更麻烦，因为TLD对应的域名很多，所以会有中间DNS的存在。这让查询过程更加复杂+冗长！解决方案就是下一部分——DNS缓存</li>
-</ol>
-<h2 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h2><p>当<strong>DNS服务器</strong>收到了其他<strong>DNS的回答（主机名到IP地质的映射）时</strong>，会将这个信息存入到DNS缓存中。<br>当同样的请求再次到达该DNS服务器时，它就可以直接返回，而不需要有任何时间上的浪费，去疯狂请求一圈。</p>
-<h2 id="DNS协议的实现细节"><a href="#DNS协议的实现细节" class="headerlink" title="DNS协议的实现细节"></a>DNS协议的实现细节</h2><ul>
-<li>DNS服务器存储Host Name到IP地址的映射的方式是RR（Resource Record）</li>
-<li>DNS的回答报文里可以包含多条RR</li>
-<li>RR有四个字段：Name，Value，Type，TTL</li>
-</ul>
-<h3 id="RR的四个字段"><a href="#RR的四个字段" class="headerlink" title="RR的四个字段"></a>RR的四个字段</h3><h4 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h4><p>Type事实上决定了Name和Value的类型（废话），具体来看：</p>
-<ul>
-<li>Type&#x3D;A，那么Name就是Host Name，Value则是IP地址，这是一条主机名到IP地址的一对一映射</li>
-<li>Type &#x3D; NS，那么Name就是一个域，Value则存储了知道该域内Host的IP的DNS的Host Name。Value存了知道所有域内IP的DNS的主机名</li>
-<li>Type &#x3D; CNAME，别名系统，Value里存放的就是标准主机名,Name里是别名</li>
-<li>Type&#x3D;MX，邮件别名，Value中存放的是别名为Name的规范主机名</li>
-</ul>
-<h4 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h4><p>一个问题产生了：DNS服务器如何避免不断增长的RR，最终导致服务器的存储达到上限导致服务停摆呢<br><strong>TTL</strong>：指代一条RR在DNS服务器中的留存时间</p>
-<h3 id="DNS的报文"><a href="#DNS的报文" class="headerlink" title="DNS的报文"></a>DNS的报文</h3><p>不在这里对DNS报文的具体结构进行梳理和总结了，随用随查吧</p>
-<ul>
-<li>nslookup，这个命令是运行在Win和Unix平台上的DNS查询程序，可以向任意DNS服务器发起DNS请求</li>
-</ul>
-<h3 id="在DNS数据库中插入记录"><a href="#在DNS数据库中插入记录" class="headerlink" title="在DNS数据库中插入记录"></a>在DNS数据库中插入记录</h3><p>这里回答的问题是，域名和地址的第一次映射关系是如何进入到DNS这个系统中的？<br>首先，在注册机构中注册域名，比如nameslio，需要花一些钱才可以完成。在这个过程中，你需要提供网站的权威DNS服务器的名称和IP地址</p>
-<h1 id="RDNS是什么"><a href="#RDNS是什么" class="headerlink" title="RDNS是什么"></a>RDNS是什么</h1><p>RDNS完成从IP地址到域名的映射，通过查询存储在DNS服务器中的PTR记录，来获取到IP地址对应的域名</p>
-<p>查询的过程中有几个和DNS查询不同的点</p>
-<ul>
-<li>反转IP地址（把192.168.0.1转换为1.0.168.192）</li>
-<li>在末尾添加 .in-addr.arpa 因为PTR记录存储在DNS的.arpa顶级域中。.arpa是一个用来管理网络基础设施的域<br>[^1]: Kurose, K. R. (2017). Computer networking: A top-down approach by james. _Kurose, Keith W. Ross. pp.84</li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>互联网协议</category>
-      </categories>
-  </entry>
-  <entry>
     <title>写博客有感</title>
     <url>/2023/12/14/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/%E5%86%99%E5%8D%9A%E5%AE%A2%E6%9C%89%E6%84%9F/</url>
     <content><![CDATA[<h1 id="换个思路，习惯为先"><a href="#换个思路，习惯为先" class="headerlink" title="换个思路，习惯为先"></a>换个思路，习惯为先</h1><p>一直以来，我都尝试想养成写博客的习惯。这次打算以一个新的角度来开始，特此记录。</p>
@@ -116,6 +36,33 @@
 ]]></content>
       <categories>
         <category>杂七杂八</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Cross Entropy的理解</title>
+    <url>/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
+<h1 id="交叉熵的计算"><a href="#交叉熵的计算" class="headerlink" title="交叉熵的计算"></a>交叉熵的计算</h1><p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
+<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马<br>输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。</p>
+<span id="more"></span>
+<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：</p>
+<ul>
+<li>A概率：[0.4,0.2,0.2,0.2]</li>
+<li>B概率：[0.7,0.1,0.1,0.1]</li>
+</ul>
+<p>那么分别计算这两组交叉熵，可以得到：</p>
+<ul>
+<li>A组Cross-entropy：-(1*log(0.4)+0*log(0.2)+0*log(0.2)+0*log(0.2))</li>
+<li>B组Cross-entropy：-(1*log(0.7)+0*log(0.1)+0*log(0.1)+0*log(0.1))</li>
+</ul>
+<p>用文字描述这个计算过程，就是用真实的概率 乘以 预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
+<h1 id="如何理解交叉熵"><a href="#如何理解交叉熵" class="headerlink" title="如何理解交叉熵"></a>如何理解交叉熵</h1><p>所以交叉熵可以理解为：<strong>实际情况下（真实分布作为权重），这一预测结果所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度</p>
+<p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
+<p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。<br>从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
       </categories>
   </entry>
   <entry>
@@ -284,6 +231,86 @@
       </categories>
   </entry>
   <entry>
+    <title>DNS和RDNS</title>
+    <url>/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/DNS%E5%92%8CRDNS/</url>
+    <content><![CDATA[<h1 id="DNS是什么？"><a href="#DNS是什么？" class="headerlink" title="DNS是什么？"></a>DNS是什么？</h1><p>《计算机网络：自顶向下方法》的2.4节的标题是一个很好的描述：<strong>internet的目录服务</strong><br>DNS的全称是Domain Name System 域名系统，它负责完成从域名到IP地址的映射。</p>
+<h2 id="为什么要有域名-IP地址，只留一个不行吗？"><a href="#为什么要有域名-IP地址，只留一个不行吗？" class="headerlink" title="为什么要有域名&#x2F;IP地址，只留一个不行吗？"></a>为什么要有域名&#x2F;IP地址，只留一个不行吗？</h2><ul>
+<li>IP地址是定长的，利于路由器做规则的处理</li>
+<li>域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr&#x2F;.hk&#x2F;.cn往往表示了该网站的所属的国家和地区<br>DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</li>
+</ul>
+<h2 id="DNS的结构-实现方式是什么"><a href="#DNS的结构-实现方式是什么" class="headerlink" title="DNS的结构&#x2F;实现方式是什么"></a>DNS的结构&#x2F;实现方式是什么</h2><p>DNS实现的具体方式：</p>
+<ul>
+<li>一个分层的DNS服务器组成的分布式数据库</li>
+<li>一个用于让主机查询分布式数据库的应用层（Layer 5）的协议</li>
+<li>DNS运行在UDP上，使用53号端口</li>
+<li>DNS一般是运行BIND软件的UNIX系统主机<span id="more"></span></li>
+</ul>
+<h2 id="DNS的流程-1"><a href="#DNS的流程-1" class="headerlink" title="DNS的流程[^1]"></a>DNS的流程[^1]</h2><ol>
+<li>用户主机上<strong>运行着DNS应用的客户端</strong>。  </li>
+<li>浏览器从上述URL中抽取岀主机名<a href="http://www.someschool.edu,并将这台主机名**传给/">www.someschool.edu,并将这台主机名**传给</a><br>DNS应用的客户端**。  </li>
+<li>DNS客户向DNS服务器<strong>发送一个包含主机名的请求</strong>。</li>
+<li>DNS客户最终会收到一份回答报文，其中<strong>含有对应于该主机名的IP地址</strong>。  </li>
+<li>一旦浏览器接收到来自DNS的该IP地址，它能够<strong>向位于该IP地址80端口的 HTTP服务器进程发起一个TCP连接。</strong></li>
+</ol>
+<h2 id="除了域名服务，DNS还能做什么？"><a href="#除了域名服务，DNS还能做什么？" class="headerlink" title="除了域名服务，DNS还能做什么？"></a>除了域名服务，DNS还能做什么？</h2><ul>
+<li>主机别名（Host Aliasing）：一般来说，主机拥有一个<strong>规范主机名（Canonical hostname）</strong>。同时可以有多个主机别名：例如google.com和<a href="http://www.google.com/">www.google.com</a></li>
+<li>邮件服务器别名（Mail Server Aliasing）：和上一条类似，邮箱后缀也可以通过别名来提供更容易记忆的邮箱地址。值得注意的是，MX记录可以实现Web服务器和邮件服务器同名的功能</li>
+<li>负载分配（Load distribution）：有时候一个域名可能对应多个服务器，因此DNS会通过轮询这类机制，来完成简单的负载分配</li>
+</ul>
+<h1 id="DNS的实现细节"><a href="#DNS的实现细节" class="headerlink" title="DNS的实现细节"></a>DNS的实现细节</h1><p>在这里主要讨论两个部分</p>
+<ol>
+<li>是如何通过分布式来实现对DNS服务的要求的</li>
+<li>交互的方式是什么样的，DNS协议的具体内容</li>
+</ol>
+<h2 id="分布式的-层次的数据库"><a href="#分布式的-层次的数据库" class="headerlink" title="分布式的 层次的数据库"></a>分布式的 层次的数据库</h2><p>有大量的DNS服务器遍布在整个互联网上，相互间具备一定的层次结构。没有任何一台服务器具备全部的映射关系，相反，这些映射分布在所有的DNS服务器上。从层级角度来说，有三类DNS服务器：</p>
+<ol>
+<li>根DNS服务器：全球有超过400个此类服务器，有13个不同的组织管理这些服务器。跟服务器提供TLD服务器的IP地址，而没有直接的域名和其服务器IP的映射</li>
+<li>顶级域名服务器（TLD）：每个顶级域名都有其TLD，TLD提供权威DNS服务器的IP地址</li>
+<li>权威DNS服务器：组织机构<strong>可以选择</strong>哪个服务器作为其权威DNS服务器来保存其域名 IP映射。</li>
+</ol>
+<h3 id="游离于层级之外的DNS服务器—本地DNS服务器"><a href="#游离于层级之外的DNS服务器—本地DNS服务器" class="headerlink" title="游离于层级之外的DNS服务器—本地DNS服务器"></a>游离于层级之外的DNS服务器—本地DNS服务器</h3><p>Local DNS一般在每个ISP中都会存在，Local DNS的好处就是更靠近用户端。<br>它的作用就是充当代理，将DNS请求转发到分为3层的DNS服务系统中。<br>一个可能的DNS查询流程是：</p>
+<ol>
+<li>向Local DNS发送DNS请求</li>
+<li>Local DNS向根DNS服务器发送DNS请求</li>
+<li>根DNS服务器根据域名，例如.com，返回一个对应的TLD的IP地址</li>
+<li>Local DNS向TLD发送DNS请求</li>
+<li>TLD根据具体的域名，例如google.com，返回一个对应的权威DNS的IP地址</li>
+<li>Local DNS向权威DNS发送DNS请求</li>
+<li>权威DNS根据查询的域名，例如maps.google.com，返回目标服务器的IP地址</li>
+<li>Local DNS向主机返回该IP地址<br>这个过程非常麻烦，一共有8份报文产生，Local DNS花了很长时间来解决一个域名的查询。但其实还可能更麻烦，因为TLD对应的域名很多，所以会有中间DNS的存在。这让查询过程更加复杂+冗长！解决方案就是下一部分——DNS缓存</li>
+</ol>
+<h2 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h2><p>当<strong>DNS服务器</strong>收到了其他<strong>DNS的回答（主机名到IP地质的映射）时</strong>，会将这个信息存入到DNS缓存中。<br>当同样的请求再次到达该DNS服务器时，它就可以直接返回，而不需要有任何时间上的浪费，去疯狂请求一圈。</p>
+<h2 id="DNS协议的实现细节"><a href="#DNS协议的实现细节" class="headerlink" title="DNS协议的实现细节"></a>DNS协议的实现细节</h2><ul>
+<li>DNS服务器存储Host Name到IP地址的映射的方式是RR（Resource Record）</li>
+<li>DNS的回答报文里可以包含多条RR</li>
+<li>RR有四个字段：Name，Value，Type，TTL</li>
+</ul>
+<h3 id="RR的四个字段"><a href="#RR的四个字段" class="headerlink" title="RR的四个字段"></a>RR的四个字段</h3><h4 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h4><p>Type事实上决定了Name和Value的类型（废话），具体来看：</p>
+<ul>
+<li>Type&#x3D;A，那么Name就是Host Name，Value则是IP地址，这是一条主机名到IP地址的一对一映射</li>
+<li>Type &#x3D; NS，那么Name就是一个域，Value则存储了知道该域内Host的IP的DNS的Host Name。Value存了知道所有域内IP的DNS的主机名</li>
+<li>Type &#x3D; CNAME，别名系统，Value里存放的就是标准主机名,Name里是别名</li>
+<li>Type&#x3D;MX，邮件别名，Value中存放的是别名为Name的规范主机名</li>
+</ul>
+<h4 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h4><p>一个问题产生了：DNS服务器如何避免不断增长的RR，最终导致服务器的存储达到上限导致服务停摆呢<br><strong>TTL</strong>：指代一条RR在DNS服务器中的留存时间</p>
+<h3 id="DNS的报文"><a href="#DNS的报文" class="headerlink" title="DNS的报文"></a>DNS的报文</h3><p>不在这里对DNS报文的具体结构进行梳理和总结了，随用随查吧</p>
+<ul>
+<li>nslookup，这个命令是运行在Win和Unix平台上的DNS查询程序，可以向任意DNS服务器发起DNS请求</li>
+</ul>
+<h3 id="在DNS数据库中插入记录"><a href="#在DNS数据库中插入记录" class="headerlink" title="在DNS数据库中插入记录"></a>在DNS数据库中插入记录</h3><p>这里回答的问题是，域名和地址的第一次映射关系是如何进入到DNS这个系统中的？<br>首先，在注册机构中注册域名，比如nameslio，需要花一些钱才可以完成。在这个过程中，你需要提供网站的权威DNS服务器的名称和IP地址</p>
+<h1 id="RDNS是什么"><a href="#RDNS是什么" class="headerlink" title="RDNS是什么"></a>RDNS是什么</h1><p>RDNS完成从IP地址到域名的映射，通过查询存储在DNS服务器中的PTR记录，来获取到IP地址对应的域名</p>
+<p>查询的过程中有几个和DNS查询不同的点</p>
+<ul>
+<li>反转IP地址（把192.168.0.1转换为1.0.168.192）</li>
+<li>在末尾添加 .in-addr.arpa 因为PTR记录存储在DNS的.arpa顶级域中。.arpa是一个用来管理网络基础设施的域<br>[^1]: Kurose, K. R. (2017). Computer networking: A top-down approach by james. _Kurose, Keith W. Ross. pp.84</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Transport Layer</title>
     <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Transport%20Layer/</url>
     <content><![CDATA[<p>hexo 部署测试，内容不保证准确<br>给终端上的<strong>APP进程</strong>提供logical communication。<br>发送端负责将APP的数据分成segments，向下传递到network层。接收端则是将受到的sements重新组合为原始信息，向上递给app层</p>
@@ -440,94 +467,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Cross Entropy的理解</title>
-    <url>/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
-<h1 id="交叉熵的计算"><a href="#交叉熵的计算" class="headerlink" title="交叉熵的计算"></a>交叉熵的计算</h1><p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
-<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马<br>输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。</p>
-<span id="more"></span>
-<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：</p>
-<ul>
-<li>A概率：[0.4,0.2,0.2,0.2]</li>
-<li>B概率：[0.7,0.1,0.1,0.1]</li>
-</ul>
-<p>那么分别计算这两组交叉熵，可以得到：</p>
-<ul>
-<li>A组Cross-entropy：-(1*log(0.4)+0*log(0.2)+0*log(0.2)+0*log(0.2))</li>
-<li>B组Cross-entropy：-(1*log(0.7)+0*log(0.1)+0*log(0.1)+0*log(0.1))</li>
-</ul>
-<p>用文字描述这个计算过程，就是用真实的概率 乘以 预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
-<h1 id="如何理解交叉熵"><a href="#如何理解交叉熵" class="headerlink" title="如何理解交叉熵"></a>如何理解交叉熵</h1><p>所以交叉熵可以翻译为：<strong>实际情况下，这一预测所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度<br>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。<br>从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>设计模式的基础原则</title>
-    <url>/2023/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E5%88%99/</url>
-    <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。<br><strong>设计模式的三要素</strong></p>
-<ul>
-<li>问题：在<strong>什么情况下</strong>使用当前的设计模式</li>
-<li>解决方案：使用了<strong>哪些逻辑，组件</strong>来解决当前的问题</li>
-<li>效果：如何解决了问题，以及该解决方案带来的<strong>副作用</strong></li>
-</ul>
-<p>&#x3D;&#x3D;<strong>⚠️请务必注意⚠️</strong>&#x3D;&#x3D;不要过度设计，为了应用某一种设计模式而应用。而是尽量准确的分析问题，找到最需要的特性。<strong>找到最切合的设计模式，而不是最复杂的</strong></p>
-<p>以下这些原则对理解和记忆既有设计模式，并根据情况灵活改进是很重要的</p>
-<span id="more"></span>
-<h1 id="OCP-开闭原则"><a href="#OCP-开闭原则" class="headerlink" title="OCP 开闭原则"></a>OCP 开闭原则</h1><p>Open Closed Principle, OCP<br>对扩展开放，对修改关闭</p>
-<p>解释：设计一个软件的时候，模块和函数的设计应该对扩展开放而对修改关闭。在尽量不修改原有代码的情况下进行扩展。</p>
-<p>意义：对以后的升级、维护、变化有更好的支持，避免修改导致的混乱。</p>
-<h1 id="SRP-单一职责原则"><a href="#SRP-单一职责原则" class="headerlink" title="SRP 单一职责原则"></a>SRP 单一职责原则</h1><p>Single Responsibility Principle, SRP<br>一个类只负责一个功能领域中的相应职责</p>
-<p>解释：一个类&#x2F;模块有且仅有一个让其改变的原因。承担太多职责会导致完成其他职责的能力被削弱，对于变化引起的问题很脆弱。</p>
-<p>意义：解耦，增强内聚。对改变更加友好。</p>
-<p>Tips-实际情况下该原则执行时遇到的问题:<br>很难衡量一个类的职责，很难确定职责的粒度。<br>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：在分布式系统的微服务拆分中，团队间会为了哪个功能从属于哪个服务而有争论。这也是比较依赖架构或者业务经验的地方。</p>
-<h1 id="LSP-里氏代换原则（设计父类和子类的关系）"><a href="#LSP-里氏代换原则（设计父类和子类的关系）" class="headerlink" title="LSP 里氏代换原则（设计父类和子类的关系）"></a>LSP 里氏代换原则（设计父类和子类的关系）</h1><p>Liskov Substitution Principle，LSP<br>所有引用基类的地方必须能透明地使用其子类的对象</p>
-<p>解释：所有引用到父类的地方，必须能够透明的使用其子类的对象。也<strong>就是父类出现的地方，子类也一定可以出现</strong></p>
-<p>意义：子类可以直接替换父类，而不需要在其他地方做出额外的修改。父类可以被有效的复用，子类可以在父类的基础上增加新的特性和行为。LSP原则本质上是对抽象化实现（接口&#x2F;抽象类-&gt;实现类）的具体步骤的规范。</p>
-<p>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：父类的set方法接收字符串，子类的set方法继承自父类，但是进行了Override。实现了一个额外的合法性校验，如果失败则返回一个错误字符串的信息。<br>这是不符合里氏替换原则的。因为父类被替换为子类，子类实现了额外的功能。此时，当输入为非法字符串时，返回了错误信息，而不是继续执行。发生了逻辑上的改变。</p>
-<p><strong>等等，这和继承、多态有什么分别？</strong> 继承和多态已经可以让父类被直接替换为子类了，但是这并不能保证替换后程序逻辑像原本设计的那样进行。</p>
-<p>来看看里氏替换的更细致的规则：里氏替换原则要求子类要遵守父类在某些行为上的约定，例如对于输入输出、异常情况的约定等等。更具体来说有：</p>
-<ol>
-<li>子类的方法不能违反父类方法对于输入输出<strong>异常的约定</strong></li>
-<li>子类方法不能违反父类方法<strong>定义的功能</strong></li>
-<li>子类必须<strong>完全实现父类的抽象方法</strong>（不能在子类里无效的实现父类方法）</li>
-</ol>
-<h1 id="DIP-依赖倒转原则"><a href="#DIP-依赖倒转原则" class="headerlink" title="DIP 依赖倒转原则"></a>DIP 依赖倒转原则</h1><p>Dependency Inversion Principle，DIP<br>依赖于抽象，不能依赖于具体实现</p>
-<p>解释：程序依赖于抽象接口而不是依赖于具体的实现，面向接口编程</p>
-<p>意义：传递参数和关联关系中，尽量用高层次的抽象，用接口和抽象类进行声明，返回类型声明等，而不是具体的类。要List 而不是ArrayList或者LinkedList。从实践的角度来说，实现类应该<strong>只实现接口中有的方法</strong>，而不直接的添加额外的方法。</p>
-<p>Tips：</p>
-<ul>
-<li>高层模块和低层模块都应该依赖于抽象</li>
-<li>抽象不应该依赖于具体，具体应该依赖于抽象<br>针对抽象层编程，而将实现类的对象通过DI的方式注入到其他对象中。注入的方式有：</li>
-<li>构造注入</li>
-<li>Setter注入</li>
-<li>接口注入</li>
-</ul>
-<p>比如List对象，通过setter方法既可以指向ArrayList也可以指向LinkedList。而使用共有的方法不会出错</p>
-<h1 id="ISP-接口隔离原则"><a href="#ISP-接口隔离原则" class="headerlink" title="ISP 接口隔离原则"></a>ISP 接口隔离原则</h1><p>Interface Segregation Principle，ISP<br>类之间的依赖关系应该建立在最小的接口上</p>
-<p>解释：类之间的依赖关系应该通过尽量小的接口。接口要尽可能细化，接口中的方法要尽量少。<br>接口隔离原则是单一职责原则的更严格的要求。单一职责强调的是业务逻辑上的，接口隔离强调更细致的分割</p>
-<p>意义：提供更好的维护性和低耦合</p>
-<h1 id="CARP-合成-聚合复用原则"><a href="#CARP-合成-聚合复用原则" class="headerlink" title="CARP 合成&#x2F;聚合复用原则"></a>CARP 合成&#x2F;聚合复用原则</h1><p>Composite&#x2F;Aggregate Reuse Principle，CARP<br>尽量使用合成&#x2F;聚合，而不是通过继承达到复用的目的</p>
-<p>解释：在新的对象里使用一些已有的对象，使其成为新对象的一部分。通过对这些对象委派达到复用已有功能对目的，而不是通过继承实现</p>
-<p>聚合和合成的异同：</p>
-<ul>
-<li>聚合：一种较为松散的整体 部分关系，A持有B对象，不意味着B对象由A对象管理。B的生命周期由自己管理</li>
-<li>合成：一种更严格的整体和部分的关系，A和B具有一样的生命周期</li>
-</ul>
-<p>意义：</p>
-<h1 id="LKP-LOD-最少知识原则-迪米特法则"><a href="#LKP-LOD-最少知识原则-迪米特法则" class="headerlink" title="LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则"></a>LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则</h1><p>Least Knowledge Principle，LKP      Law of Demeter，LOD<br>一个软件实体应当尽可能少的与其他实体发生相互作用</p>
-<p>解释：每一个单位都对其他的单位有最少的知识，而且局限于那些密切相关的单位。</p>
-<p>意义：降低类之间的耦合，从功能上相互独立，通过中间类转达，而不是直接建立联系</p>
-<p>比如老板想知道员工的总人数。老板不需要掌握员工的列表，而应该设立一个中间类（HR）来实现人数清点，而HR有员工名单是非常合理的。</p>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>设计模式</category>
-      </categories>
-  </entry>
-  <entry>
     <title>互联网协议基本概念</title>
     <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<p>hexo 部署测试，内容不保证准确</p>
@@ -608,6 +547,100 @@
       <categories>
         <category>计算机基础</category>
         <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>设计模式的基础原则</title>
+    <url>/2023/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E5%88%99/</url>
+    <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。<br><strong>设计模式的三要素</strong></p>
+<ul>
+<li>问题：在<strong>什么情况下</strong>使用当前的设计模式</li>
+<li>解决方案：使用了<strong>哪些逻辑，组件</strong>来解决当前的问题</li>
+<li>效果：如何解决了问题，以及该解决方案带来的<strong>副作用</strong></li>
+</ul>
+<p>&#x3D;&#x3D;<strong>⚠️请务必注意⚠️</strong>&#x3D;&#x3D;不要过度设计，为了应用某一种设计模式而应用。而是尽量准确的分析问题，找到最需要的特性。<strong>找到最切合的设计模式，而不是最复杂的</strong></p>
+<p>以下这些原则对理解和记忆既有设计模式，并根据情况灵活改进是很重要的</p>
+<span id="more"></span>
+<h1 id="OCP-开闭原则"><a href="#OCP-开闭原则" class="headerlink" title="OCP 开闭原则"></a>OCP 开闭原则</h1><p>Open Closed Principle, OCP<br>对扩展开放，对修改关闭</p>
+<p>解释：设计一个软件的时候，模块和函数的设计应该对扩展开放而对修改关闭。在尽量不修改原有代码的情况下进行扩展。</p>
+<p>意义：对以后的升级、维护、变化有更好的支持，避免修改导致的混乱。</p>
+<h1 id="SRP-单一职责原则"><a href="#SRP-单一职责原则" class="headerlink" title="SRP 单一职责原则"></a>SRP 单一职责原则</h1><p>Single Responsibility Principle, SRP<br>一个类只负责一个功能领域中的相应职责</p>
+<p>解释：一个类&#x2F;模块有且仅有一个让其改变的原因。承担太多职责会导致完成其他职责的能力被削弱，对于变化引起的问题很脆弱。</p>
+<p>意义：解耦，增强内聚。对改变更加友好。</p>
+<p>Tips-实际情况下该原则执行时遇到的问题:<br>很难衡量一个类的职责，很难确定职责的粒度。<br>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：在分布式系统的微服务拆分中，团队间会为了哪个功能从属于哪个服务而有争论。这也是比较依赖架构或者业务经验的地方。</p>
+<h1 id="LSP-里氏代换原则（设计父类和子类的关系）"><a href="#LSP-里氏代换原则（设计父类和子类的关系）" class="headerlink" title="LSP 里氏代换原则（设计父类和子类的关系）"></a>LSP 里氏代换原则（设计父类和子类的关系）</h1><p>Liskov Substitution Principle，LSP<br>所有引用基类的地方必须能透明地使用其子类的对象</p>
+<p>解释：所有引用到父类的地方，必须能够透明的使用其子类的对象。也<strong>就是父类出现的地方，子类也一定可以出现</strong></p>
+<p>意义：子类可以直接替换父类，而不需要在其他地方做出额外的修改。父类可以被有效的复用，子类可以在父类的基础上增加新的特性和行为。LSP原则本质上是对抽象化实现（接口&#x2F;抽象类-&gt;实现类）的具体步骤的规范。</p>
+<p>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：父类的set方法接收字符串，子类的set方法继承自父类，但是进行了Override。实现了一个额外的合法性校验，如果失败则返回一个错误字符串的信息。<br>这是不符合里氏替换原则的。因为父类被替换为子类，子类实现了额外的功能。此时，当输入为非法字符串时，返回了错误信息，而不是继续执行。发生了逻辑上的改变。</p>
+<p><strong>等等，这和继承、多态有什么分别？</strong> 继承和多态已经可以让父类被直接替换为子类了，但是这并不能保证替换后程序逻辑像原本设计的那样进行。</p>
+<p>来看看里氏替换的更细致的规则：里氏替换原则要求子类要遵守父类在某些行为上的约定，例如对于输入输出、异常情况的约定等等。更具体来说有：</p>
+<ol>
+<li>子类的方法不能违反父类方法对于输入输出<strong>异常的约定</strong></li>
+<li>子类方法不能违反父类方法<strong>定义的功能</strong></li>
+<li>子类必须<strong>完全实现父类的抽象方法</strong>（不能在子类里无效的实现父类方法）</li>
+</ol>
+<h1 id="DIP-依赖倒转原则"><a href="#DIP-依赖倒转原则" class="headerlink" title="DIP 依赖倒转原则"></a>DIP 依赖倒转原则</h1><p>Dependency Inversion Principle，DIP<br>依赖于抽象，不能依赖于具体实现</p>
+<p>解释：程序依赖于抽象接口而不是依赖于具体的实现，面向接口编程</p>
+<p>意义：传递参数和关联关系中，尽量用高层次的抽象，用接口和抽象类进行声明，返回类型声明等，而不是具体的类。要List 而不是ArrayList或者LinkedList。从实践的角度来说，实现类应该<strong>只实现接口中有的方法</strong>，而不直接的添加额外的方法。</p>
+<p>Tips：</p>
+<ul>
+<li>高层模块和低层模块都应该依赖于抽象</li>
+<li>抽象不应该依赖于具体，具体应该依赖于抽象<br>针对抽象层编程，而将实现类的对象通过DI的方式注入到其他对象中。注入的方式有：</li>
+<li>构造注入</li>
+<li>Setter注入</li>
+<li>接口注入</li>
+</ul>
+<p>比如List对象，通过setter方法既可以指向ArrayList也可以指向LinkedList。而使用共有的方法不会出错</p>
+<h1 id="ISP-接口隔离原则"><a href="#ISP-接口隔离原则" class="headerlink" title="ISP 接口隔离原则"></a>ISP 接口隔离原则</h1><p>Interface Segregation Principle，ISP<br>类之间的依赖关系应该建立在最小的接口上</p>
+<p>解释：类之间的依赖关系应该通过尽量小的接口。接口要尽可能细化，接口中的方法要尽量少。<br>接口隔离原则是单一职责原则的更严格的要求。单一职责强调的是业务逻辑上的，接口隔离强调更细致的分割</p>
+<p>意义：提供更好的维护性和低耦合</p>
+<h1 id="CARP-合成-聚合复用原则"><a href="#CARP-合成-聚合复用原则" class="headerlink" title="CARP 合成&#x2F;聚合复用原则"></a>CARP 合成&#x2F;聚合复用原则</h1><p>Composite&#x2F;Aggregate Reuse Principle，CARP<br>尽量使用合成&#x2F;聚合，而不是通过继承达到复用的目的</p>
+<p>解释：在新的对象里使用一些已有的对象，使其成为新对象的一部分。通过对这些对象委派达到复用已有功能对目的，而不是通过继承实现</p>
+<p>聚合和合成的异同：</p>
+<ul>
+<li>聚合：一种较为松散的整体 部分关系，A持有B对象，不意味着B对象由A对象管理。B的生命周期由自己管理</li>
+<li>合成：一种更严格的整体和部分的关系，A和B具有一样的生命周期</li>
+</ul>
+<p>意义：</p>
+<h1 id="LKP-LOD-最少知识原则-迪米特法则"><a href="#LKP-LOD-最少知识原则-迪米特法则" class="headerlink" title="LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则"></a>LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则</h1><p>Least Knowledge Principle，LKP      Law of Demeter，LOD<br>一个软件实体应当尽可能少的与其他实体发生相互作用</p>
+<p>解释：每一个单位都对其他的单位有最少的知识，而且局限于那些密切相关的单位。</p>
+<p>意义：降低类之间的耦合，从功能上相互独立，通过中间类转达，而不是直接建立联系</p>
+<p>比如老板想知道员工的总人数。老板不需要掌握员工的列表，而应该设立一个中间类（HR）来实现人数清点，而HR有员工名单是非常合理的。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>过拟合和欠拟合</title>
+    <url>/2024/03/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88/</url>
+    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
+<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>验证损失小</th>
+<th>验证损失大</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>训练损失小</td>
+<td>结合验证损失的绝对值，小概率欠拟合</td>
+</tr>
+<tr>
+<td></td>
+<td>训练损失大</td>
+<td>大概率不会发生此类情况</td>
+</tr>
+</tbody></table>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>AI</category>
+        <category>计算机基础</category>
       </categories>
   </entry>
 </search>
