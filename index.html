@@ -882,7 +882,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-08 14:35:19" itemprop="dateModified" datetime="2024-03-08T14:35:19+08:00">2024-03-08</time>
+      <time title="修改时间：2024-03-08 14:52:08" itemprop="dateModified" datetime="2024-03-08T14:52:08+08:00">2024-03-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -925,15 +925,22 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="dns是什么">DNS是什么？</h1>
 <p>《计算机网络：自顶向下方法》的2.4节的标题是一个很好的描述：<strong>internet的目录服务</strong>
-DNS的全称是Domain Name System 域名系统，它负责完成从域名到IP地址的映射。
-## 为什么要有域名/IP地址，只留一个不行吗？ -
-IP地址是定长的，利于路由器做规则的处理 -
-域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr/.hk/.cn往往表示了该网站的所属的国家和地区
-DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</p>
+DNS的全称是Domain Name System
+域名系统，它负责完成从域名到IP地址的映射。</p>
+<h2
+id="为什么要有域名ip地址只留一个不行吗">为什么要有域名/IP地址，只留一个不行吗？</h2>
+<ul>
+<li>IP地址是定长的，利于路由器做规则的处理</li>
+<li>域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr/.hk/.cn往往表示了该网站的所属的国家和地区
+DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</li>
+</ul>
 <h2 id="dns的结构实现方式是什么">DNS的结构/实现方式是什么</h2>
-<p>DNS实现的具体方式： - 一个分层的DNS服务器组成的分布式数据库 -
-一个用于让主机查询分布式数据库的应用层（Layer 5）的协议 -
-DNS运行在UDP上，使用53号端口 - DNS一般是运行BIND软件的UNIX系统主机
+<p>DNS实现的具体方式：</p>
+<ul>
+<li>一个分层的DNS服务器组成的分布式数据库</li>
+<li>一个用于让主机查询分布式数据库的应用层（Layer 5）的协议</li>
+<li>DNS运行在UDP上，使用53号端口</li>
+<li>DNS一般是运行BIND软件的UNIX系统主机
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/6375/#more" rel="contents">
