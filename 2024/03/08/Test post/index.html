@@ -19,28 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本篇博客的目的是梳理之前学习过程中的一些想法，此处仅讨论有监督学习的分类问题 # 学习的本质 ## 探讨学习前，先看看一个模型是如何产生的 假设我们的目的是解决图片的分类问题，1000张动物图片（256*256*3的大小），想把它们正确的划分到3个不同的类别（猫、狗、牛）中。学习模型除了这些待处理的数据，也需要正确的划分数据（图片及其所属的类别）作为训练的基础，作为如何划分，这一知识的来源。模型在">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rickye&#39;s Blog">
-<meta property="og:url" content="http://example.com/post_unfinished/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-CNN.html">
+    <meta name="description" content="Post for testing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test post">
+<meta property="og:url" content="http://example.com/2024/03/08/Test%20post/index.html">
 <meta property="og:site_name" content="Rickye&#39;s Blog">
-<meta property="og:description" content="本篇博客的目的是梳理之前学习过程中的一些想法，此处仅讨论有监督学习的分类问题 # 学习的本质 ## 探讨学习前，先看看一个模型是如何产生的 假设我们的目的是解决图片的分类问题，1000张动物图片（256*256*3的大小），想把它们正确的划分到3个不同的类别（猫、狗、牛）中。学习模型除了这些待处理的数据，也需要正确的划分数据（图片及其所属的类别）作为训练的基础，作为如何划分，这一知识的来源。模型在">
+<meta property="og:description" content="Post for testing">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-25T02:16:57.267Z">
-<meta property="article:modified_time" content="2024-01-25T02:16:57.267Z">
+<meta property="article:published_time" content="2024-03-08T02:03:00.000Z">
+<meta property="article:modified_time" content="2024-03-08T02:57:59.439Z">
 <meta property="article:author" content="Rickye">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/post_unfinished/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-CNN">
+<link rel="canonical" href="http://example.com/2024/03/08/Test%20post/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"http://example.com/post_unfinished/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-CNN.html","path":"post_unfinished/深度学习-CNN.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/03/08/Test%20post/","path":"2024/03/08/Test post/","title":"Test post"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Rickye's Blog
-</title>
+<title>Test post | Rickye's Blog</title>
   
 
 
@@ -126,7 +125,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -139,7 +138,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%9A%84%E6%B5%93%E7%BC%A9"><span class="nav-number">1.</span> <span class="nav-text">信息的浓缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D-%E5%90%91%E7%9D%80%E6%9E%81%E5%80%BC%E5%89%8D%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text">梯度下降-向着极值前进！</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -174,51 +172,105 @@
 
     </div>
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
-    
-    
-    
-    <div class="post-block" lang="zh-CN"><header class="post-header">
+  
 
-<h1 class="post-title" itemprop="name headline">
-</h1>
 
-<div class="post-meta-container">
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/08/Test%20post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Rickye">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rickye's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Test post | Rickye's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Test post
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-03-08 10:03:00 / 修改时间：10:57:59" itemprop="dateCreated datePublished" datetime="2024-03-08T10:03:00+08:00">2024-03-08</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>151</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body">
-          <p>本篇博客的目的是梳理之前学习过程中的一些想法，此处仅讨论有监督学习的分类问题
-# 学习的本质 ## 探讨学习前，先看看一个模型是如何产生的
-假设我们的目的是解决图片的分类问题，1000张动物图片（256*256*3的大小），想把它们正确的划分到3个不同的类别（猫、狗、牛）中。学习模型除了这些待处理的数据，也需要正确的划分数据（图片及其所属的类别）作为训练的基础，作为<strong>如何划分，这一知识的来源</strong>。模型在训练中，不断学习到正确的知识，最终达到我们期望的某一个指标，一切大功告成，得到了一个可用的模型。
-## 等等，怎么就学会了——学习的过程
-嘿！一个那么老大的图片，有256像素*256像素*3颜色的信息来描述一张图片，最后是怎么神奇般的转换为一个字符串："牛"的？</p>
-<p>学习的核心，其实就是从众多的信息中，提取出关键的那些，再从关键的信息中提取到关键中的关键，再从........，然后得到一个错误的结果，经过纠错之后，最后正确的预测结果："牛"</p>
-<p>首先，我们来简要的介绍一些机制/计算方法，只需要知道这些机制在学习的过程中发挥了什么样的作用。之后我会尝试用比较简单的语言来描述这些机制。如果一切顺利，这篇文章结束你应该不会见到超过3个公式</p>
-<h3 id="信息的浓缩">信息的浓缩</h3>
-<h3 id="梯度下降-向着极值前进">梯度下降-向着极值前进！</h3>
-<p>相信大家都对高中数学的导数部分很熟悉，天天算导数算到吐。这里就用熟悉的导数概念作为引入，来描述梯度下降是如何找到最小值的</p>
-<p>现在让我们先简单回顾一下导数：
-函数f(x)描述了定义域中的自变量x映射到值域的映射关系，其导数记为f'(x)，描述了f(x)的各点切线斜率和自变量x的映射关系。</p>
-<p>在上面我们说了，梯度下降的目的是从错误中学习，对权重矩阵中的值进行修改，确保修改后的值应该让目标函数的值尽可能小。换成熟悉的高中数学题的表述，也就是对函数（目标函数）求最小值。听起来亲切多了:)</p>
-<p>但是，我们不知道具体的函数表达式。相当于导数题中原函数的x轴的刻度被遮住了，函数的具体图形我们也画不出来（废话，能画出来还用你求最小值）。那么找最小值的过程可以说是四个字：盲人摸象。</p>
-<p>具体怎么"摸"到最小值呢？首先我们能获取到的信息，是当权重为x1时的导数值。如果f'(x1)的值为正数，意味着此刻函数的切线斜率为正，意味着原函数在增加，意味着我们需要x1更小一点，所以下一轮，我们的取值将会是x1-f'(x1)，导数为负也是这个计算方式：向着导数正负的反方向移动。这样就可以逼近到导数为0到地方了！</p>
-<p>梯度下降之殇：极小值不是最小值！梯度下降确实可以在仅知道导数值的情况下找到导数为0的值，但是这只能确保为局部最小。有可能全局的最小值离这个局部极值十万八千里，但我们
-没办法找到。所以只能不断引入不同的优化器、随机扰动，尽可能的提升我们找到全局最小值的几率，避免被困在局部极小值中不能自拔。</p>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Post for testing <span id="more"></span> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><span class="math display">\[\begin{equation} \label{eq1}
+e=mc^2
+\end{equation}\]</span></p>
 
-      </div>
-      
-      
-      
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88/" rel="prev" title="过拟合和欠拟合">
+                  <i class="fa fa-angle-left"></i> 过拟合和欠拟合
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>

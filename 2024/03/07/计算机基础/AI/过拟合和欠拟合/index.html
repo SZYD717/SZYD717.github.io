@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。     验证损失小 验证损失大    训练损失小 结合验证损失的绝对值，小概率欠拟">
+    <meta name="description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。 | | 验证损失小 | 验证损失大 | | --- | ---------- |">
 <meta property="og:type" content="article">
 <meta property="og:title" content="过拟合和欠拟合">
 <meta property="og:url" content="http://example.com/2024/03/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88/index.html">
 <meta property="og:site_name" content="Rickye&#39;s Blog">
-<meta property="og:description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。     验证损失小 验证损失大    训练损失小 结合验证损失的绝对值，小概率欠拟">
+<meta property="og:description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。 | | 验证损失小 | 验证损失大 | | --- | ---------- |">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-07T03:03:00.000Z">
 <meta property="article:modified_time" content="2024-03-07T06:16:03.609Z">
@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -236,7 +236,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>216</span>
+      <span>255</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -255,27 +255,11 @@
     
     <div class="post-body" itemprop="articleBody"><p>过拟合和欠拟合是验证损失较大的两个成因。</p>
 <p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
-<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>验证损失小</th>
-<th>验证损失大</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>训练损失小</td>
-<td>结合验证损失的绝对值，小概率欠拟合</td>
-<td>大概率过拟合</td>
-</tr>
-<tr>
-<td>训练损失大</td>
-<td>大概率不会发生此类情况</td>
-<td>大概率欠拟合</td>
-</tr>
-</tbody></table>
-<span id="more"></span>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。
+| | 验证损失小 | 验证损失大 | | --- | ---------- | ---------- | |
+训练损失小 | 结合验证损失的绝对值，小概率欠拟合 | 大概率过拟合 | |
+训练损失大 | 大概率不会发生此类情况 | 大概率欠拟合 | <span id="more"></span></p>
+
     </div>
 
     
@@ -293,6 +277,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/03/08/Test%20post/" rel="next" title="Test post">
+                  Test post <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -329,7 +316,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">30 分钟</span>
+    <span title="站点阅读时长">31 分钟</span>
   </span>
 </div>
 
@@ -363,6 +350,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

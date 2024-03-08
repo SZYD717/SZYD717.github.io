@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Test post</title>
+    <url>/2024/03/08/Test%20post/</url>
+    <content><![CDATA[<p>Post for testing <span id="more"></span> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><span class="math display">\[\begin{equation} \label{eq1}
+e=mc^2
+\end{equation}\]</span></p>
+]]></content>
+  </entry>
+  <entry>
     <title>如果我要重新入门计算机</title>
     <url>/2023/12/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E5%A6%82%E6%9E%9C%E6%88%91%E8%A6%81%E9%87%8D%E6%96%B0%E5%85%A5%E9%97%A8%E8%AE%A1%E7%AE%97%E6%9C%BA/</url>
-    <content><![CDATA[<p>本文旨在总结和回顾在学习计算机相关知识时，对我产生极大帮助的各类课程&#x2F;书籍&#x2F;甚至还有游戏，所以不会使用评分制，因为都很推荐。如果我自己要重新入门学习计算机，这些绝对是兼顾效率和内容的选择。</p>
-<p><strong>以下内容极为主观，谨慎观看。</strong></p>
-<span id="more"></span>
-<h1 id="入门-构建自顶向下的结构认知"><a href="#入门-构建自顶向下的结构认知" class="headerlink" title="入门-&gt;构建自顶向下的结构认知"></a>入门-&gt;构建自顶向下的结构认知</h1><p>用人话来说，就是知道手机、笔记本、台式机这类电子产品，是怎么在应用层产生如此大的自由度。大了说，养活几十万亿的互联网产业，小了说，饿了是怎么点外卖的。这个阶段要构筑系统的知识体系，可以让学习和工作中遇到的零散知识点填补进体系中，在日常中就可以有效的提高进步。</p>
-<h2 id="Crash-Course-Computer-Science-计算机科学速成课"><a href="#Crash-Course-Computer-Science-计算机科学速成课" class="headerlink" title="Crash Course Computer Science-计算机科学速成课"></a>Crash Course Computer Science-计算机科学速成课</h2><ul>
+    <content><![CDATA[<p>本文旨在总结和回顾在学习计算机相关知识时，对我产生极大帮助的各类课程/书籍/甚至还有游戏，所以不会使用评分制，因为都很推荐。如果我自己要重新入门学习计算机，这些绝对是兼顾效率和内容的选择。</p>
+<p><strong>以下内容极为主观，谨慎观看。</strong> <span id="more"></span> #
+入门-&gt;构建自顶向下的结构认知
+用人话来说，就是知道手机、笔记本、台式机这类电子产品，是怎么在应用层产生如此大的自由度。大了说，养活几十万亿的互联网产业，小了说，饿了是怎么点外卖的。这个阶段要构筑系统的知识体系，可以让学习和工作中遇到的零散知识点填补进体系中，在日常中就可以有效的提高进步。</p>
+<h2 id="crash-course-computer-science-计算机科学速成课">Crash Course
+Computer Science-计算机科学速成课</h2>
+<ul>
 <li><strong>课程描述</strong>：一门丰富、凝练的视频课程，一共40节，每节12分钟上下。垂直的介绍了计算机的组成（前10节），并横向扩展了诸多领域和内容（后30节）。</li>
 <li><strong>个人评价</strong>：比起速成课，我觉得叫计算机知识索引更好，很多内容是难以从12分钟且语速较快的视频中体会的。以前10节为例，从计算机历史到真空管到逻辑门，再到ALU，以及现代计算机指令集，较为完善的介绍了计算机组成的基本知识。但没有个人主动进行的错误尝试和发散思考，这些知识只能点头而过，很难内化。在计算机组成原理这部分，有一个游戏更加值得推荐，具体是啥在后面说。不过这门课程最鲜明的特点就是制作精良的视频和高度凝练的知识板块，很适合用来在最初期构建对计算机科学各个知识板块的基本了解（如果我大一的时候能看到就好了）。同时也很适合在学习过程中用于复习和查漏补缺，如果在视频中遇到了不能很好拓展的知识点，说明有一部分内容被跳过了，需要重新补上。</li>
 </ul>
-<h2 id="Turing-Complete-入门计算机组成原理的不二之选（Steam-游戏）"><a href="#Turing-Complete-入门计算机组成原理的不二之选（Steam-游戏）" class="headerlink" title="Turing Complete-入门计算机组成原理的不二之选（Steam 游戏）"></a>Turing Complete-入门计算机组成原理的不二之选（Steam 游戏）</h2><ul>
+<h2 id="turing-complete-入门计算机组成原理的不二之选steam-游戏">Turing
+Complete-入门计算机组成原理的不二之选（Steam 游戏）</h2>
+<ul>
 <li><strong>课程描述</strong>：绘制电路，从最基本的逻辑门开始，一直到一台图灵完备的计算机。在关卡的引导和知识库的补充下，创建属于自己的计算机。细致认真的情况下，总游玩时长大约15小时</li>
 <li><strong>个人评价</strong>：非常有趣且循序渐进的一款游戏，从基本的逻辑电路开始，一点点构筑加法器、ALU、控制单元等等等一系列元器件，最终完成一台图灵完备的计算机，甚至可以用自己完成的计算机去控制游戏。通关后的成就感和喜悦可以促进持续学习的热情。强烈推荐。但这种形式也有不可避免的弊端，就是知识的支撑并不非常扎实。在过程中，玩家很可能过于注重电路本身的结构和功能，而忽略掉很多比起来比较平淡的细节知识。游戏里也提供了解决方案——知识库，确保自己及时查看并理解每个知识库中的概念，这样才能最大化这个游戏带来的收益。</li>
 </ul>
-<h1 id="提高-在各个领域的横向扩展"><a href="#提高-在各个领域的横向扩展" class="headerlink" title="提高-&gt;在各个领域的横向扩展"></a>提高-&gt;在各个领域的横向扩展</h1><h2 id="计算机网络：自顶向下方法-学习计网的不二之选"><a href="#计算机网络：自顶向下方法-学习计网的不二之选" class="headerlink" title="计算机网络：自顶向下方法-学习计网的不二之选"></a>计算机网络：自顶向下方法-学习计网的不二之选</h2><p>未完待续…</p>
-<h1 id="进阶-我是菜鸡，这块不会"><a href="#进阶-我是菜鸡，这块不会" class="headerlink" title="进阶-&gt;我是菜鸡，这块不会"></a>进阶-&gt;我是菜鸡，这块不会</h1>]]></content>
+<h1 id="提高-在各个领域的横向扩展">提高-&gt;在各个领域的横向扩展</h1>
+<h2
+id="计算机网络自顶向下方法-学习计网的不二之选">计算机网络：自顶向下方法-学习计网的不二之选</h2>
+<p>未完待续...</p>
+<h1 id="进阶-我是菜鸡这块不会">进阶-&gt;我是菜鸡，这块不会</h1>
+]]></content>
       <categories>
         <category>计算机基础</category>
       </categories>
@@ -24,14 +41,20 @@
   <entry>
     <title>写博客有感</title>
     <url>/2023/12/14/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/%E5%86%99%E5%8D%9A%E5%AE%A2%E6%9C%89%E6%84%9F/</url>
-    <content><![CDATA[<h1 id="换个思路，习惯为先"><a href="#换个思路，习惯为先" class="headerlink" title="换个思路，习惯为先"></a>换个思路，习惯为先</h1><p>一直以来，我都尝试想养成写博客的习惯。这次打算以一个新的角度来开始，特此记录。</p>
+    <content><![CDATA[<h1 id="换个思路习惯为先">换个思路，习惯为先</h1>
+<p>一直以来，我都尝试想养成写博客的习惯。这次打算以一个新的角度来开始，特此记录。
 <span id="more"></span>
-<p>最开始，写博客的动机是本科时对技术大佬的崇拜。每次学习上碰到思路阻滞，概念、逻辑上不明晰时，最能有效解决问题的往往是一些个人的博客网站。这些博客结构清晰，逻辑明确，内容翔实。阅读15%就可以解决我这个初学者的全部问题了，剩下的85%么，根本看不懂。这些内容除了增加我对写作者的崇拜，对学习上没有产生什么帮助。但这份积累下的崇拜确实催生了我开始写博客的冲动。</p>
+最开始，写博客的动机是本科时对技术大佬的崇拜。每次学习上碰到思路阻滞，概念、逻辑上不明晰时，最能有效解决问题的往往是一些个人的博客网站。这些博客结构清晰，逻辑明确，内容翔实。阅读15%就可以解决我这个初学者的全部问题了，剩下的85%么，根本看不懂。这些内容除了增加我对写作者的崇拜，对学习上没有产生什么帮助。但这份积累下的崇拜确实催生了我开始写博客的冲动。</p>
 <p>经过各种拖延和懒惰，我逐渐养成了通过笔记来梳理和记录想法的习惯，学习过程中也会开始记录一些内容（目前觉得初次学习过程中记录太多系统的笔记，有一种假学习的感觉，实际上知识很难通过这个过程内化，不如不记。复习的过程中梳理出笔记更有效）。这些笔记基本都是所学课程的忠实记录，所以学过去了，知识随着笔记也就存在硬盘里吃灰了。我并没意识到其实这些知识已经被自己咀嚼过，对自己来说是高效的知识载体。</p>
-<p>直到面试的时候，发现很多的技术问题都有学习过，但是第一反应只能是我学过，但具体内容总是半天才能从脑子里挤出来。但此时想翻看之前的笔记也无用翻起了哈哈，弱智mac莫名其妙的坏掉，导致SSD被更换了。除了笔记本后壳上的坑和键盘上蹭出来的油，啥也没剩 :)</p>
-<p>之后我学聪明了，存！写完就存！于是笔记又开始了缓慢的积累。看着这些笔记，我觉得留着也就留着了，可以先把博客搭起来然后一篇篇补充。<br>通过经历：自建网站框架-&gt;工作量太大，放弃-&gt;用wordpress-&gt;域名和服务器太贵，放弃-&gt;谢谢github大哥  的心路历程，最终有了现在这个网站。</p>
-<p>从开始到现在的这几个月，我发博文的频率越来越低（说实话也没几篇）。从一周一篇到一月一篇，甚至差点就此断更。如果这是一本连载小说，4、5话就烂尾，绝对算是行业奇葩。<br>经过认真的自我反省，我觉得更新频率低的原因主要是写作的动机是由学习驱动的。也就是当我学习并开始复习知识时，我才会进行总结并产出博文。产出博文完全依赖于少的可怜的学习欲望，写得出来才怪。解决方案就是</p>
-<p><strong>独立！</strong> 把写作和学习独立的分开，写作是写作，学习是学习。写博文的内容不限于学习，学习的目的也不能是写博文。我要开始养成写作的习惯，让文字输出不再是抵触情绪的来源，之后搞不好还能促进学习输出的过程。</p>
+<p>直到面试的时候，发现很多的技术问题都有学习过，但是第一反应只能是我学过，但具体内容总是半天才能从脑子里挤出来。但此时想翻看之前的笔记也无用翻起了哈哈，弱智mac莫名其妙的坏掉，导致SSD被更换了。除了笔记本后壳上的坑和键盘上蹭出来的油，啥也没剩
+:)</p>
+<p>之后我学聪明了，存！写完就存！于是笔记又开始了缓慢的积累。看着这些笔记，我觉得留着也就留着了，可以先把博客搭起来然后一篇篇补充。
+通过经历：自建网站框架-&gt;工作量太大，放弃-&gt;用wordpress-&gt;域名和服务器太贵，放弃-&gt;谢谢github大哥
+的心路历程，最终有了现在这个网站。</p>
+<p>从开始到现在的这几个月，我发博文的频率越来越低（说实话也没几篇）。从一周一篇到一月一篇，甚至差点就此断更。如果这是一本连载小说，4、5话就烂尾，绝对算是行业奇葩。
+经过认真的自我反省，我觉得更新频率低的原因主要是写作的动机是由学习驱动的。也就是当我学习并开始复习知识时，我才会进行总结并产出博文。产出博文完全依赖于少的可怜的学习欲望，写得出来才怪。解决方案就是</p>
+<p><strong>独立！</strong>
+把写作和学习独立的分开，写作是写作，学习是学习。写博文的内容不限于学习，学习的目的也不能是写博文。我要开始养成写作的习惯，让文字输出不再是抵触情绪的来源，之后搞不好还能促进学习输出的过程。</p>
 <p>从这篇博文开始，记录一些无关紧要，狗屁不通，连篇累牍，自相矛盾的鬼话。像摄影一样，记录下我胡言乱语的语言能力和晕头转向的思想世界，以供之后的自己学习和取笑。特此声明！</p>
 ]]></content>
       <categories>
@@ -39,155 +62,94 @@
       </categories>
   </entry>
   <entry>
-    <title>Transport Layer</title>
-    <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Transport%20Layer/</url>
-    <content><![CDATA[<p>hexo 部署测试，内容不保证准确<br>给终端上的<strong>APP进程</strong>提供logical communication。<br>发送端负责将APP的数据分成segments，向下传递到network层。接收端则是将受到的sements重新组合为原始信息，向上递给app层</p>
-<p>network层不像transport细分到process，network负责host到host</p>
-<p>不论TCP还是UDP<strong>都不能保证延迟和带宽</strong></p>
-<span id="more"></span>
-<h1 id="multiplexing和demultiplexing"><a href="#multiplexing和demultiplexing" class="headerlink" title="multiplexing和demultiplexing"></a>multiplexing和demultiplexing</h1><h2 id="详细内容"><a href="#详细内容" class="headerlink" title="详细内容"></a>详细内容</h2><h3 id="multiplexing"><a href="#multiplexing" class="headerlink" title="multiplexing"></a>multiplexing</h3><p>把几个stream&#x2F;socket合并到一个stream中，例如email，web app的流量都被合并到一个stream中传输。</p>
-<h3 id="demultiplexing"><a href="#demultiplexing" class="headerlink" title="demultiplexing"></a>demultiplexing</h3><p>接收端根据header中包含的信息（端口号），拼接成stream后分到不同的stream和socket中</p>
-<h3 id="Connectionless-demultiplexing"><a href="#Connectionless-demultiplexing" class="headerlink" title="Connectionless demultiplexing"></a>Connectionless demultiplexing</h3><p>类似UDP这样的协议是Connectionless的，也就是没有end to end的1对1的socket对，完成demultiplexing的过程也是通过port number完成的。和TCP的区别就在于就在于UDP传输都是由一个socket完成的。</p>
-<h2 id="TCP和UDP在mux和demux的区别到底是什么？"><a href="#TCP和UDP在mux和demux的区别到底是什么？" class="headerlink" title="TCP和UDP在mux和demux的区别到底是什么？"></a>TCP和UDP在mux和demux的区别到底是什么？</h2><p>TCP通过以下四个属性来建立socket对，只要有一个不一样都是新的socket对</p>
+    <title>DNS和RDNS</title>
+    <url>/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/DNS%E5%92%8CRDNS/</url>
+    <content><![CDATA[<h1 id="dns是什么">DNS是什么？</h1>
+<p>《计算机网络：自顶向下方法》的2.4节的标题是一个很好的描述：<strong>internet的目录服务</strong>
+DNS的全称是Domain Name System 域名系统，它负责完成从域名到IP地址的映射。
+## 为什么要有域名/IP地址，只留一个不行吗？ -
+IP地址是定长的，利于路由器做规则的处理 -
+域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr/.hk/.cn往往表示了该网站的所属的国家和地区
+DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</p>
+<h2 id="dns的结构实现方式是什么">DNS的结构/实现方式是什么</h2>
+<p>DNS实现的具体方式： - 一个分层的DNS服务器组成的分布式数据库 -
+一个用于让主机查询分布式数据库的应用层（Layer 5）的协议 -
+DNS运行在UDP上，使用53号端口 - DNS一般是运行BIND软件的UNIX系统主机
+<span id="more"></span> ## DNS的流程[^1] 1.
+用户主机上<strong>运行着DNS应用的客户端</strong>。<br />
+2.
+浏览器从上述URL中抽取岀主机名www.someschool.edu,并将这台主机名<strong>传给
+DNS应用的客户端</strong>。<br />
+3. DNS客户向DNS服务器<strong>发送一个包含主机名的请求</strong>。 4.
+DNS客户最终会收到一份回答报文，其中<strong>含有对应于该主机名的IP地址</strong>。<br />
+5.
+一旦浏览器接收到来自DNS的该IP地址，它能够<strong>向位于该IP地址80端口的
+HTTP服务器进程发起一个TCP连接。</strong></p>
+<h2 id="除了域名服务dns还能做什么">除了域名服务，DNS还能做什么？</h2>
 <ul>
-<li>source IP</li>
-<li>source port</li>
-<li>destination IP</li>
-<li>destination port<br>也就是说同一个Host（IP）的两个不同进程（port），发到同样的目标IP和port，也会在目标host上创建两个socket和本地host的两个socket相互对应，共4个socket</li>
+<li>主机别名（Host
+Aliasing）：一般来说，主机拥有一个<strong>规范主机名（Canonical
+hostname）</strong>。同时可以有多个主机别名：例如google.com和www.google.com</li>
+<li>邮件服务器别名（Mail Server
+Aliasing）：和上一条类似，邮箱后缀也可以通过别名来提供更容易记忆的邮箱地址。值得注意的是，MX记录可以实现Web服务器和邮件服务器同名的功能</li>
+<li>负载分配（Load
+distribution）：有时候一个域名可能对应多个服务器，因此DNS会通过轮询这类机制，来完成简单的负载分配</li>
 </ul>
-<p>UDP则只通过两个属性来判断</p>
+<h1 id="dns的实现细节">DNS的实现细节</h1>
+<p>在这里主要讨论两个部分 1. 是如何通过分布式来实现对DNS服务的要求的 2.
+交互的方式是什么样的，DNS协议的具体内容 ## 分布式的 层次的数据库
+有大量的DNS服务器遍布在整个互联网上，相互间具备一定的层次结构。没有任何一台服务器具备全部的映射关系，相反，这些映射分布在所有的DNS服务器上。从层级角度来说，有三类DNS服务器：
+1.
+根DNS服务器：全球有超过400个此类服务器，有13个不同的组织管理这些服务器。跟服务器提供TLD服务器的IP地址，而没有直接的域名和其服务器IP的映射
+2.
+顶级域名服务器（TLD）：每个顶级域名都有其TLD，TLD提供权威DNS服务器的IP地址
+3.
+权威DNS服务器：组织机构<strong>可以选择</strong>哪个服务器作为其权威DNS服务器来保存其域名
+IP映射。</p>
+<h3
+id="游离于层级之外的dns服务器本地dns服务器">游离于层级之外的DNS服务器—本地DNS服务器</h3>
+<p>Local DNS一般在每个ISP中都会存在，Local DNS的好处就是更靠近用户端。
+它的作用就是充当代理，将DNS请求转发到分为3层的DNS服务系统中。
+一个可能的DNS查询流程是： 1. 向Local DNS发送DNS请求 2. Local
+DNS向根DNS服务器发送DNS请求 3.
+根DNS服务器根据域名，例如.com，返回一个对应的TLD的IP地址 4. Local
+DNS向TLD发送DNS请求 5.
+TLD根据具体的域名，例如google.com，返回一个对应的权威DNS的IP地址 6.
+Local DNS向权威DNS发送DNS请求 7.
+权威DNS根据查询的域名，例如maps.google.com，返回目标服务器的IP地址 8.
+Local DNS向主机返回该IP地址 这个过程非常麻烦，一共有8份报文产生，Local
+DNS花了很长时间来解决一个域名的查询。但其实还可能更麻烦，因为TLD对应的域名很多，所以会有中间DNS的存在。这让查询过程更加复杂+冗长！解决方案就是下一部分——DNS缓存
+## DNS缓存
+当<strong>DNS服务器</strong>收到了其他<strong>DNS的回答（主机名到IP地质的映射）时</strong>，会将这个信息存入到DNS缓存中。
+当同样的请求再次到达该DNS服务器时，它就可以直接返回，而不需要有任何时间上的浪费，去疯狂请求一圈。
+## DNS协议的实现细节 - DNS服务器存储Host
+Name到IP地址的映射的方式是RR（Resource Record） -
+DNS的回答报文里可以包含多条RR - RR有四个字段：Name，Value，Type，TTL ###
+RR的四个字段 #### Type
+Type事实上决定了Name和Value的类型（废话），具体来看： -
+Type=A，那么Name就是Host
+Name，Value则是IP地址，这是一条主机名到IP地址的一对一映射 - Type =
+NS，那么Name就是一个域，Value则存储了知道该域内Host的IP的DNS的Host
+Name。Value存了知道所有域内IP的DNS的主机名 - Type =
+CNAME，别名系统，Value里存放的就是标准主机名,Name里是别名 -
+Type=MX，邮件别名，Value中存放的是别名为Name的规范主机名</p>
+<h4 id="ttl">TTL</h4>
+<p>一个问题产生了：DNS服务器如何避免不断增长的RR，最终导致服务器的存储达到上限导致服务停摆呢
+<strong>TTL</strong>：指代一条RR在DNS服务器中的留存时间 ### DNS的报文
+不在这里对DNS报文的具体结构进行梳理和总结了，随用随查吧</p>
 <ul>
-<li>destination IP</li>
-<li>destination port<br>在上面的情境中，本地和目标host都只会各自拥有一个socket来完成传输，共两个socket</li>
+<li>nslookup，这个命令是运行在Win和Unix平台上的DNS查询程序，可以向任意DNS服务器发起DNS请求
+### 在DNS数据库中插入记录
+这里回答的问题是，域名和地址的第一次映射关系是如何进入到DNS这个系统中的？
+首先，在注册机构中注册域名，比如nameslio，需要花一些钱才可以完成。在这个过程中，你需要提供网站的权威DNS服务器的名称和IP地址</li>
 </ul>
-<h2 id="常用的端口号"><a href="#常用的端口号" class="headerlink" title="常用的端口号"></a>常用的端口号</h2><p>没有规则，事实上咋用都行</p>
-<ul>
-<li>80：HTTP，web app</li>
-<li>22：SSH，ssh连接</li>
-<li>25：SMTP，发送邮件</li>
-<li>143：IMAP，阅读邮件</li>
-<li>443：HTTPS：HTTP+SSL</li>
-</ul>
-<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>是一种简单的传输层协议，缺点就是会丢包，包不按顺序<br><strong>Key term-Connectionless：</strong></p>
-<ul>
-<li>host间没有握手的过程，说发就发</li>
-<li>每个UDP的packet间都是独立的<br>适用的场景：</li>
-<li>流传输（注重速率，而可以忍受一定的丢包）</li>
-<li>DNS（域名服务）</li>
-<li>SNMP</li>
-<li>大部分线上游戏<br>当然，也可以在App层添加一些增加可靠性的手段，来提升UDP的可用性</li>
-</ul>
-<h2 id="UDP包的结构"><a href="#UDP包的结构" class="headerlink" title="UDP包的结构"></a>UDP包的结构</h2><h3 id="header部分（记录了描述这个包和传输信息的metadata）"><a href="#header部分（记录了描述这个包和传输信息的metadata）" class="headerlink" title="header部分（记录了描述这个包和传输信息的metadata）"></a>header部分（记录了描述这个包和传输信息的metadata）</h3><ul>
-<li>source port：发送端的port</li>
-<li>destination port：接收端的port</li>
-<li>length：记录了该segment的bytes数</li>
-<li>checksum：用于校验该segment是否在传输中发生了bit filp</li>
-</ul>
-<h3 id="payload部分"><a href="#payload部分" class="headerlink" title="payload部分"></a>payload部分</h3><p>app层的数据</p>
-<h3 id="UDP包外层的结构-header套header"><a href="#UDP包外层的结构-header套header" class="headerlink" title="UDP包外层的结构-header套header"></a>UDP包外层的结构-header套header</h3><p>MAC header（IP header（UDP header（数据）））</p>
-<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><h2 id="TCP的基础-Pipelined-protocol"><a href="#TCP的基础-Pipelined-protocol" class="headerlink" title="TCP的基础-&gt;Pipelined protocol"></a>TCP的基础-&gt;Pipelined protocol</h2><p>由于发送端允许多个包同时在传输途中，而不需要ACK。所以需要处理多个包的seq num来完成对管道的模拟，主要是两种方式</p>
-<ul>
-<li>利用率：用来描述发送端发送数据占单次发送的总时长<ul>
-<li>发送时长&#x2F;（RTT+发送时长）</li>
-</ul>
-</li>
-</ul>
-<h3 id="Go-back-N"><a href="#Go-back-N" class="headerlink" title="Go-back-N"></a>Go-back-N</h3><ul>
-<li>发送端可以同时有N个未被ACK的packets在pipeline中</li>
-<li>接收端只回复具有连续性的ACK，存在gap则不发送后续包的ACK，而是发送最新的ACK</li>
-<li>发送端只给最老的，未被ack的包计时。如果时间过期，则重新发送所有未被ACK的包<br>滑动窗口，ACK决定了发送端窗口的左指针的位置，右指针 &#x3D; 左指针+N<br>由于接收端发送ACK具有连续性，因此发送端接收到ACK后就可以直接移动左指针，而不需要确保发送端收到的ACK的连续性。</li>
-</ul>
-<h3 id="Selective-repeat"><a href="#Selective-repeat" class="headerlink" title="Selective repeat"></a>Selective repeat</h3><ul>
-<li>发送端可以有最多N个未被ACK的包在pipeline中</li>
-<li>接收端对于每个包的ACK是单独发送的</li>
-<li>发送端给每个packet进行单独的ACK计时，单独发送超时的包。发送后重新计时<br>这个方式的问题是要注意序号轮转的周期和滑动窗口的大小。避免方式是轮转周期数&gt;&#x3D;2x滑动窗口大小</li>
-</ul>
-<h2 id="TCP特性概览"><a href="#TCP特性概览" class="headerlink" title="TCP特性概览"></a>TCP特性概览</h2><ul>
-<li>点对点的连接，socket对</li>
-<li>可靠的，有序的byte stream</li>
-<li>管道化的结构，通过congestion和flow control完成window size的管理</li>
-<li>双向连接，发送和接受在同一个管道中</li>
-<li>MSS：最大segment size</li>
-<li>连接状态：连接开始时需要进行握手</li>
-<li>flow control：发送端要避免撑爆接收端</li>
-</ul>
-<h2 id="TCP的header"><a href="#TCP的header" class="headerlink" title="TCP的header"></a>TCP的header</h2><ul>
-<li>Source port</li>
-<li>Destination port</li>
-<li>Seq Num:表示当前segment中第一个byte在全部stream中的序数</li>
-<li>ACK Num：期望对方发送的下一个byte在对方的相对位置</li>
-<li>length</li>
-<li>receive window</li>
-<li>checksum<br>bit data，只有一位表示是否为该状态</li>
-<li>urgent data?</li>
-<li>push data now?</li>
-<li>RST</li>
-<li>SYN</li>
-<li>FIN</li>
-</ul>
-<h2 id="TCP的Timer（结合了GBN和SR，发送端是计时最老packet的SR，接收端回传ACK的规则是GBN）"><a href="#TCP的Timer（结合了GBN和SR，发送端是计时最老packet的SR，接收端回传ACK的规则是GBN）" class="headerlink" title="TCP的Timer（结合了GBN和SR，发送端是计时最老packet的SR，接收端回传ACK的规则是GBN）"></a>TCP的Timer（结合了GBN和SR，发送端是计时最老packet的SR，接收端回传ACK的规则是GBN）</h2><p>TCP中的超时时间很重要，这决定了传输是否高效，如何科学的给timer设定时间呢？<br>设定时间的时候需要遵守以下原则：</p>
-<ul>
-<li>要比RTT长一点，但不能长太多：留冗余，同时避免过长的等待时间导致效率低下<br>那么如何估计RTT呢？</li>
-<li>Sample RTT：从传输中取样，忽略重传这类特殊情况<br>但是，SampleRTT有时候会面临剧烈的波动，所以还需要继续调整<br>Estimate RTT &#x3D; (1-a)xEstimatedRTT + a x sampleRTT<br>这里很像学习率的概念，保留旧有的趋势，同时加上新的变动</li>
-<li>JK算法：Estimated RTT还不够，再加上一个safety margin才有真正的实用价值，这里就解决了Safty margin的计算</li>
-<li>DevRTT &#x3D; （1-b）x DevRTT + b x |sampleRTT-EstimatedRTT|</li>
-<li>和Estimate的逻辑类似，只是这里计算的是实际和估计的差值用来预估margin</li>
-<li>TimeoutInterval &#x3D; EstimatedRTT + 4 x DevRTT</li>
-</ul>
-<h3 id="快速重传机制"><a href="#快速重传机制" class="headerlink" title="快速重传机制"></a>快速重传机制</h3><ul>
-<li>如果receiver的ACK没有被Sender收到，sender超时后就会重发，receiver就会发送目前ACK序数最高的那个ACK，这没什么问题</li>
-<li>那如果，sender发送的segment没被receiver收到呢？receiver收到后续包的时候，就会持续接受并回传已经ACK的序数，sender端等到packet超时才会重新发送receive端需要的<br>那么等待sender超时，时间比较长。所以避免等待，<strong>当出现3次同样序号的ACK时，自动重发Seq序数最小的那个</strong>，避免长时间等待</li>
-</ul>
-<h1 id="Flow-control和Congestion-control"><a href="#Flow-control和Congestion-control" class="headerlink" title="Flow control和Congestion control"></a>Flow control和Congestion control</h1><h2 id="需要用到的Terms"><a href="#需要用到的Terms" class="headerlink" title="需要用到的Terms"></a>需要用到的Terms</h2><ul>
-<li>MSS：指代从APP层传下来的Data payload的大小</li>
-<li>MTU：指代包括IP header, TCP header的包大小</li>
-</ul>
-<h2 id="Flow-Control流控制"><a href="#Flow-Control流控制" class="headerlink" title="Flow Control流控制"></a>Flow Control流控制</h2><p>receiver调节sender端的机制，这样<strong>避免了sender挤爆receiver</strong>的情况</p>
-<ul>
-<li>receiver通过回传一个rwnd的大小，来反馈给sender端，告诉自己的目前空闲的buffer space</li>
-<li>sender就会根据rwnd的大小来控制自己未被ACK的包的窗口大小</li>
-</ul>
-<h3 id="Nagle-算法"><a href="#Nagle-算法" class="headerlink" title="Nagle 算法"></a>Nagle 算法</h3><p>解决的问题就是：如果Payload太小，包的头文件header比里面的内容还多，效率很低。具体的情景有SSH，比如这边敲一个字母，远端主机是不是也要接受一个字母的输入流？<br>算法的流程：</p>
-<ol>
-<li>发送端直接发送接收到的第一块数据，无论大小</li>
-<li>一直在发送端积累数据，直到以下两种情况发生<ol>
-<li>收到receiver端的ACK命令</li>
-<li>数据积累到了最大的segment size</li>
-</ol>
-</li>
-</ol>
-<h3 id="Silly-Window-Syndrome"><a href="#Silly-Window-Syndrome" class="headerlink" title="Silly Window Syndrome"></a>Silly Window Syndrome</h3><p>该现象的原因就是TCP发送端被迫发送非常小的packets，所以发送窗口的大小很silly。<br>具体来说：</p>
-<ul>
-<li>当发送端产生数据很慢的时候（类似上个问题的情景）</li>
-<li>Receiver处理数据太慢的时候，所以空闲的buffer size总是太小<br>解决方式就是receiver别发送会让sender发小数据的rwnd</li>
-</ul>
-<h2 id="Congestion-control"><a href="#Congestion-control" class="headerlink" title="Congestion control"></a>Congestion control</h2><p>和Flow Control不同，Congestion Control是为了<strong>避免网络的负担</strong>太重而产生传输问题<br>通过一个cwnd窗口来限制传输的速率</p>
-<h3 id="不同丢包原因有不同的处理方式"><a href="#不同丢包原因有不同的处理方式" class="headerlink" title="不同丢包原因有不同的处理方式"></a>不同丢包原因有不同的处理方式</h3><ul>
-<li><strong>超时</strong>导致的loss：cwnd直接设置为1MSS，重新开始slow start</li>
-<li>快速重传，发现<strong>3个相同的ACK</strong>：（TCP RENO）cwnd砍半后线性增长</li>
-<li>如果是TCP Tahoe，上面两种情境的处理方式都一样，总是使用重设1mSS+Slow start</li>
-</ul>
-<h3 id="Slow-Start机制"><a href="#Slow-Start机制" class="headerlink" title="Slow Start机制"></a>Slow Start机制</h3><p>当连接刚刚开始的时候，增长不是additive increase，而是指数级的，直到丢包发生。之后切换slowstart到congestion avoidance模式。什么时候切换？</p>
-<ul>
-<li>当传输大小达到ssthresh时。如果发生丢包，ssthresh被重设为之前cwnd的一半</li>
-</ul>
-<h3 id="TCP的congestion-control：慢增快减"><a href="#TCP的congestion-control：慢增快减" class="headerlink" title="TCP的congestion control：慢增快减"></a>TCP的congestion control：慢增快减</h3><p>具体的cwnd设置逻辑如下：</p>
-<ol>
-<li>设置cwnd的初始大小</li>
-<li>慢增：每个RTT增加1MSS的大小到cwnd，直到丢包发生</li>
-<li>快减：如果发生丢包，cwnd变为原来的一半</li>
-</ol>
-<h1 id="TCP连接的建立和结束"><a href="#TCP连接的建立和结束" class="headerlink" title="TCP连接的建立和结束"></a>TCP连接的建立和结束</h1><h2 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h2><ol>
-<li>Client: SYN</li>
-<li>Server SYN+ACK</li>
-<li>Client: ACK<br>两次握手最大的问题在于服务器不知道client对他的回应是什么。避免了半开的连接，一方认为连接存活一方认为连接失败。</li>
-</ol>
-<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><ol>
-<li>Client: FIN</li>
-<li>Server: ACK</li>
-<li>Server: ACK</li>
-<li>Client: FIN<br>服务器要把关于client的连接处理完毕后再结束，所以1+2和3+4之间有一定的server处理的延迟</li>
-</ol>
+<h1 id="rdns是什么">RDNS是什么</h1>
+<p>RDNS完成从IP地址到域名的映射，通过查询存储在DNS服务器中的PTR记录，来获取到IP地址对应的域名</p>
+<p>查询的过程中有几个和DNS查询不同的点 -
+反转IP地址（把192.168.0.1转换为1.0.168.192） - 在末尾添加 .in-addr.arpa
+因为PTR记录存储在DNS的.arpa顶级域中。.arpa是一个用来管理网络基础设施的域
+[^1]: Kurose, K. R. (2017). Computer networking: A top-down approach by
+james. _Kurose, Keith W. Ross. pp.84</p>
 ]]></content>
       <categories>
         <category>计算机基础</category>
@@ -197,161 +159,310 @@
   <entry>
     <title>Network Layer</title>
     <url>/2023/10/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Network%20Layer/</url>
-    <content><![CDATA[<h1 id="Network-layer的概述"><a href="#Network-layer的概述" class="headerlink" title="Network layer的概述"></a>Network layer的概述</h1><p>Network层的sender端将来自传输层的segment封装为datagrams，并执行从host到host的传输，receiver端再解包成segment给传输层。Network层的两大作用是<strong>Forwarding和Routing</strong><br><strong>Forwarding-转发</strong>： 将packets从router的输入送到正确的输出（如何通过当前Router），通常只需要几纳秒<br><strong>Routing-路由选择</strong>：决定packets要到达目标IP该走哪条route（如何到达目的地，要经过哪些Route），通常为几秒<br>Router作为负责这一层的协调者，会检查每一个通过它的datagram的IP地址</p>
-<h2 id="Data-Plane"><a href="#Data-Plane" class="headerlink" title="Data Plane"></a>Data Plane</h2><p>从功能上来说，是Forwarding 转发。不涉及路线规划，只负责根据datagram的目标IP传输到正确的输出端口中。<br>根据现有的路由表和datagram的IP地址来决定转发到哪个端口</p>
-<span id="more"></span><!-- more -->
-<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>功能上是Routing。控制datagram如何从A到B，但是不关注具体如何在每个节点的具体执行。该部分决定了路由表，路由表是转发功能的实施基础。<br>具体来说，有两种方式</p>
-<ul>
-<li>传统的路由算法，在Router内部实现</li>
-<li>SDN，通过远程server中实现的方式来进行</li>
-</ul>
-<h2 id="网络服务模型"><a href="#网络服务模型" class="headerlink" title="网络服务模型"></a>网络服务模型</h2><p>对于host2host的传输通道来说，往往会注重不同的特性。例如单个datagram的时延，flow型datagram的到达顺序，最小带宽等等。</p>
-<h1 id="Router内部是什么"><a href="#Router内部是什么" class="headerlink" title="Router内部是什么"></a>Router内部是什么</h1><h2 id="组成结构及其功能"><a href="#组成结构及其功能" class="headerlink" title="组成结构及其功能"></a>组成结构及其功能</h2><ul>
-<li>路由处理：control plane的软件，负责产出routing table给data plane</li>
-<li>高速switching fabric：硬件，完成input端口到output端口的查找和转发执行</li>
-<li>输入端口：<ul>
-<li>line termination：物理层，接受bit级别的输入</li>
-<li>link layer protocol：数据链路层的协议，主要是接受数据</li>
-<li>lookup forwarding queueing：在这里，路由器使用datagram中的header在路由表中查找具体的输出端口，排队等待路由器找到输出并发送。在这里forwarding会有两种方式<ol>
-<li>基于目标IP的forwarding，只根据目标IP来决定forwarding</li>
-<li>总体的forwarding：基于一组header中的值来决定输出端口</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Forwarding的核心原则：longest-prefix-matching"><a href="#Forwarding的核心原则：longest-prefix-matching" class="headerlink" title="Forwarding的核心原则：longest prefix matching"></a>Forwarding的核心原则：longest prefix matching</h2><p>最长前缀匹配原则：在路由表中根据IP查找输出端口号时，由路由表中已有的前缀匹配长度最长的那条决定。<br>一般在TCAM上使用，TCAM是一种超高速内存，可以在一个时钟内完成地址查找</p>
-<h2 id="Switching-fabrics-交换电路"><a href="#Switching-fabrics-交换电路" class="headerlink" title="Switching fabrics 交换电路"></a>Switching fabrics 交换电路</h2><p>从input buffer中，将packet发送到正确的output buffer中。是路由器中的核心组成部分，直接实现了路由器中的转发的动作<br>从类别来分：</p>
-<ul>
-<li>基于内存：packet被复制到router的内存中进行操作，完全由CPU进行的switching。速度取决于内存的读写带宽</li>
-<li>总线设计：从input到output只有一条共享的总线作为通道，所以速度取决于总线的带宽</li>
-<li>纵横式：避免了总线设计的带宽问题，每个input都直接连接output</li>
-</ul>
-<h3 id="输入延迟"><a href="#输入延迟" class="headerlink" title="输入延迟"></a>输入延迟</h3><p>input buffer和output buffer同时只能发送&#x2F;接受一个packet，所以会导致类似死锁的情况</p>
-<ul>
-<li>Head of the Line（HOL）阻挡延迟：假设两条输入 A和B，两条输出 C和D。现在A和B各有一个包想发送到C。由于C同时只能接受一个input，所以此时B就被卡住，需要等待A传完才可以传自己的。但其实B后面还有一个包是传给D的，其实就发现B本可以先传给D，而不需要等着目前被卡住的C的通道。</li>
-</ul>
-<h3 id="输出延迟"><a href="#输出延迟" class="headerlink" title="输出延迟"></a>输出延迟</h3><p>输出的网络传输速度比switching电路慢，所以也会排队，因此需要在buffer中等待。<br>输出可能会优先传输那些网络条件较好的packet<br>选择下一个传输的包的三种方法：</p>
-<ol>
-<li>FIFO队列</li>
-<li>优先队列，根据重要程度来排序</li>
-<li>Round robin，根据从哪个input来的来轮，可以调整权重来修改传输的优先级</li>
-</ol>
-<h1 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h1><p>网络层除了IP协议，还有Routing的协议（用于路径规划，RIP，OSPF，BGP），ICMP协议（报错，trace route）</p>
-<h2 id="datagram-format-数据包的格式"><a href="#datagram-format-数据包的格式" class="headerlink" title="datagram format-数据包的格式"></a>datagram format-数据包的格式</h2><p>header的结构如下：</p>
-<ul>
-<li>IP协议的版本</li>
-<li>header的长度</li>
-<li>数据的类型，描述了优先级</li>
-<li>datagram长度</li>
-<li>用于分包重组的字段<ul>
-<li>16 位identifier</li>
-<li>flags</li>
-<li>fragment offset</li>
-</ul>
-</li>
-<li>time to live：定义最大hop数</li>
-<li>上层的协议</li>
-<li>header的checksum</li>
-<li>32位 source IP</li>
-<li>32位 desti IP</li>
-<li>可选的其他内容</li>
-</ul>
-<h2 id="fragmentation"><a href="#fragmentation" class="headerlink" title="fragmentation"></a>fragmentation</h2><p>MTU：可以接受的最大的单包大小<br>IP的datagram会在网内被分为几个fragment，大datagram被分为几个小的datagram方便传输。在dest被合成为原始大小</p>
-<h2 id="IPv4地址"><a href="#IPv4地址" class="headerlink" title="IPv4地址"></a>IPv4地址</h2><h3 id="IPv4的三种表示方式："><a href="#IPv4的三种表示方式：" class="headerlink" title="IPv4的三种表示方式："></a>IPv4的三种表示方式：</h3><ul>
-<li>二进制<br>  00000000 00000000 00000000 00000000</li>
-<li>小数点+十进制（最常见的）<br>  192.169.0.1</li>
-<li>16进制（每位表示4bits）<br>  4a 3b 11 00</li>
-</ul>
-<h3 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h3><ul>
-<li>Interface：host&#x2F;router和物理link间的连接，例如Switch和Wi-Fi基站。指代的是形成一个子网的，一个网段的IP地址。</li>
-</ul>
-<h2 id="子网"><a href="#子网" class="headerlink" title="子网"></a>子网</h2><p>相互独立的网络叫做子网，子网内部的设备可以相互直接连接，<br>IP地址的一部分用来表示该IP的从属关系。从子网划分的角度来看，IP地址有两个部分：</p>
-<ol>
-<li>前半部分（subnet part）是用于表示当前IP所属的网络的编号，同一子网内具有相同的网络段</li>
-<li>后半部分（host part）用于表示IP在子网内部的编号。</li>
-</ol>
-<h3 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h3><p>这些网段不会作为实际的IP，互联网IP的保留字。因为它们被用在了不能被外部网络访问的内网中</p>
+    <content><![CDATA[<h1 id="network-layer的概述">Network layer的概述</h1>
+<p>Network层的sender端将来自传输层的segment封装为datagrams，并执行从host到host的传输，receiver端再解包成segment给传输层。Network层的两大作用是<strong>Forwarding和Routing</strong>
+<strong>Forwarding-转发</strong>：
+将packets从router的输入送到正确的输出（如何通过当前Router），通常只需要几纳秒
+<strong>Routing-路由选择</strong>：决定packets要到达目标IP该走哪条route（如何到达目的地，要经过哪些Route），通常为几秒
+Router作为负责这一层的协调者，会检查每一个通过它的datagram的IP地址 ##
+Data Plane 从功能上来说，是Forwarding
+转发。不涉及路线规划，只负责根据datagram的目标IP传输到正确的输出端口中。
+根据现有的路由表和datagram的IP地址来决定转发到哪个端口
+<span id="more"></span><!-- more --> ## Control Plane
+功能上是Routing。控制datagram如何从A到B，但是不关注具体如何在每个节点的具体执行。该部分决定了路由表，路由表是转发功能的实施基础。
+具体来说，有两种方式 - 传统的路由算法，在Router内部实现 -
+SDN，通过远程server中实现的方式来进行</p>
+<h2 id="网络服务模型">网络服务模型</h2>
+<p>对于host2host的传输通道来说，往往会注重不同的特性。例如单个datagram的时延，flow型datagram的到达顺序，最小带宽等等。
+# Router内部是什么 ## 组成结构及其功能 - 路由处理：control
+plane的软件，负责产出routing table给data plane - 高速switching
+fabric：硬件，完成input端口到output端口的查找和转发执行 - 输入端口： -
+line termination：物理层，接受bit级别的输入 - link layer
+protocol：数据链路层的协议，主要是接受数据 - lookup forwarding
+queueing：在这里，路由器使用datagram中的header在路由表中查找具体的输出端口，排队等待路由器找到输出并发送。在这里forwarding会有两种方式
+1. 基于目标IP的forwarding，只根据目标IP来决定forwarding 2.
+总体的forwarding：基于一组header中的值来决定输出端口 ##
+Forwarding的核心原则：longest prefix matching
+最长前缀匹配原则：在路由表中根据IP查找输出端口号时，由路由表中已有的前缀匹配长度最长的那条决定。
+一般在TCAM上使用，TCAM是一种超高速内存，可以在一个时钟内完成地址查找 ##
+Switching fabrics 交换电路 从input buffer中，将packet发送到正确的output
+buffer中。是路由器中的核心组成部分，直接实现了路由器中的转发的动作
+从类别来分： -
+基于内存：packet被复制到router的内存中进行操作，完全由CPU进行的switching。速度取决于内存的读写带宽
+-
+总线设计：从input到output只有一条共享的总线作为通道，所以速度取决于总线的带宽
+- 纵横式：避免了总线设计的带宽问题，每个input都直接连接output ###
+输入延迟 input buffer和output
+buffer同时只能发送/接受一个packet，所以会导致类似死锁的情况 - Head of
+the Line（HOL）阻挡延迟：假设两条输入 A和B，两条输出
+C和D。现在A和B各有一个包想发送到C。由于C同时只能接受一个input，所以此时B就被卡住，需要等待A传完才可以传自己的。但其实B后面还有一个包是传给D的，其实就发现B本可以先传给D，而不需要等着目前被卡住的C的通道。</p>
+<h3 id="输出延迟">输出延迟</h3>
+<p>输出的网络传输速度比switching电路慢，所以也会排队，因此需要在buffer中等待。
+输出可能会优先传输那些网络条件较好的packet
+选择下一个传输的包的三种方法： 1. FIFO队列 2.
+优先队列，根据重要程度来排序 3. Round
+robin，根据从哪个input来的来轮，可以调整权重来修改传输的优先级</p>
+<h1 id="ip协议">IP协议</h1>
+<p>网络层除了IP协议，还有Routing的协议（用于路径规划，RIP，OSPF，BGP），ICMP协议（报错，trace
+route） ## datagram format-数据包的格式 header的结构如下： -
+IP协议的版本 - header的长度 - 数据的类型，描述了优先级 - datagram长度 -
+用于分包重组的字段 - 16 位identifier - flags - fragment offset - time to
+live：定义最大hop数 - 上层的协议 - header的checksum - 32位 source IP -
+32位 desti IP - 可选的其他内容 ## fragmentation
+MTU：可以接受的最大的单包大小
+IP的datagram会在网内被分为几个fragment，大datagram被分为几个小的datagram方便传输。在dest被合成为原始大小
+## IPv4地址 ### IPv4的三种表示方式： - 二进制 00000000 00000000 00000000
+00000000 - 小数点+十进制（最常见的） 192.169.0.1 -
+16进制（每位表示4bits） 4a 3b 11 00 ### IP 地址 -
+Interface：host/router和物理link间的连接，例如Switch和Wi-Fi基站。指代的是形成一个子网的，一个网段的IP地址。</p>
+<h2 id="子网">子网</h2>
+<p>相互独立的网络叫做子网，子网内部的设备可以相互直接连接，
+IP地址的一部分用来表示该IP的从属关系。从子网划分的角度来看，IP地址有两个部分：
+1. 前半部分（subnet
+part）是用于表示当前IP所属的网络的编号，同一子网内具有相同的网络段 2.
+后半部分（host part）用于表示IP在子网内部的编号。 ### 局域网
+这些网段不会作为实际的IP，互联网IP的保留字。因为它们被用在了不能被外部网络访问的内网中</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Class</th>
 <th>Netids</th>
 <th>Blocks</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>A</td>
 <td>10.0.0</td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="even">
 <td>B</td>
 <td>172.16-172.31</td>
 <td>16</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>C</td>
 <td>192.168.0-192.168.255</td>
 <td>256</td>
 </tr>
-</tbody></table>
-<h3 id="子网掩码（地址分配策略Classless-Inlerdomain-Routing—CIDR）"><a href="#子网掩码（地址分配策略Classless-Inlerdomain-Routing—CIDR）" class="headerlink" title="子网掩码（地址分配策略Classless Inlerdomain Routing—CIDR）"></a>子网掩码（地址分配策略Classless Inlerdomain Routing—CIDR）</h3><p>&#x2F;24 就是子网掩码的一种写法，意思是有24个bit的IP地址用来作为subnet id，剩下了（32-24）bits作为host id<br>额外：Fly By Night ISP，ISP会宣称并接收所有对应其subnet id段的信息，即使它有一些subnets做为附属，这些信息在它内部按照相同的逻辑被转发给对应的subnet。这个使用一个subnet id（ISP的）来对应多个subnets（附属的）过程，就叫做路由聚合。</p>
-<h3 id="VLSM（变长的子网掩码）"><a href="#VLSM（变长的子网掩码）" class="headerlink" title="VLSM（变长的子网掩码）"></a>VLSM（变长的子网掩码）</h3><p>一个大网段，例如192.168.1.0&#x2F;24对应三个子网，这三个子网分别具有20、20、50个hosts，三个路由器相互连接。所以他们应该具备不同的subnet mask的层级<br>先从大的开始：</p>
+</tbody>
+</table>
+<h3
+id="子网掩码地址分配策略classless-inlerdomain-routingcidr">子网掩码（地址分配策略Classless
+Inlerdomain Routing—CIDR）</h3>
+<p>/24 就是子网掩码的一种写法，意思是有24个bit的IP地址用来作为subnet
+id，剩下了（32-24）bits作为host id 额外：Fly By Night
+ISP，ISP会宣称并接收所有对应其subnet
+id段的信息，即使它有一些subnets做为附属，这些信息在它内部按照相同的逻辑被转发给对应的subnet。这个使用一个subnet
+id（ISP的）来对应多个subnets（附属的）过程，就叫做路由聚合。</p>
+<h3 id="vlsm变长的子网掩码">VLSM（变长的子网掩码）</h3>
+<p>一个大网段，例如192.168.1.0/24对应三个子网，这三个子网分别具有20、20、50个hosts，三个路由器相互连接。所以他们应该具备不同的subnet
+mask的层级 先从大的开始： - 50 host：至少有6个bits要作为host id =&gt;
+192.168.1.0/26 - 20 host：至少有5个bits的host id =&gt; 192.168.1.64/27 -
+20 host：至少有5个bits的host id =&gt; 192.168.1.96/27 - 3
+host（给interface的，也就是链接子网的路由器的线路）：192.168.1.128/30</p>
+<h3 id="dhcp-动态主机配置协议">DHCP 动态主机配置协议</h3>
+<p>刚刚解决了每个subnet是如何一块一块的分配IP地址的，但是这些IP地址仍未被下发到具体的host上。DHCP解决的就是这个问题，给一个刚刚加入这个网络的设备动态的分配一个IP地址。
+DHCP主要有四个步骤 1. host发出寻找DHCP的信息 2. DHCP回应一个DHCP
+offer（带着IP地址，这里也叫Yiaddrr） 3. host请求IP地址，发送DHCP request
+4. DHCP服务器发送 DHCP ack DHCP不仅会返回分配的IP地址，它还 -
+给host发送first hop的router地址 - DNS 服务器的name 和IP - 子网掩码 ##
+Network address translation（NAT）
+这项技术的诞生背景就是IPv4地址已经要被用光了，这项技术可以将一个公网IP给多个Host用
+一个公网IP：111.111.1.1，被Router映射到局域网内的多个设备。但是端口号还是一对一的，也就是111.111.1.1的80端口只会对应一个设备，对应关系由Router来管理。
+NAT的三个部分： 1. Router将外送的IP和端口号替换为公网的IP和端口号 2.
+记录NAT的端口对应关系 3. 对进入内网的datagram的source IP和port进行替换
+## IPv6 和NAT的动机一样，32位的IPv4快用光了。 IPv6的地址有40
+byte定长的header，并且禁止了fragmentation 分片 除此之外，IPv6还有 -
+去掉了checksum，减少每个hop的处理时间 - options和Next header段合并了 -
+ICMPv6: 新版本的ICMP，支持了新的message type（Msg too big）和组管理</p>
+<h3 id="ipv6和ipv4的兼容">IPv6和IPv4的兼容</h3>
+<p>由于不是所有Router都支持IPv6的新协议，所以要确保IPv4和IPv6可以在网络内同时存在。
+解决方案就是：tunneling 当知道下一个Hop是IPv4
+Router时，IPv6的datagram作为IPv4的payload，确保IPv4 Router也可以处理 #
+浅述 Forward和SDN SDN是什么？ 是一种Routing的算法，也就是Control
+plane的控制算法。 传统的Routing方法： - 使用forwarding
+table结合longest-prefix 匹配来进行forwarding - control
+plane单机内计算forwarding table - forwarding
+table只根据packets的IP来给出forward 方向 SDN： - 可编程的Routing算法 -
+可以用packet header中的所有字段来帮助forwarding的决策 -
+基于Match+action（flow table）的匹配规则 - 中心化的控制方式</p>
+<p>得益于Match+Action的结构，Router实现的功能更丰富了，例如防火墙和NAT都可以在Router内通过规则的设定实现。
+## OpenFlow的例子（包括match+action）
+这是一种具体的SDN协议，具体有以下几个逻辑 -
+Pattern：match到符合这个pattern规定的packet -
+Actions：各类型的操作，比如丢弃，forward，修改都可以 -
+Priority：避免同样pattern引发的混淆 - Counters：记录处理的Bytes</p>
+<p>Flow Table里记录了三个主要部分 1. Rule 匹配规则 2. Action 进行的处理
+3. Stats 统计Packet+byte counters</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Transport Layer</title>
+    <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/Transport%20Layer/</url>
+    <content><![CDATA[<p>hexo 部署测试，内容不保证准确
+给终端上的<strong>APP进程</strong>提供logical communication。
+发送端负责将APP的数据分成segments，向下传递到network层。接收端则是将受到的sements重新组合为原始信息，向上递给app层</p>
+<p>network层不像transport细分到process，network负责host到host</p>
+<p>不论TCP还是UDP<strong>都不能保证延迟和带宽</strong> <span id="more"></span> #
+multiplexing和demultiplexing ## 详细内容 ### multiplexing
+把几个stream/socket合并到一个stream中，例如email，web
+app的流量都被合并到一个stream中传输。 ### demultiplexing
+接收端根据header中包含的信息（端口号），拼接成stream后分到不同的stream和socket中
+### Connectionless demultiplexing
+类似UDP这样的协议是Connectionless的，也就是没有end to
+end的1对1的socket对，完成demultiplexing的过程也是通过port
+number完成的。和TCP的区别就在于就在于UDP传输都是由一个socket完成的。</p>
+<h2
+id="tcp和udp在mux和demux的区别到底是什么">TCP和UDP在mux和demux的区别到底是什么？</h2>
+<p>TCP通过以下四个属性来建立socket对，只要有一个不一样都是新的socket对 -
+source IP - source port - destination IP - destination port
+也就是说同一个Host（IP）的两个不同进程（port），发到同样的目标IP和port，也会在目标host上创建两个socket和本地host的两个socket相互对应，共4个socket</p>
+<p>UDP则只通过两个属性来判断 - destination IP - destination port
+在上面的情境中，本地和目标host都只会各自拥有一个socket来完成传输，共两个socket</p>
+<h2 id="常用的端口号">常用的端口号</h2>
+<p>没有规则，事实上咋用都行 - 80：HTTP，web app - 22：SSH，ssh连接 -
+25：SMTP，发送邮件 - 143：IMAP，阅读邮件 - 443：HTTPS：HTTP+SSL</p>
+<h1 id="udp">UDP</h1>
+<h2 id="概览">概览</h2>
+<p>是一种简单的传输层协议，缺点就是会丢包，包不按顺序 <strong>Key
+term-Connectionless：</strong> - host间没有握手的过程，说发就发 -
+每个UDP的packet间都是独立的 适用的场景： -
+流传输（注重速率，而可以忍受一定的丢包） - DNS（域名服务） - SNMP -
+大部分线上游戏
+当然，也可以在App层添加一些增加可靠性的手段，来提升UDP的可用性</p>
+<h2 id="udp包的结构">UDP包的结构</h2>
+<h3
+id="header部分记录了描述这个包和传输信息的metadata">header部分（记录了描述这个包和传输信息的metadata）</h3>
 <ul>
-<li>50 host：至少有6个bits要作为host id  &#x3D;&gt; 192.168.1.0&#x2F;26</li>
-<li>20 host：至少有5个bits的host id &#x3D;&gt; 192.168.1.64&#x2F;27</li>
-<li>20 host：至少有5个bits的host id &#x3D;&gt; 192.168.1.96&#x2F;27</li>
-<li>3 host（给interface的，也就是链接子网的路由器的线路）：192.168.1.128&#x2F;30</li>
+<li>source port：发送端的port</li>
+<li>destination port：接收端的port</li>
+<li>length：记录了该segment的bytes数</li>
+<li>checksum：用于校验该segment是否在传输中发生了bit filp ###
+payload部分 app层的数据</li>
 </ul>
-<h3 id="DHCP-动态主机配置协议"><a href="#DHCP-动态主机配置协议" class="headerlink" title="DHCP 动态主机配置协议"></a>DHCP 动态主机配置协议</h3><p>刚刚解决了每个subnet是如何一块一块的分配IP地址的，但是这些IP地址仍未被下发到具体的host上。DHCP解决的就是这个问题，给一个刚刚加入这个网络的设备动态的分配一个IP地址。<br>DHCP主要有四个步骤</p>
-<ol>
-<li>host发出寻找DHCP的信息</li>
-<li>DHCP回应一个DHCP offer（带着IP地址，这里也叫Yiaddrr）</li>
-<li>host请求IP地址，发送DHCP request</li>
-<li>DHCP服务器发送 DHCP ack<br>DHCP不仅会返回分配的IP地址，它还</li>
+<h3
+id="udp包外层的结构-header套header">UDP包外层的结构-header套header</h3>
+<p>MAC header（IP header（UDP header（数据））） # TCP ##
+TCP的基础-&gt;Pipelined protocol
+由于发送端允许多个包同时在传输途中，而不需要ACK。所以需要处理多个包的seq
+num来完成对管道的模拟，主要是两种方式</p>
+<ul>
+<li>利用率：用来描述发送端发送数据占单次发送的总时长
+<ul>
+<li>发送时长/（RTT+发送时长） ### Go-back-N</li>
+</ul></li>
+<li>发送端可以同时有N个未被ACK的packets在pipeline中</li>
+<li>接收端只回复具有连续性的ACK，存在gap则不发送后续包的ACK，而是发送最新的ACK</li>
+<li>发送端只给最老的，未被ack的包计时。如果时间过期，则重新发送所有未被ACK的包
+滑动窗口，ACK决定了发送端窗口的左指针的位置，右指针 = 左指针+N
+由于接收端发送ACK具有连续性，因此发送端接收到ACK后就可以直接移动左指针，而不需要确保发送端收到的ACK的连续性。
+### Selective repeat</li>
+<li>发送端可以有最多N个未被ACK的包在pipeline中</li>
+<li>接收端对于每个包的ACK是单独发送的</li>
+<li>发送端给每个packet进行单独的ACK计时，单独发送超时的包。发送后重新计时
+这个方式的问题是要注意序号轮转的周期和滑动窗口的大小。避免方式是轮转周期数&gt;=2x滑动窗口大小</li>
+</ul>
+<h2 id="tcp特性概览">TCP特性概览</h2>
+<ul>
+<li>点对点的连接，socket对</li>
+<li>可靠的，有序的byte stream</li>
+<li>管道化的结构，通过congestion和flow control完成window size的管理</li>
+<li>双向连接，发送和接受在同一个管道中</li>
+<li>MSS：最大segment size</li>
+<li>连接状态：连接开始时需要进行握手</li>
+<li>flow control：发送端要避免撑爆接收端 ## TCP的header</li>
+<li>Source port</li>
+<li>Destination port</li>
+<li>Seq Num:表示当前segment中第一个byte在全部stream中的序数</li>
+<li>ACK Num：期望对方发送的下一个byte在对方的相对位置</li>
+<li>length</li>
+<li>receive window</li>
+<li>checksum bit data，只有一位表示是否为该状态</li>
+<li>urgent data?</li>
+<li>push data now?</li>
+<li>RST</li>
+<li>SYN</li>
+<li>FIN ##
+TCP的Timer（结合了GBN和SR，发送端是计时最老packet的SR，接收端回传ACK的规则是GBN）
+TCP中的超时时间很重要，这决定了传输是否高效，如何科学的给timer设定时间呢？
+设定时间的时候需要遵守以下原则：</li>
+<li>要比RTT长一点，但不能长太多：留冗余，同时避免过长的等待时间导致效率低下
+那么如何估计RTT呢？</li>
+<li>Sample RTT：从传输中取样，忽略重传这类特殊情况
+但是，SampleRTT有时候会面临剧烈的波动，所以还需要继续调整 Estimate RTT =
+(1-a)xEstimatedRTT + a x sampleRTT
+这里很像学习率的概念，保留旧有的趋势，同时加上新的变动</li>
+<li>JK算法：Estimated RTT还不够，再加上一个safety
+margin才有真正的实用价值，这里就解决了Safty margin的计算</li>
+<li>DevRTT = （1-b）x DevRTT + b x |sampleRTT-EstimatedRTT|</li>
+<li>和Estimate的逻辑类似，只是这里计算的是实际和估计的差值用来预估margin</li>
+<li>TimeoutInterval = EstimatedRTT + 4 x DevRTT</li>
+</ul>
+<h3 id="快速重传机制">快速重传机制</h3>
+<ul>
+<li>如果receiver的ACK没有被Sender收到，sender超时后就会重发，receiver就会发送目前ACK序数最高的那个ACK，这没什么问题</li>
+<li>那如果，sender发送的segment没被receiver收到呢？receiver收到后续包的时候，就会持续接受并回传已经ACK的序数，sender端等到packet超时才会重新发送receive端需要的
+那么等待sender超时，时间比较长。所以避免等待，<strong>当出现3次同样序号的ACK时，自动重发Seq序数最小的那个</strong>，避免长时间等待</li>
+</ul>
+<h1 id="flow-control和congestion-control">Flow control和Congestion
+control</h1>
+<h2 id="需要用到的terms">需要用到的Terms</h2>
+<ul>
+<li>MSS：指代从APP层传下来的Data payload的大小</li>
+<li>MTU：指代包括IP header, TCP header的包大小 ## Flow Control流控制
+receiver调节sender端的机制，这样<strong>避免了sender挤爆receiver</strong>的情况</li>
+<li>receiver通过回传一个rwnd的大小，来反馈给sender端，告诉自己的目前空闲的buffer
+space</li>
+<li>sender就会根据rwnd的大小来控制自己未被ACK的包的窗口大小</li>
+</ul>
+<h3 id="nagle-算法">Nagle 算法</h3>
+<p>解决的问题就是：如果Payload太小，包的头文件header比里面的内容还多，效率很低。具体的情景有SSH，比如这边敲一个字母，远端主机是不是也要接受一个字母的输入流？
+算法的流程： 1. 发送端直接发送接收到的第一块数据，无论大小 2.
+一直在发送端积累数据，直到以下两种情况发生 1. 收到receiver端的ACK命令 2.
+数据积累到了最大的segment size</p>
+<h3 id="silly-window-syndrome">Silly Window Syndrome</h3>
+<p>该现象的原因就是TCP发送端被迫发送非常小的packets，所以发送窗口的大小很silly。
+具体来说： - 当发送端产生数据很慢的时候（类似上个问题的情景） -
+Receiver处理数据太慢的时候，所以空闲的buffer size总是太小
+解决方式就是receiver别发送会让sender发小数据的rwnd</p>
+<h2 id="congestion-control">Congestion control</h2>
+<p>和Flow Control不同，Congestion
+Control是为了<strong>避免网络的负担</strong>太重而产生传输问题
+通过一个cwnd窗口来限制传输的速率 ### 不同丢包原因有不同的处理方式 -
+<strong>超时</strong>导致的loss：cwnd直接设置为1MSS，重新开始slow start
+- 快速重传，发现<strong>3个相同的ACK</strong>：（TCP
+RENO）cwnd砍半后线性增长 - 如果是TCP
+Tahoe，上面两种情境的处理方式都一样，总是使用重设1mSS+Slow start ###
+Slow Start机制 当连接刚刚开始的时候，增长不是additive
+increase，而是指数级的，直到丢包发生。之后切换slowstart到congestion
+avoidance模式。什么时候切换？ -
+当传输大小达到ssthresh时。如果发生丢包，ssthresh被重设为之前cwnd的一半</p>
+<h3 id="tcp的congestion-control慢增快减">TCP的congestion
+control：慢增快减</h3>
+<p>具体的cwnd设置逻辑如下： 1. 设置cwnd的初始大小 2.
+慢增：每个RTT增加1MSS的大小到cwnd，直到丢包发生 3.
+快减：如果发生丢包，cwnd变为原来的一半</p>
+<h1 id="tcp连接的建立和结束">TCP连接的建立和结束</h1>
+<h2 id="建立">建立</h2>
+<ol type="1">
+<li>Client: SYN</li>
+<li>Server SYN+ACK</li>
+<li>Client: ACK
+两次握手最大的问题在于服务器不知道client对他的回应是什么。避免了半开的连接，一方认为连接存活一方认为连接失败。</li>
 </ol>
-<ul>
-<li>给host发送first hop的router地址</li>
-<li>DNS 服务器的name 和IP</li>
-<li>子网掩码</li>
-</ul>
-<h2 id="Network-address-translation（NAT）"><a href="#Network-address-translation（NAT）" class="headerlink" title="Network address translation（NAT）"></a>Network address translation（NAT）</h2><p>这项技术的诞生背景就是IPv4地址已经要被用光了，这项技术可以将一个公网IP给多个Host用<br>一个公网IP：111.111.1.1，被Router映射到局域网内的多个设备。但是端口号还是一对一的，也就是111.111.1.1的80端口只会对应一个设备，对应关系由Router来管理。<br>NAT的三个部分：</p>
-<ol>
-<li>Router将外送的IP和端口号替换为公网的IP和端口号</li>
-<li>记录NAT的端口对应关系</li>
-<li>对进入内网的datagram的source IP和port进行替换</li>
-</ol>
-<h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><p>和NAT的动机一样，32位的IPv4快用光了。<br>IPv6的地址有40 byte定长的header，并且禁止了fragmentation 分片<br>除此之外，IPv6还有</p>
-<ul>
-<li>去掉了checksum，减少每个hop的处理时间</li>
-<li>options和Next header段合并了</li>
-<li>ICMPv6: 新版本的ICMP，支持了新的message type（Msg too big）和组管理</li>
-</ul>
-<h3 id="IPv6和IPv4的兼容"><a href="#IPv6和IPv4的兼容" class="headerlink" title="IPv6和IPv4的兼容"></a>IPv6和IPv4的兼容</h3><p>由于不是所有Router都支持IPv6的新协议，所以要确保IPv4和IPv6可以在网络内同时存在。<br>解决方案就是：tunneling<br>当知道下一个Hop是IPv4 Router时，IPv6的datagram作为IPv4的payload，确保IPv4 Router也可以处理</p>
-<h1 id="浅述-Forward和SDN"><a href="#浅述-Forward和SDN" class="headerlink" title="浅述 Forward和SDN"></a>浅述 Forward和SDN</h1><p>SDN是什么？<br>是一种Routing的算法，也就是Control plane的控制算法。<br>传统的Routing方法：</p>
-<ul>
-<li>使用forwarding table结合longest-prefix 匹配来进行forwarding</li>
-<li>control plane单机内计算forwarding table</li>
-<li>forwarding table只根据packets的IP来给出forward 方向<br>SDN：</li>
-<li>可编程的Routing算法</li>
-<li>可以用packet header中的所有字段来帮助forwarding的决策</li>
-<li>基于Match+action（flow table）的匹配规则</li>
-<li>中心化的控制方式</li>
-</ul>
-<p>得益于Match+Action的结构，Router实现的功能更丰富了，例如防火墙和NAT都可以在Router内通过规则的设定实现。</p>
-<h2 id="OpenFlow的例子（包括match-action）"><a href="#OpenFlow的例子（包括match-action）" class="headerlink" title="OpenFlow的例子（包括match+action）"></a>OpenFlow的例子（包括match+action）</h2><p>这是一种具体的SDN协议，具体有以下几个逻辑</p>
-<ul>
-<li>Pattern：match到符合这个pattern规定的packet</li>
-<li>Actions：各类型的操作，比如丢弃，forward，修改都可以</li>
-<li>Priority：避免同样pattern引发的混淆</li>
-<li>Counters：记录处理的Bytes</li>
-</ul>
-<p>Flow Table里记录了三个主要部分</p>
-<ol>
-<li>Rule 匹配规则</li>
-<li>Action 进行的处理</li>
-<li>Stats 统计Packet+byte counters</li>
+<h2 id="结束">结束</h2>
+<ol type="1">
+<li>Client: FIN</li>
+<li>Server: ACK</li>
+<li>Server: ACK</li>
+<li>Client: FIN
+服务器要把关于client的连接处理完毕后再结束，所以1+2和3+4之间有一定的server处理的延迟</li>
 </ol>
 ]]></content>
       <categories>
@@ -362,79 +473,71 @@
   <entry>
     <title>互联网协议基本概念</title>
     <url>/2023/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<p>hexo 部署测试，内容不保证准确</p>
-<h1 id="互联网的概念"><a href="#互联网的概念" class="headerlink" title="互联网的概念"></a>互联网的概念</h1><h2 id="什么是互联网？"><a href="#什么是互联网？" class="headerlink" title="什么是互联网？"></a>什么是互联网？</h2><h3 id="会用到的Terms"><a href="#会用到的Terms" class="headerlink" title="会用到的Terms"></a>会用到的Terms</h3><ul>
-<li>hosts&#x3D;end systems 终端设备，手机，电脑，车</li>
-<li>Communication links，例如光缆，电磁波，卫星</li>
-<li>Packet switches&#x3D;路由器、交换机，转发，分发数据包</li>
-</ul>
-<h3 id="互联网是Network-of-networks"><a href="#互联网是Network-of-networks" class="headerlink" title="互联网是Network of networks"></a>互联网是Network of networks</h3><p>构成互联网传输规则的两个部分：</p>
-<ul>
-<li>Protocols：协议定义了数据的发送，接受的过程</li>
-<li>Standards：标准，例如RFC，IETF这类标准<span id="more"></span></li>
-</ul>
-<h2 id="Network-Edge和Network-core"><a href="#Network-Edge和Network-core" class="headerlink" title="Network Edge和Network core"></a>Network Edge和Network core</h2><p>这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。<br>Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
+    <content><![CDATA[<p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
+会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
+Communication links，例如光缆，电磁波，卫星 - Packet
+switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
+networks 构成互联网传输规则的两个部分： -
+Protocols：协议定义了数据的发送，接受的过程 -
+Standards：标准，例如RFC，IETF这类标准 <span id="more"></span> ## Network
+Edge和Network core
+这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。
+Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
 <p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
-<h2 id="互联网的目的：数据传输"><a href="#互联网的目的：数据传输" class="headerlink" title="互联网的目的：数据传输"></a>互联网的目的：数据传输</h2><h3 id="数据包-packets"><a href="#数据包-packets" class="headerlink" title="数据包 packets"></a>数据包 packets</h3><ul>
-<li>这是数据在网络上传输的最小单元</li>
-<li>8 bits &#x3D; 1 Bytes，位和字节用来描述Packets的大小。</li>
-</ul>
-<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p>指代传输的速率，单位就是B&#x2F;s，b&#x2F;s，注意区分</p>
-<h3 id="物理的介质"><a href="#物理的介质" class="headerlink" title="物理的介质"></a>物理的介质</h3><p>网络的传输有众多介质，例如</p>
+<h2 id="互联网的目的数据传输">互联网的目的：数据传输</h2>
+<h3 id="数据包-packets">数据包 packets</h3>
 <ul>
+<li>这是数据在网络上传输的最小单元</li>
+<li>8 bits = 1 Bytes，位和字节用来描述Packets的大小。 ### 带宽
+指代传输的速率，单位就是B/s，b/s，注意区分 ### 物理的介质
+网络的传输有众多介质，例如</li>
 <li>以太网线缆</li>
 <li>光纤</li>
 <li>WIFI</li>
 <li>移动通信技术</li>
 <li>卫星通信</li>
 </ul>
-<h2 id="Network-core"><a href="#Network-core" class="headerlink" title="Network core"></a>Network core</h2><p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）</p>
-<h3 id="Router间传输的过程"><a href="#Router间传输的过程" class="headerlink" title="Router间传输的过程"></a>Router间传输的过程</h3><ol>
-<li>在transportation层被分成packets，发送给第一个Router</li>
-<li>第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送</li>
-<li>重复2，直到到达目的地</li>
-</ol>
-<h3 id="Network-core的两大主要功能"><a href="#Network-core的两大主要功能" class="headerlink" title="Network core的两大主要功能"></a>Network core的两大主要功能</h3><ul>
-<li>Routing：根据目的地决定packets的传输路线</li>
-<li>Forwarding：将packets从input发送到正确的output router去</li>
+<h2 id="network-core">Network core</h2>
+<p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）
+### Router间传输的过程 1.
+在transportation层被分成packets，发送给第一个Router 2.
+第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送 3.
+重复2，直到到达目的地 ### Network core的两大主要功能 -
+Routing：根据目的地决定packets的传输路线 -
+Forwarding：将packets从input发送到正确的output router去</p>
+<h3 id="网络核心的生态">网络核心的生态</h3>
+<ul>
+<li>Tier
+1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
+<li>Regional
+ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
+<li>access
+ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
+<li>content
+provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
+<li>content distribution
+networks（CDN），将互联网的内容向用户端推进</li>
 </ul>
-<h3 id="网络核心的生态"><a href="#网络核心的生态" class="headerlink" title="网络核心的生态"></a>网络核心的生态</h3><ul>
-<li>Tier 1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
-<li>Regional ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
-<li>access ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
-<li>content provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
-<li>content distribution networks（CDN），将互联网的内容向用户端推进</li>
-</ul>
-<h2 id="延迟、丢包和传输瓶颈"><a href="#延迟、丢包和传输瓶颈" class="headerlink" title="延迟、丢包和传输瓶颈"></a>延迟、丢包和传输瓶颈</h2><h3 id="丢包"><a href="#丢包" class="headerlink" title="丢包"></a>丢包</h3><p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失</p>
-<h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h3><ol>
-<li>对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）</li>
-<li>排队等待Router进行发送（由路由器的拥挤程度决定）</li>
-<li>发送带宽（L&#x2F;R，将Buffer中的数据发送到链路中）</li>
-<li>光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d&#x2F;s）</li>
-</ol>
-<h3 id="传输速率"><a href="#传输速率" class="headerlink" title="传输速率"></a>传输速率</h3><p>取决于传输过程中速率最低的那个环节</p>
-<h1 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h1><p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的</p>
-<h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><ul>
-<li>Application</li>
-<li>Presentation</li>
-<li>Session</li>
-<li>Transport</li>
-<li>Network</li>
-<li>Data link</li>
-<li>Physical</li>
-</ul>
-<h2 id="TCP-IP5层模型及其对应的协议"><a href="#TCP-IP5层模型及其对应的协议" class="headerlink" title="TCP&#x2F;IP5层模型及其对应的协议"></a>TCP&#x2F;IP5层模型及其对应的协议</h2><ul>
-<li>Application：HTTP，SMTP</li>
-<li>Transport</li>
-<li>Network</li>
-<li>Data link</li>
-<li>Physical</li>
-</ul>
-<h2 id="各层对应的地址规格"><a href="#各层对应的地址规格" class="headerlink" title="各层对应的地址规格"></a>各层对应的地址规格</h2><ul>
-<li>link层&#x3D;mac地址</li>
-<li>Logical address layer 3&#x3D;IPV4和IPV6地址</li>
-<li>Port address&#x3D;layer 4 端口号</li>
-<li>Application &#x3D; URL</li>
+<h2 id="延迟丢包和传输瓶颈">延迟、丢包和传输瓶颈</h2>
+<h3 id="丢包">丢包</h3>
+<p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失
+### 延迟 1.
+对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）
+2. 排队等待Router进行发送（由路由器的拥挤程度决定） 3.
+发送带宽（L/R，将Buffer中的数据发送到链路中） 4.
+光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d/s） ###
+传输速率 取决于传输过程中速率最低的那个环节</p>
+<h1 id="分层模型">分层模型</h1>
+<p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的
+## OSI七层模型 - Application - Presentation - Session - Transport -
+Network - Data link - Physical ## TCP/IP5层模型及其对应的协议 -
+Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
+<h2 id="各层对应的地址规格">各层对应的地址规格</h2>
+<ul>
+<li>link层=mac地址</li>
+<li>Logical address layer 3=IPV4和IPV6地址</li>
+<li>Port address=layer 4 端口号</li>
+<li>Application = URL</li>
 </ul>
 ]]></content>
       <categories>
@@ -446,23 +549,38 @@
     <title>Cross Entropy的理解</title>
     <url>/2024/03/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/Cross%20Entropy%E7%9A%84%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
-<h1 id="交叉熵的计算"><a href="#交叉熵的计算" class="headerlink" title="交叉熵的计算"></a>交叉熵的计算</h1><p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
-<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马<br>输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。</p>
+<h1 id="交叉熵的计算">交叉熵的计算</h1>
+<p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
+<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马
+输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。
 <span id="more"></span>
-<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：</p>
-<ul>
-<li>A概率：[0.4,0.2,0.2,0.2]</li>
-<li>B概率：[0.7,0.1,0.1,0.1]</li>
-</ul>
-<p>那么分别计算这两组交叉熵，可以得到：</p>
-<ul>
-<li>A组Cross-entropy：-(1*log(0.4)+0*log(0.2)+0*log(0.2)+0*log(0.2))</li>
-<li>B组Cross-entropy：-(1*log(0.7)+0*log(0.1)+0*log(0.1)+0*log(0.1))</li>
-</ul>
-<p>用文字描述这个计算过程，就是用真实的概率 乘以 预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
-<h1 id="如何理解交叉熵"><a href="#如何理解交叉熵" class="headerlink" title="如何理解交叉熵"></a>如何理解交叉熵</h1><p>所以交叉熵可以理解为：<strong>实际情况下（真实分布作为权重），这一预测结果所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度</p>
+假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：
+- A概率：[0.4,0.2,0.2,0.2] - B概率：[0.7,0.1,0.1,0.1]</p>
+<p>那么分别计算这两组交叉熵，可以得到： -
+A组Cross-entropy：-(1*log(0.4)+0*log(0.2)+0*log(0.2)+0*log(0.2)) -
+B组Cross-entropy：-(1*log(0.7)+0*log(0.1)+0*log(0.1)+0*log(0.1))</p>
+<p>用文字描述这个计算过程，就是用真实的概率 乘以
+预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
+<h1 id="如何理解交叉熵">如何理解交叉熵</h1>
+<p>所以交叉熵可以理解为：<strong>实际情况下（真实分布作为权重），这一预测结果所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度</p>
 <p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
-<p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。<br>从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
+<p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。
+从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>过拟合和欠拟合</title>
+    <url>/2024/03/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88/</url>
+    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
+<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。
+| | 验证损失小 | 验证损失大 | | --- | ---------- | ---------- | |
+训练损失小 | 结合验证损失的绝对值，小概率欠拟合 | 大概率过拟合 | |
+训练损失大 | 大概率不会发生此类情况 | 大概率欠拟合 | <span id="more"></span></p>
 ]]></content>
       <categories>
         <category>计算机基础</category>
@@ -472,57 +590,65 @@
   <entry>
     <title>设计模式的基础原则</title>
     <url>/2023/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E5%88%99/</url>
-    <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。<br><strong>设计模式的三要素</strong></p>
-<ul>
-<li>问题：在<strong>什么情况下</strong>使用当前的设计模式</li>
-<li>解决方案：使用了<strong>哪些逻辑，组件</strong>来解决当前的问题</li>
-<li>效果：如何解决了问题，以及该解决方案带来的<strong>副作用</strong></li>
-</ul>
-<p>&#x3D;&#x3D;<strong>⚠️请务必注意⚠️</strong>&#x3D;&#x3D;不要过度设计，为了应用某一种设计模式而应用。而是尽量准确的分析问题，找到最需要的特性。<strong>找到最切合的设计模式，而不是最复杂的</strong></p>
-<p>以下这些原则对理解和记忆既有设计模式，并根据情况灵活改进是很重要的</p>
-<span id="more"></span>
-<h1 id="OCP-开闭原则"><a href="#OCP-开闭原则" class="headerlink" title="OCP 开闭原则"></a>OCP 开闭原则</h1><p>Open Closed Principle, OCP<br>对扩展开放，对修改关闭</p>
+    <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。
+<strong>设计模式的三要素</strong> -
+问题：在<strong>什么情况下</strong>使用当前的设计模式 -
+解决方案：使用了<strong>哪些逻辑，组件</strong>来解决当前的问题 -
+效果：如何解决了问题，以及该解决方案带来的<strong>副作用</strong></p>
+<p>==<strong>⚠️请务必注意⚠️</strong>==不要过度设计，为了应用某一种设计模式而应用。而是尽量准确的分析问题，找到最需要的特性。<strong>找到最切合的设计模式，而不是最复杂的</strong></p>
+<p>以下这些原则对理解和记忆既有设计模式，并根据情况灵活改进是很重要的
+<span id="more"></span> # OCP 开闭原则 Open Closed Principle, OCP
+对扩展开放，对修改关闭</p>
 <p>解释：设计一个软件的时候，模块和函数的设计应该对扩展开放而对修改关闭。在尽量不修改原有代码的情况下进行扩展。</p>
 <p>意义：对以后的升级、维护、变化有更好的支持，避免修改导致的混乱。</p>
-<h1 id="SRP-单一职责原则"><a href="#SRP-单一职责原则" class="headerlink" title="SRP 单一职责原则"></a>SRP 单一职责原则</h1><p>Single Responsibility Principle, SRP<br>一个类只负责一个功能领域中的相应职责</p>
-<p>解释：一个类&#x2F;模块有且仅有一个让其改变的原因。承担太多职责会导致完成其他职责的能力被削弱，对于变化引起的问题很脆弱。</p>
+<h1 id="srp-单一职责原则">SRP 单一职责原则</h1>
+<p>Single Responsibility Principle, SRP
+一个类只负责一个功能领域中的相应职责</p>
+<p>解释：一个类/模块有且仅有一个让其改变的原因。承担太多职责会导致完成其他职责的能力被削弱，对于变化引起的问题很脆弱。</p>
 <p>意义：解耦，增强内聚。对改变更加友好。</p>
-<p>Tips-实际情况下该原则执行时遇到的问题:<br>很难衡量一个类的职责，很难确定职责的粒度。<br>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：在分布式系统的微服务拆分中，团队间会为了哪个功能从属于哪个服务而有争论。这也是比较依赖架构或者业务经验的地方。</p>
-<h1 id="LSP-里氏代换原则（设计父类和子类的关系）"><a href="#LSP-里氏代换原则（设计父类和子类的关系）" class="headerlink" title="LSP 里氏代换原则（设计父类和子类的关系）"></a>LSP 里氏代换原则（设计父类和子类的关系）</h1><p>Liskov Substitution Principle，LSP<br>所有引用基类的地方必须能透明地使用其子类的对象</p>
+<p>Tips-实际情况下该原则执行时遇到的问题:
+很难衡量一个类的职责，很难确定职责的粒度。
+==举个🌰==：在分布式系统的微服务拆分中，团队间会为了哪个功能从属于哪个服务而有争论。这也是比较依赖架构或者业务经验的地方。</p>
+<h1 id="lsp-里氏代换原则设计父类和子类的关系">LSP
+里氏代换原则（设计父类和子类的关系）</h1>
+<p>Liskov Substitution Principle，LSP
+所有引用基类的地方必须能透明地使用其子类的对象</p>
 <p>解释：所有引用到父类的地方，必须能够透明的使用其子类的对象。也<strong>就是父类出现的地方，子类也一定可以出现</strong></p>
-<p>意义：子类可以直接替换父类，而不需要在其他地方做出额外的修改。父类可以被有效的复用，子类可以在父类的基础上增加新的特性和行为。LSP原则本质上是对抽象化实现（接口&#x2F;抽象类-&gt;实现类）的具体步骤的规范。</p>
-<p>&#x3D;&#x3D;举个🌰&#x3D;&#x3D;：父类的set方法接收字符串，子类的set方法继承自父类，但是进行了Override。实现了一个额外的合法性校验，如果失败则返回一个错误字符串的信息。<br>这是不符合里氏替换原则的。因为父类被替换为子类，子类实现了额外的功能。此时，当输入为非法字符串时，返回了错误信息，而不是继续执行。发生了逻辑上的改变。</p>
-<p><strong>等等，这和继承、多态有什么分别？</strong> 继承和多态已经可以让父类被直接替换为子类了，但是这并不能保证替换后程序逻辑像原本设计的那样进行。</p>
-<p>来看看里氏替换的更细致的规则：里氏替换原则要求子类要遵守父类在某些行为上的约定，例如对于输入输出、异常情况的约定等等。更具体来说有：</p>
-<ol>
-<li>子类的方法不能违反父类方法对于输入输出<strong>异常的约定</strong></li>
-<li>子类方法不能违反父类方法<strong>定义的功能</strong></li>
-<li>子类必须<strong>完全实现父类的抽象方法</strong>（不能在子类里无效的实现父类方法）</li>
-</ol>
-<h1 id="DIP-依赖倒转原则"><a href="#DIP-依赖倒转原则" class="headerlink" title="DIP 依赖倒转原则"></a>DIP 依赖倒转原则</h1><p>Dependency Inversion Principle，DIP<br>依赖于抽象，不能依赖于具体实现</p>
+<p>意义：子类可以直接替换父类，而不需要在其他地方做出额外的修改。父类可以被有效的复用，子类可以在父类的基础上增加新的特性和行为。LSP原则本质上是对抽象化实现（接口/抽象类-&gt;实现类）的具体步骤的规范。</p>
+<p>==举个🌰==：父类的set方法接收字符串，子类的set方法继承自父类，但是进行了Override。实现了一个额外的合法性校验，如果失败则返回一个错误字符串的信息。
+这是不符合里氏替换原则的。因为父类被替换为子类，子类实现了额外的功能。此时，当输入为非法字符串时，返回了错误信息，而不是继续执行。发生了逻辑上的改变。</p>
+<p><strong>等等，这和继承、多态有什么分别？</strong>
+继承和多态已经可以让父类被直接替换为子类了，但是这并不能保证替换后程序逻辑像原本设计的那样进行。</p>
+<p>来看看里氏替换的更细致的规则：里氏替换原则要求子类要遵守父类在某些行为上的约定，例如对于输入输出、异常情况的约定等等。更具体来说有：
+1. 子类的方法不能违反父类方法对于输入输出<strong>异常的约定</strong> 2.
+子类方法不能违反父类方法<strong>定义的功能</strong> 3.
+子类必须<strong>完全实现父类的抽象方法</strong>（不能在子类里无效的实现父类方法）
+# DIP 依赖倒转原则 Dependency Inversion Principle，DIP
+依赖于抽象，不能依赖于具体实现</p>
 <p>解释：程序依赖于抽象接口而不是依赖于具体的实现，面向接口编程</p>
-<p>意义：传递参数和关联关系中，尽量用高层次的抽象，用接口和抽象类进行声明，返回类型声明等，而不是具体的类。要List 而不是ArrayList或者LinkedList。从实践的角度来说，实现类应该<strong>只实现接口中有的方法</strong>，而不直接的添加额外的方法。</p>
-<p>Tips：</p>
-<ul>
-<li>高层模块和低层模块都应该依赖于抽象</li>
-<li>抽象不应该依赖于具体，具体应该依赖于抽象<br>针对抽象层编程，而将实现类的对象通过DI的方式注入到其他对象中。注入的方式有：</li>
-<li>构造注入</li>
-<li>Setter注入</li>
-<li>接口注入</li>
-</ul>
-<p>比如List对象，通过setter方法既可以指向ArrayList也可以指向LinkedList。而使用共有的方法不会出错</p>
-<h1 id="ISP-接口隔离原则"><a href="#ISP-接口隔离原则" class="headerlink" title="ISP 接口隔离原则"></a>ISP 接口隔离原则</h1><p>Interface Segregation Principle，ISP<br>类之间的依赖关系应该建立在最小的接口上</p>
-<p>解释：类之间的依赖关系应该通过尽量小的接口。接口要尽可能细化，接口中的方法要尽量少。<br>接口隔离原则是单一职责原则的更严格的要求。单一职责强调的是业务逻辑上的，接口隔离强调更细致的分割</p>
-<p>意义：提供更好的维护性和低耦合</p>
-<h1 id="CARP-合成-聚合复用原则"><a href="#CARP-合成-聚合复用原则" class="headerlink" title="CARP 合成&#x2F;聚合复用原则"></a>CARP 合成&#x2F;聚合复用原则</h1><p>Composite&#x2F;Aggregate Reuse Principle，CARP<br>尽量使用合成&#x2F;聚合，而不是通过继承达到复用的目的</p>
+<p>意义：传递参数和关联关系中，尽量用高层次的抽象，用接口和抽象类进行声明，返回类型声明等，而不是具体的类。要List
+而不是ArrayList或者LinkedList。从实践的角度来说，实现类应该<strong>只实现接口中有的方法</strong>，而不直接的添加额外的方法。</p>
+<p>Tips： - 高层模块和低层模块都应该依赖于抽象 -
+抽象不应该依赖于具体，具体应该依赖于抽象
+针对抽象层编程，而将实现类的对象通过DI的方式注入到其他对象中。注入的方式有：
+- 构造注入 - Setter注入 - 接口注入</p>
+<p>比如List对象，通过setter方法既可以指向ArrayList也可以指向LinkedList。而使用共有的方法不会出错
+# ISP 接口隔离原则 Interface Segregation Principle，ISP
+类之间的依赖关系应该建立在最小的接口上</p>
+<p>解释：类之间的依赖关系应该通过尽量小的接口。接口要尽可能细化，接口中的方法要尽量少。
+接口隔离原则是单一职责原则的更严格的要求。单一职责强调的是业务逻辑上的，接口隔离强调更细致的分割</p>
+<p>意义：提供更好的维护性和低耦合 # CARP 合成/聚合复用原则
+Composite/Aggregate Reuse Principle，CARP
+尽量使用合成/聚合，而不是通过继承达到复用的目的</p>
 <p>解释：在新的对象里使用一些已有的对象，使其成为新对象的一部分。通过对这些对象委派达到复用已有功能对目的，而不是通过继承实现</p>
-<p>聚合和合成的异同：</p>
-<ul>
-<li>聚合：一种较为松散的整体 部分关系，A持有B对象，不意味着B对象由A对象管理。B的生命周期由自己管理</li>
-<li>合成：一种更严格的整体和部分的关系，A和B具有一样的生命周期</li>
-</ul>
+<p>聚合和合成的异同： - 聚合：一种较为松散的整体
+部分关系，A持有B对象，不意味着B对象由A对象管理。B的生命周期由自己管理 -
+合成：一种更严格的整体和部分的关系，A和B具有一样的生命周期</p>
 <p>意义：</p>
-<h1 id="LKP-LOD-最少知识原则-迪米特法则"><a href="#LKP-LOD-最少知识原则-迪米特法则" class="headerlink" title="LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则"></a>LKP&#x2F;LOD 最少知识原则&#x2F;迪米特法则</h1><p>Least Knowledge Principle，LKP      Law of Demeter，LOD<br>一个软件实体应当尽可能少的与其他实体发生相互作用</p>
+<h1 id="lkplod-最少知识原则迪米特法则">LKP/LOD
+最少知识原则/迪米特法则</h1>
+<p>Least Knowledge Principle，LKP Law of Demeter，LOD
+一个软件实体应当尽可能少的与其他实体发生相互作用</p>
 <p>解释：每一个单位都对其他的单位有最少的知识，而且局限于那些密切相关的单位。</p>
 <p>意义：降低类之间的耦合，从功能上相互独立，通过中间类转达，而不是直接建立联系</p>
 <p>比如老板想知道员工的总人数。老板不需要掌握员工的列表，而应该设立一个中间类（HR）来实现人数清点，而HR有员工名单是非常合理的。</p>
@@ -530,117 +656,6 @@
       <categories>
         <category>计算机基础</category>
         <category>设计模式</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>过拟合和欠拟合</title>
-    <url>/2024/03/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88/</url>
-    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
-<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
-<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>验证损失小</th>
-<th>验证损失大</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>训练损失小</td>
-<td>结合验证损失的绝对值，小概率欠拟合</td>
-<td>大概率过拟合</td>
-</tr>
-<tr>
-<td>训练损失大</td>
-<td>大概率不会发生此类情况</td>
-<td>大概率欠拟合</td>
-</tr>
-</tbody></table>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>DNS和RDNS</title>
-    <url>/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/DNS%E5%92%8CRDNS/</url>
-    <content><![CDATA[<h1 id="DNS是什么？"><a href="#DNS是什么？" class="headerlink" title="DNS是什么？"></a>DNS是什么？</h1><p>《计算机网络：自顶向下方法》的2.4节的标题是一个很好的描述：<strong>internet的目录服务</strong><br>DNS的全称是Domain Name System 域名系统，它负责完成从域名到IP地址的映射。</p>
-<h2 id="为什么要有域名-IP地址，只留一个不行吗？"><a href="#为什么要有域名-IP地址，只留一个不行吗？" class="headerlink" title="为什么要有域名&#x2F;IP地址，只留一个不行吗？"></a>为什么要有域名&#x2F;IP地址，只留一个不行吗？</h2><ul>
-<li>IP地址是定长的，利于路由器做规则的处理</li>
-<li>域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr&#x2F;.hk&#x2F;.cn往往表示了该网站的所属的国家和地区<br>DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</li>
-</ul>
-<h2 id="DNS的结构-实现方式是什么"><a href="#DNS的结构-实现方式是什么" class="headerlink" title="DNS的结构&#x2F;实现方式是什么"></a>DNS的结构&#x2F;实现方式是什么</h2><p>DNS实现的具体方式：</p>
-<ul>
-<li>一个分层的DNS服务器组成的分布式数据库</li>
-<li>一个用于让主机查询分布式数据库的应用层（Layer 5）的协议</li>
-<li>DNS运行在UDP上，使用53号端口</li>
-<li>DNS一般是运行BIND软件的UNIX系统主机<span id="more"></span></li>
-</ul>
-<h2 id="DNS的流程-1"><a href="#DNS的流程-1" class="headerlink" title="DNS的流程[^1]"></a>DNS的流程[^1]</h2><ol>
-<li>用户主机上<strong>运行着DNS应用的客户端</strong>。  </li>
-<li>浏览器从上述URL中抽取岀主机名<a href="http://www.someschool.edu,并将这台主机名**传给/">www.someschool.edu,并将这台主机名**传给</a><br>DNS应用的客户端**。  </li>
-<li>DNS客户向DNS服务器<strong>发送一个包含主机名的请求</strong>。</li>
-<li>DNS客户最终会收到一份回答报文，其中<strong>含有对应于该主机名的IP地址</strong>。  </li>
-<li>一旦浏览器接收到来自DNS的该IP地址，它能够<strong>向位于该IP地址80端口的 HTTP服务器进程发起一个TCP连接。</strong></li>
-</ol>
-<h2 id="除了域名服务，DNS还能做什么？"><a href="#除了域名服务，DNS还能做什么？" class="headerlink" title="除了域名服务，DNS还能做什么？"></a>除了域名服务，DNS还能做什么？</h2><ul>
-<li>主机别名（Host Aliasing）：一般来说，主机拥有一个<strong>规范主机名（Canonical hostname）</strong>。同时可以有多个主机别名：例如google.com和<a href="http://www.google.com/">www.google.com</a></li>
-<li>邮件服务器别名（Mail Server Aliasing）：和上一条类似，邮箱后缀也可以通过别名来提供更容易记忆的邮箱地址。值得注意的是，MX记录可以实现Web服务器和邮件服务器同名的功能</li>
-<li>负载分配（Load distribution）：有时候一个域名可能对应多个服务器，因此DNS会通过轮询这类机制，来完成简单的负载分配</li>
-</ul>
-<h1 id="DNS的实现细节"><a href="#DNS的实现细节" class="headerlink" title="DNS的实现细节"></a>DNS的实现细节</h1><p>在这里主要讨论两个部分</p>
-<ol>
-<li>是如何通过分布式来实现对DNS服务的要求的</li>
-<li>交互的方式是什么样的，DNS协议的具体内容</li>
-</ol>
-<h2 id="分布式的-层次的数据库"><a href="#分布式的-层次的数据库" class="headerlink" title="分布式的 层次的数据库"></a>分布式的 层次的数据库</h2><p>有大量的DNS服务器遍布在整个互联网上，相互间具备一定的层次结构。没有任何一台服务器具备全部的映射关系，相反，这些映射分布在所有的DNS服务器上。从层级角度来说，有三类DNS服务器：</p>
-<ol>
-<li>根DNS服务器：全球有超过400个此类服务器，有13个不同的组织管理这些服务器。跟服务器提供TLD服务器的IP地址，而没有直接的域名和其服务器IP的映射</li>
-<li>顶级域名服务器（TLD）：每个顶级域名都有其TLD，TLD提供权威DNS服务器的IP地址</li>
-<li>权威DNS服务器：组织机构<strong>可以选择</strong>哪个服务器作为其权威DNS服务器来保存其域名 IP映射。</li>
-</ol>
-<h3 id="游离于层级之外的DNS服务器—本地DNS服务器"><a href="#游离于层级之外的DNS服务器—本地DNS服务器" class="headerlink" title="游离于层级之外的DNS服务器—本地DNS服务器"></a>游离于层级之外的DNS服务器—本地DNS服务器</h3><p>Local DNS一般在每个ISP中都会存在，Local DNS的好处就是更靠近用户端。<br>它的作用就是充当代理，将DNS请求转发到分为3层的DNS服务系统中。<br>一个可能的DNS查询流程是：</p>
-<ol>
-<li>向Local DNS发送DNS请求</li>
-<li>Local DNS向根DNS服务器发送DNS请求</li>
-<li>根DNS服务器根据域名，例如.com，返回一个对应的TLD的IP地址</li>
-<li>Local DNS向TLD发送DNS请求</li>
-<li>TLD根据具体的域名，例如google.com，返回一个对应的权威DNS的IP地址</li>
-<li>Local DNS向权威DNS发送DNS请求</li>
-<li>权威DNS根据查询的域名，例如maps.google.com，返回目标服务器的IP地址</li>
-<li>Local DNS向主机返回该IP地址<br>这个过程非常麻烦，一共有8份报文产生，Local DNS花了很长时间来解决一个域名的查询。但其实还可能更麻烦，因为TLD对应的域名很多，所以会有中间DNS的存在。这让查询过程更加复杂+冗长！解决方案就是下一部分——DNS缓存</li>
-</ol>
-<h2 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h2><p>当<strong>DNS服务器</strong>收到了其他<strong>DNS的回答（主机名到IP地质的映射）时</strong>，会将这个信息存入到DNS缓存中。<br>当同样的请求再次到达该DNS服务器时，它就可以直接返回，而不需要有任何时间上的浪费，去疯狂请求一圈。</p>
-<h2 id="DNS协议的实现细节"><a href="#DNS协议的实现细节" class="headerlink" title="DNS协议的实现细节"></a>DNS协议的实现细节</h2><ul>
-<li>DNS服务器存储Host Name到IP地址的映射的方式是RR（Resource Record）</li>
-<li>DNS的回答报文里可以包含多条RR</li>
-<li>RR有四个字段：Name，Value，Type，TTL</li>
-</ul>
-<h3 id="RR的四个字段"><a href="#RR的四个字段" class="headerlink" title="RR的四个字段"></a>RR的四个字段</h3><h4 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h4><p>Type事实上决定了Name和Value的类型（废话），具体来看：</p>
-<ul>
-<li>Type&#x3D;A，那么Name就是Host Name，Value则是IP地址，这是一条主机名到IP地址的一对一映射</li>
-<li>Type &#x3D; NS，那么Name就是一个域，Value则存储了知道该域内Host的IP的DNS的Host Name。Value存了知道所有域内IP的DNS的主机名</li>
-<li>Type &#x3D; CNAME，别名系统，Value里存放的就是标准主机名,Name里是别名</li>
-<li>Type&#x3D;MX，邮件别名，Value中存放的是别名为Name的规范主机名</li>
-</ul>
-<h4 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h4><p>一个问题产生了：DNS服务器如何避免不断增长的RR，最终导致服务器的存储达到上限导致服务停摆呢<br><strong>TTL</strong>：指代一条RR在DNS服务器中的留存时间</p>
-<h3 id="DNS的报文"><a href="#DNS的报文" class="headerlink" title="DNS的报文"></a>DNS的报文</h3><p>不在这里对DNS报文的具体结构进行梳理和总结了，随用随查吧</p>
-<ul>
-<li>nslookup，这个命令是运行在Win和Unix平台上的DNS查询程序，可以向任意DNS服务器发起DNS请求</li>
-</ul>
-<h3 id="在DNS数据库中插入记录"><a href="#在DNS数据库中插入记录" class="headerlink" title="在DNS数据库中插入记录"></a>在DNS数据库中插入记录</h3><p>这里回答的问题是，域名和地址的第一次映射关系是如何进入到DNS这个系统中的？<br>首先，在注册机构中注册域名，比如nameslio，需要花一些钱才可以完成。在这个过程中，你需要提供网站的权威DNS服务器的名称和IP地址</p>
-<h1 id="RDNS是什么"><a href="#RDNS是什么" class="headerlink" title="RDNS是什么"></a>RDNS是什么</h1><p>RDNS完成从IP地址到域名的映射，通过查询存储在DNS服务器中的PTR记录，来获取到IP地址对应的域名</p>
-<p>查询的过程中有几个和DNS查询不同的点</p>
-<ul>
-<li>反转IP地址（把192.168.0.1转换为1.0.168.192）</li>
-<li>在末尾添加 .in-addr.arpa 因为PTR记录存储在DNS的.arpa顶级域中。.arpa是一个用来管理网络基础设施的域<br>[^1]: Kurose, K. R. (2017). Computer networking: A top-down approach by james. _Kurose, Keith W. Ross. pp.84</li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>互联网协议</category>
       </categories>
   </entry>
 </search>
