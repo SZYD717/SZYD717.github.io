@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。 | | 验证损失小 | 验证损失大 | | --- | ---------- |">
+    <meta name="description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。     验证损失小 验证损失大     训练损失小 结合验证损失的绝对值，小概率欠">
 <meta property="og:type" content="article">
 <meta property="og:title" content="过拟合和欠拟合">
 <meta property="og:url" content="http://example.com/2024/03/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/AI/%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88/index.html">
 <meta property="og:site_name" content="Rickye&#39;s Blog">
-<meta property="og:description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。 | | 验证损失小 | 验证损失大 | | --- | ---------- |">
+<meta property="og:description" content="过拟合和欠拟合是验证损失较大的两个成因。 如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失 当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。     验证损失小 验证损失大     训练损失小 结合验证损失的绝对值，小概率欠">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-07T03:03:00.000Z">
-<meta property="article:modified_time" content="2024-03-07T06:16:03.609Z">
+<meta property="article:modified_time" content="2024-03-08T05:36:55.496Z">
 <meta property="article:author" content="Rickye">
 <meta name="twitter:card" content="summary">
 
@@ -211,9 +211,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-03-07 11:03:00 / 修改时间：14:16:03" itemprop="dateCreated datePublished" datetime="2024-03-07T11:03:00+08:00">2024-03-07</time>
+      <time title="创建时间：2024-03-07 11:03:00" itemprop="dateCreated datePublished" datetime="2024-03-07T11:03:00+08:00">2024-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-08 13:36:55" itemprop="dateModified" datetime="2024-03-08T13:36:55+08:00">2024-03-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,7 +242,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>255</span>
+      <span>216</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -255,10 +261,29 @@
     
     <div class="post-body" itemprop="articleBody"><p>过拟合和欠拟合是验证损失较大的两个成因。</p>
 <p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
-<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。
-| | 验证损失小 | 验证损失大 | | --- | ---------- | ---------- | |
-训练损失小 | 结合验证损失的绝对值，小概率欠拟合 | 大概率过拟合 | |
-训练损失大 | 大概率不会发生此类情况 | 大概率欠拟合 | <span id="more"></span></p>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>验证损失小</th>
+<th>验证损失大</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>训练损失小</td>
+<td>结合验证损失的绝对值，小概率欠拟合</td>
+<td>大概率过拟合</td>
+</tr>
+<tr class="even">
+<td>训练损失大</td>
+<td>大概率不会发生此类情况</td>
+<td>大概率欠拟合</td>
+</tr>
+</tbody>
+</table>
+<span id="more"></span>
 
     </div>
 
