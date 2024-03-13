@@ -1210,7 +1210,7 @@ Data Plane 从功能上来说，是Forwarding
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/46936/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/25411/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1228,7 +1228,7 @@ Data Plane 从功能上来说，是Forwarding
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/46936/" class="post-title-link" itemprop="url">互联网协议基本概念</a>
+          <a href="/25411/" class="post-title-link" itemprop="url">Transport Layer</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1269,14 +1269,14 @@ Data Plane 从功能上来说，是Forwarding
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>4.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -1287,16 +1287,14 @@ Data Plane 从功能上来说，是Forwarding
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
-会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
-Communication links，例如光缆，电磁波，卫星 - Packet
-switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
-networks 构成互联网传输规则的两个部分： -
-Protocols：协议定义了数据的发送，接受的过程 -
-Standards：标准，例如RFC，IETF这类标准
+          <p>hexo 部署测试，内容不保证准确
+给终端上的<strong>APP进程</strong>提供logical communication。
+发送端负责将APP的数据分成segments，向下传递到network层。接收端则是将受到的sements重新组合为原始信息，向上递给app层</p>
+<p>network层不像transport细分到process，network负责host到host</p>
+<p>不论TCP还是UDP<strong>都不能保证延迟和带宽</strong>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/46936/#more" rel="contents">
+              <a class="btn" href="/25411/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1358,6 +1356,14 @@ Standards：标准，例如RFC，IETF这类标准
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
