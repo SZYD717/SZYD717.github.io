@@ -1,40 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>如果我要重新入门计算机</title>
-    <url>/54062/</url>
-    <content><![CDATA[<p>本文旨在总结和回顾在学习计算机相关知识时，对我产生极大帮助的各类课程/书籍/甚至还有游戏，所以不会使用评分制，因为都很推荐。如果我自己要重新入门学习计算机，这些绝对是兼顾效率和内容的选择。</p>
-<p><strong>以下内容极为主观，谨慎观看。</strong> <span id="more"></span> #
-入门-&gt;构建自顶向下的结构认知
-用人话来说，就是知道手机、笔记本、台式机这类电子产品，是怎么在应用层产生如此大的自由度。大了说，养活几十万亿的互联网产业，小了说，饿了是怎么点外卖的。这个阶段要构筑系统的知识体系，可以让学习和工作中遇到的零散知识点填补进体系中，在日常中就可以有效的提高进步。</p>
-<h2 id="crash-course-computer-science-计算机科学速成课">Crash Course
-Computer Science-计算机科学速成课</h2>
-<ul>
-<li><strong>课程描述</strong>：一门丰富、凝练的视频课程，一共40节，每节12分钟上下。垂直的介绍了计算机的组成（前10节），并横向扩展了诸多领域和内容（后30节）。</li>
-<li><strong>个人评价</strong>：比起速成课，我觉得叫计算机知识索引更好，很多内容是难以从12分钟且语速较快的视频中体会的。以前10节为例，从计算机历史到真空管到逻辑门，再到ALU，以及现代计算机指令集，较为完善的介绍了计算机组成的基本知识。但没有个人主动进行的错误尝试和发散思考，这些知识只能点头而过，很难内化。在计算机组成原理这部分，有一个游戏更加值得推荐，具体是啥在后面说。不过这门课程最鲜明的特点就是制作精良的视频和高度凝练的知识板块，很适合用来在最初期构建对计算机科学各个知识板块的基本了解（如果我大一的时候能看到就好了）。同时也很适合在学习过程中用于复习和查漏补缺，如果在视频中遇到了不能很好拓展的知识点，说明有一部分内容被跳过了，需要重新补上。</li>
-</ul>
-<h2 id="turing-complete-入门计算机组成原理的不二之选steam-游戏">Turing
-Complete-入门计算机组成原理的不二之选（Steam 游戏）</h2>
-<ul>
-<li><strong>课程描述</strong>：绘制电路，从最基本的逻辑门开始，一直到一台图灵完备的计算机。在关卡的引导和知识库的补充下，创建属于自己的计算机。细致认真的情况下，总游玩时长大约15小时</li>
-<li><strong>个人评价</strong>：非常有趣且循序渐进的一款游戏，从基本的逻辑电路开始，一点点构筑加法器、ALU、控制单元等等等一系列元器件，最终完成一台图灵完备的计算机，甚至可以用自己完成的计算机去控制游戏。通关后的成就感和喜悦可以促进持续学习的热情。强烈推荐。但这种形式也有不可避免的弊端，就是知识的支撑并不非常扎实。在过程中，玩家很可能过于注重电路本身的结构和功能，而忽略掉很多比起来比较平淡的细节知识。游戏里也提供了解决方案——知识库，确保自己及时查看并理解每个知识库中的概念，这样才能最大化这个游戏带来的收益。</li>
-</ul>
-<h1 id="提高-在各个领域的横向扩展">提高-&gt;在各个领域的横向扩展</h1>
-<h2
-id="计算机网络自顶向下方法-学习计网的不二之选">计算机网络：自顶向下方法-学习计网的不二之选</h2>
-<p>未完待续...</p>
-<h1 id="进阶-我是菜鸡这块不会">进阶-&gt;我是菜鸡，这块不会</h1>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Test post</title>
     <url>/43726/</url>
     <content><![CDATA[<p>Post for testing，实验一些新的插件 <span id="more"></span> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><span class="math display">\[\begin{equation}
-\label{eq1}
+<p><span class="math display">\[\begin{equation}\label{eq1}
 e=mc^2
 \end{equation}\]</span></p>
 ]]></content>
@@ -211,6 +181,35 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       <categories>
         <category>计算机基础</category>
         <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如果我要重新入门计算机</title>
+    <url>/54062/</url>
+    <content><![CDATA[<p>本文旨在总结和回顾在学习计算机相关知识时，对我产生极大帮助的各类课程/书籍/甚至还有游戏，所以不会使用评分制，因为都很推荐。如果我自己要重新入门学习计算机，这些绝对是兼顾效率和内容的选择。</p>
+<p><strong>以下内容极为主观，谨慎观看。</strong> <span id="more"></span> #
+入门-&gt;构建自顶向下的结构认知
+用人话来说，就是知道手机、笔记本、台式机这类电子产品，是怎么在应用层产生如此大的自由度。大了说，养活几十万亿的互联网产业，小了说，饿了是怎么点外卖的。这个阶段要构筑系统的知识体系，可以让学习和工作中遇到的零散知识点填补进体系中，在日常中就可以有效的提高进步。</p>
+<h2 id="crash-course-computer-science-计算机科学速成课">Crash Course
+Computer Science-计算机科学速成课</h2>
+<ul>
+<li><strong>课程描述</strong>：一门丰富、凝练的视频课程，一共40节，每节12分钟上下。垂直的介绍了计算机的组成（前10节），并横向扩展了诸多领域和内容（后30节）。</li>
+<li><strong>个人评价</strong>：比起速成课，我觉得叫计算机知识索引更好，很多内容是难以从12分钟且语速较快的视频中体会的。以前10节为例，从计算机历史到真空管到逻辑门，再到ALU，以及现代计算机指令集，较为完善的介绍了计算机组成的基本知识。但没有个人主动进行的错误尝试和发散思考，这些知识只能点头而过，很难内化。在计算机组成原理这部分，有一个游戏更加值得推荐，具体是啥在后面说。不过这门课程最鲜明的特点就是制作精良的视频和高度凝练的知识板块，很适合用来在最初期构建对计算机科学各个知识板块的基本了解（如果我大一的时候能看到就好了）。同时也很适合在学习过程中用于复习和查漏补缺，如果在视频中遇到了不能很好拓展的知识点，说明有一部分内容被跳过了，需要重新补上。</li>
+</ul>
+<h2 id="turing-complete-入门计算机组成原理的不二之选steam-游戏">Turing
+Complete-入门计算机组成原理的不二之选（Steam 游戏）</h2>
+<ul>
+<li><strong>课程描述</strong>：绘制电路，从最基本的逻辑门开始，一直到一台图灵完备的计算机。在关卡的引导和知识库的补充下，创建属于自己的计算机。细致认真的情况下，总游玩时长大约15小时</li>
+<li><strong>个人评价</strong>：非常有趣且循序渐进的一款游戏，从基本的逻辑电路开始，一点点构筑加法器、ALU、控制单元等等等一系列元器件，最终完成一台图灵完备的计算机，甚至可以用自己完成的计算机去控制游戏。通关后的成就感和喜悦可以促进持续学习的热情。强烈推荐。但这种形式也有不可避免的弊端，就是知识的支撑并不非常扎实。在过程中，玩家很可能过于注重电路本身的结构和功能，而忽略掉很多比起来比较平淡的细节知识。游戏里也提供了解决方案——知识库，确保自己及时查看并理解每个知识库中的概念，这样才能最大化这个游戏带来的收益。</li>
+</ul>
+<h1 id="提高-在各个领域的横向扩展">提高-&gt;在各个领域的横向扩展</h1>
+<h2
+id="计算机网络自顶向下方法-学习计网的不二之选">计算机网络：自顶向下方法-学习计网的不二之选</h2>
+<p>未完待续...</p>
+<h1 id="进阶-我是菜鸡这块不会">进阶-&gt;我是菜鸡，这块不会</h1>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
       </categories>
   </entry>
   <entry>
@@ -603,6 +602,75 @@ Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
       </categories>
   </entry>
   <entry>
+    <title>Cross Entropy的理解</title>
+    <url>/45189/</url>
+    <content><![CDATA[<p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
+<h1 id="交叉熵的计算">交叉熵的计算</h1>
+<p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
+<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马
+输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。
+<span id="more"></span></p>
+<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：
+- A概率：[0.4,0.2,0.2,0.2] - B概率：[0.7,0.1,0.1,0.1]</p>
+<p>那么分别计算这两组交叉熵，可以得到： - A组Cross-entropy：</p>
+<p><span class="math display">\[\begin{equation}\label{eq1}
+-（1\times \log_{2}{0.4} +0\times \log_{2}{0.2}+0\times
+\log_{2}{0.2}+0\times \log_{2}{0.2}）
+\end{equation}\]</span></p>
+<ul>
+<li>B组Cross-entropy：</li>
+</ul>
+<p><span class="math display">\[\begin{equation}\label{eq2}
+-（1\times \log_{2}{0.7} +0\times \log_{2}{0.1}+0\times
+\log_{2}{0.1}+0\times \log_{2}{0.1}）
+\end{equation}\]</span> 用文字描述这个计算过程，就是用真实的概率 乘以
+预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
+<h1 id="如何理解交叉熵">如何理解交叉熵</h1>
+<p>所以交叉熵可以理解为：<strong>实际情况下（真实分布作为权重），这一预测结果所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度</p>
+<p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
+<p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。
+从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>过拟合和欠拟合</title>
+    <url>/30534/</url>
+    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
+<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>验证损失小</th>
+<th>验证损失大</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>训练损失小</td>
+<td>结合验证损失的绝对值，小概率欠拟合</td>
+<td>大概率过拟合</td>
+</tr>
+<tr class="even">
+<td>训练损失大</td>
+<td>大概率不会发生此类情况</td>
+<td>大概率欠拟合</td>
+</tr>
+</tbody>
+</table>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
+      </categories>
+  </entry>
+  <entry>
     <title>设计模式的基础原则</title>
     <url>/21019/</url>
     <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。
@@ -671,67 +739,6 @@ Composite/Aggregate Reuse Principle，CARP
       <categories>
         <category>计算机基础</category>
         <category>设计模式</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Cross Entropy的理解</title>
-    <url>/45189/</url>
-    <content><![CDATA[<p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
-<h1 id="交叉熵的计算">交叉熵的计算</h1>
-<p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
-<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马
-输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。
-<span id="more"></span></p>
-<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：
-- A概率：[0.4,0.2,0.2,0.2] - B概率：[0.7,0.1,0.1,0.1]</p>
-<p>那么分别计算这两组交叉熵，可以得到： -
-A组Cross-entropy：-(1*log(0.4)+0*log(0.2)+0*log(0.2)+0*log(0.2)) -
-B组Cross-entropy：-(1*log(0.7)+0*log(0.1)+0*log(0.1)+0*log(0.1))</p>
-<p>用文字描述这个计算过程，就是用真实的概率 乘以
-预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
-<h1 id="如何理解交叉熵">如何理解交叉熵</h1>
-<p>所以交叉熵可以理解为：<strong>实际情况下（真实分布作为权重），这一预测结果所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度</p>
-<p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
-<p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。
-从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>过拟合和欠拟合</title>
-    <url>/30534/</url>
-    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
-<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
-<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>验证损失小</th>
-<th>验证损失大</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>训练损失小</td>
-<td>结合验证损失的绝对值，小概率欠拟合</td>
-<td>大概率过拟合</td>
-</tr>
-<tr class="even">
-<td>训练损失大</td>
-<td>大概率不会发生此类情况</td>
-<td>大概率欠拟合</td>
-</tr>
-</tbody>
-</table>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
       </categories>
   </entry>
 </search>
