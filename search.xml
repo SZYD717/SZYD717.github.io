@@ -213,6 +213,94 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
+    <title>设计模式的基础原则</title>
+    <url>/21019/</url>
+    <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。
+<strong>设计模式的三要素</strong> -
+问题：在<strong>什么情况下</strong>使用当前的设计模式 -
+解决方案：使用了<strong>哪些逻辑，组件</strong>来解决当前的问题 -
+效果：如何解决了问题，以及该解决方案带来的<strong>副作用</strong></p>
+<p><mark><strong>⚠️注意⚠️</strong></mark>不要过度设计，为了应用某一种设计模式而应用。设计模式的初衷是尽量准确的分析问题，找到最需要的特性。<strong>找到最切合的设计模式，而不是最复杂的</strong></p>
+<p>以下这些原则可以有效的促进理解和记忆既有设计模式 <span id="more"></span></p>
+<h1 id="ocp-开闭原则">OCP 开闭原则</h1>
+<p>Open Closed Principle, OCP 对扩展开放，对修改关闭</p>
+<p>解释：设计一个软件的时候，模块和函数的设计应该对扩展开放而对修改关闭。在尽量不修改原有代码的情况下进行扩展。</p>
+<p>意义：对以后的升级、维护、变化有更好的支持，避免修改导致的混乱。</p>
+<h1 id="srp-单一职责原则">SRP 单一职责原则</h1>
+<p>Single Responsibility Principle, SRP
+一个类只负责一个功能领域中的相应职责</p>
+<p>解释：一个类/模块有且仅有一个让其改变的原因。承担太多职责会导致完成其他职责的能力被削弱，对于变化引起的问题很脆弱。</p>
+<p>意义：解耦，增强内聚。对改变更加友好。</p>
+<p>Tips-实际情况下该原则执行时遇到的问题:
+很难衡量一个类的职责，很难确定职责的粒度。</p>
+<p><mark>举个🌰</mark>：在分布式系统的微服务拆分中，团队间会为了哪个功能从属于哪个服务而有争论。这也是比较依赖架构或者业务经验的地方。</p>
+<h1 id="lsp-里氏代换原则设计父类和子类的关系">LSP
+里氏代换原则（设计父类和子类的关系）</h1>
+<p>Liskov Substitution Principle，LSP
+所有引用基类的地方必须能透明地使用其子类的对象</p>
+<p>解释：所有引用到父类的地方，必须能够透明的使用其子类的对象。也<strong>就是父类出现的地方，子类也一定可以出现</strong></p>
+<p>意义：子类可以直接替换父类，而不需要在其他地方做出额外的修改。父类可以被有效的复用，子类可以在父类的基础上增加新的特性和行为。LSP原则本质上是对抽象化实现（接口/抽象类-&gt;实现类）的具体步骤的规范。</p>
+<p><mark>举个🌰</mark>：父类的set方法接收字符串，子类的set方法继承自父类，但是进行了Override。实现了一个额外的合法性校验，如果失败则返回一个错误字符串的信息。
+这是不符合里氏替换原则的。因为父类被替换为子类，子类实现了额外的功能。此时，当输入为非法字符串时，返回了错误信息，而不是继续执行。发生了逻辑上的改变。</p>
+<p><strong>等等，这和继承、多态有什么分别？</strong>
+继承和多态已经可以让父类被直接替换为子类了，但是这并不能保证替换后程序逻辑像原本设计的那样进行。</p>
+<p>来看看里氏替换的更细致的规则：里氏替换原则要求子类要遵守父类在某些行为上的约定，例如对于输入输出、异常情况的约定等等。更具体来说有：</p>
+<ol type="1">
+<li>子类的方法不能违反父类方法对于输入输出<strong>异常的约定</strong></li>
+<li>子类方法不能违反父类方法<strong>定义的功能</strong></li>
+<li>子类必须<strong>完全实现父类的抽象方法</strong>（不能在子类里无效的实现父类方法）</li>
+</ol>
+<h1 id="dip-依赖倒转原则">DIP 依赖倒转原则</h1>
+<p>Dependency Inversion Principle，DIP
+依赖于抽象，不能依赖于具体实现</p>
+<p>解释：程序依赖于抽象接口而不是依赖于具体的实现，面向接口编程</p>
+<p>意义：传递参数和关联关系中，尽量用高层次的抽象，用接口和抽象类进行声明，返回类型声明等，而不是具体的类。要List
+而不是ArrayList或者LinkedList。从实践的角度来说，实现类应该<strong>只实现接口中有的方法</strong>，而不直接的添加额外的方法。</p>
+<p>Tips：</p>
+<ul>
+<li>高层模块和低层模块都应该依赖于抽象</li>
+<li>抽象不应该依赖于具体，具体应该依赖于抽象</li>
+</ul>
+<p>针对抽象层编程，而将实现类的对象通过DI的方式注入到其他对象中。注入的方式有：</p>
+<ul>
+<li>构造注入</li>
+<li>Setter注入</li>
+<li>接口注入</li>
+</ul>
+<p>比如List对象，通过setter方法既可以指向ArrayList也可以指向LinkedList。而使用共有的方法不会出错</p>
+<h1 id="isp-接口隔离原则">ISP 接口隔离原则</h1>
+<p>Interface Segregation Principle，ISP
+类之间的依赖关系应该建立在最小的接口上</p>
+<p>解释：类之间的依赖关系应该通过尽量小的接口。接口要尽可能细化，接口中的方法要尽量少。
+接口隔离原则是单一职责原则的更严格的要求。单一职责强调的是业务逻辑上的，接口隔离强调更细致的分割</p>
+<p>意义：提供更好的维护性和低耦合</p>
+<h1 id="carp-合成聚合复用原则">CARP 合成/聚合复用原则</h1>
+<p>Composite/Aggregate Reuse Principle，CARP
+尽量使用合成/聚合，而不是通过继承达到复用的目的</p>
+<p>解释：在新的对象里使用一些已有的对象，使其成为新对象的一部分。通过对这些对象委派达到复用已有功能对目的，而不是通过继承实现</p>
+<p>聚合和合成的异同：</p>
+<ul>
+<li>聚合：一种较为松散的整体
+部分关系，A持有B对象，不意味着B对象由A对象管理。B的生命周期由自己管理</li>
+<li>合成：一种更严格的整体和部分的关系，A和B具有一样的生命周期</li>
+</ul>
+<p>意义：继承是一种很强的逻辑关系。在非要的情况，可以通过合成和聚合完成功能、逻辑的包容关系</p>
+<p>假设有一个在跑车对象上使用的工具类，还有一个更加具有包容性的汽车工具类需要复用这个跑车工具类。</p>
+<p>此时虽然可以使用继承来实现汽车工具类对跑车工具类的复用，但是汽车工具类只能继承一个类，而跑车工具类并不是唯一需要在汽车工具类中被复用的。所以此时使用合成、聚合复用就可以更准确的表达二者间的逻辑关系。</p>
+<h1 id="lkplod-最少知识原则迪米特法则">LKP/LOD
+最少知识原则/迪米特法则</h1>
+<p>Least Knowledge Principle，LKP Law of Demeter，LOD
+一个软件实体应当尽可能少的与其他实体发生相互作用</p>
+<p>解释：每一个单位都对其他的单位有最少的知识，而且局限于那些密切相关的单位。</p>
+<p>意义：降低类之间的耦合，从功能上相互独立，通过中间类转达，而不是直接建立联系</p>
+<p>比如老板想知道员工的总人数。老板不需要掌握员工的列表，而应该设立一个中间类（HR）来实现人数清点，而HR有员工名单是非常合理的。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Network Layer</title>
     <url>/62894/</url>
     <content><![CDATA[<h1 id="network-layer的概述">Network layer的概述</h1>
@@ -352,81 +440,6 @@ Actions：各类型的操作，比如丢弃，forward，修改都可以 -
 Priority：避免同样pattern引发的混淆 - Counters：记录处理的Bytes</p>
 <p>Flow Table里记录了三个主要部分 1. Rule 匹配规则 2. Action 进行的处理
 3. Stats 统计Packet+byte counters</p>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>互联网协议</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>互联网协议基本概念</title>
-    <url>/46936/</url>
-    <content><![CDATA[<p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
-会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
-Communication links，例如光缆，电磁波，卫星 - Packet
-switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
-networks 构成互联网传输规则的两个部分： -
-Protocols：协议定义了数据的发送，接受的过程 -
-Standards：标准，例如RFC，IETF这类标准 <span id="more"></span> ## Network
-Edge和Network core
-这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。
-Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
-<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
-<h2 id="互联网的目的数据传输">互联网的目的：数据传输</h2>
-<h3 id="数据包-packets">数据包 packets</h3>
-<ul>
-<li>这是数据在网络上传输的最小单元</li>
-<li>8 bits = 1 Bytes，位和字节用来描述Packets的大小。 ### 带宽
-指代传输的速率，单位就是B/s，b/s，注意区分 ### 物理的介质
-网络的传输有众多介质，例如</li>
-<li>以太网线缆</li>
-<li>光纤</li>
-<li>WIFI</li>
-<li>移动通信技术</li>
-<li>卫星通信</li>
-</ul>
-<h2 id="network-core">Network core</h2>
-<p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）
-### Router间传输的过程 1.
-在transportation层被分成packets，发送给第一个Router 2.
-第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送 3.
-重复2，直到到达目的地 ### Network core的两大主要功能 -
-Routing：根据目的地决定packets的传输路线 -
-Forwarding：将packets从input发送到正确的output router去</p>
-<h3 id="网络核心的生态">网络核心的生态</h3>
-<ul>
-<li>Tier
-1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
-<li>Regional
-ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
-<li>access
-ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
-<li>content
-provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
-<li>content distribution
-networks（CDN），将互联网的内容向用户端推进</li>
-</ul>
-<h2 id="延迟丢包和传输瓶颈">延迟、丢包和传输瓶颈</h2>
-<h3 id="丢包">丢包</h3>
-<p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失
-### 延迟 1.
-对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）
-2. 排队等待Router进行发送（由路由器的拥挤程度决定） 3.
-发送带宽（L/R，将Buffer中的数据发送到链路中） 4.
-光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d/s） ###
-传输速率 取决于传输过程中速率最低的那个环节</p>
-<h1 id="分层模型">分层模型</h1>
-<p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的
-## OSI七层模型 - Application - Presentation - Session - Transport -
-Network - Data link - Physical ## TCP/IP5层模型及其对应的协议 -
-Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
-<h2 id="各层对应的地址规格">各层对应的地址规格</h2>
-<ul>
-<li>link层=mac地址</li>
-<li>Logical address layer 3=IPV4和IPV6地址</li>
-<li>Port address=layer 4 端口号</li>
-<li>Application = URL</li>
-</ul>
 ]]></content>
       <categories>
         <category>计算机基础</category>
@@ -602,81 +615,112 @@ control：慢增快减</h3>
       </categories>
   </entry>
   <entry>
-    <title>设计模式的基础原则</title>
-    <url>/21019/</url>
-    <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。
-<strong>设计模式的三要素</strong> -
-问题：在<strong>什么情况下</strong>使用当前的设计模式 -
-解决方案：使用了<strong>哪些逻辑，组件</strong>来解决当前的问题 -
-效果：如何解决了问题，以及该解决方案带来的<strong>副作用</strong></p>
-<p><mark><strong>⚠️注意⚠️</strong></mark>不要过度设计，为了应用某一种设计模式而应用。设计模式的初衷是尽量准确的分析问题，找到最需要的特性。<strong>找到最切合的设计模式，而不是最复杂的</strong></p>
-<p>以下这些原则可以有效的促进理解和记忆既有设计模式 <span id="more"></span></p>
-<h1 id="ocp-开闭原则">OCP 开闭原则</h1>
-<p>Open Closed Principle, OCP 对扩展开放，对修改关闭</p>
-<p>解释：设计一个软件的时候，模块和函数的设计应该对扩展开放而对修改关闭。在尽量不修改原有代码的情况下进行扩展。</p>
-<p>意义：对以后的升级、维护、变化有更好的支持，避免修改导致的混乱。</p>
-<h1 id="srp-单一职责原则">SRP 单一职责原则</h1>
-<p>Single Responsibility Principle, SRP
-一个类只负责一个功能领域中的相应职责</p>
-<p>解释：一个类/模块有且仅有一个让其改变的原因。承担太多职责会导致完成其他职责的能力被削弱，对于变化引起的问题很脆弱。</p>
-<p>意义：解耦，增强内聚。对改变更加友好。</p>
-<p>Tips-实际情况下该原则执行时遇到的问题:
-很难衡量一个类的职责，很难确定职责的粒度。
-<mark>举个🌰</mark>：在分布式系统的微服务拆分中，团队间会为了哪个功能从属于哪个服务而有争论。这也是比较依赖架构或者业务经验的地方。</p>
-<h1 id="lsp-里氏代换原则设计父类和子类的关系">LSP
-里氏代换原则（设计父类和子类的关系）</h1>
-<p>Liskov Substitution Principle，LSP
-所有引用基类的地方必须能透明地使用其子类的对象</p>
-<p>解释：所有引用到父类的地方，必须能够透明的使用其子类的对象。也<strong>就是父类出现的地方，子类也一定可以出现</strong></p>
-<p>意义：子类可以直接替换父类，而不需要在其他地方做出额外的修改。父类可以被有效的复用，子类可以在父类的基础上增加新的特性和行为。LSP原则本质上是对抽象化实现（接口/抽象类-&gt;实现类）的具体步骤的规范。</p>
-<p><mark>举个🌰</mark>：父类的set方法接收字符串，子类的set方法继承自父类，但是进行了Override。实现了一个额外的合法性校验，如果失败则返回一个错误字符串的信息。
-这是不符合里氏替换原则的。因为父类被替换为子类，子类实现了额外的功能。此时，当输入为非法字符串时，返回了错误信息，而不是继续执行。发生了逻辑上的改变。</p>
-<p><strong>等等，这和继承、多态有什么分别？</strong>
-继承和多态已经可以让父类被直接替换为子类了，但是这并不能保证替换后程序逻辑像原本设计的那样进行。</p>
-<p>来看看里氏替换的更细致的规则：里氏替换原则要求子类要遵守父类在某些行为上的约定，例如对于输入输出、异常情况的约定等等。更具体来说有：</p>
-<ol type="1">
-<li>子类的方法不能违反父类方法对于输入输出<strong>异常的约定</strong></li>
-<li>子类方法不能违反父类方法<strong>定义的功能</strong></li>
-<li>子类必须<strong>完全实现父类的抽象方法</strong>（不能在子类里无效的实现父类方法）</li>
-</ol>
-<h1 id="dip-依赖倒转原则">DIP 依赖倒转原则</h1>
-<p>Dependency Inversion Principle，DIP
-依赖于抽象，不能依赖于具体实现</p>
-<p>解释：程序依赖于抽象接口而不是依赖于具体的实现，面向接口编程</p>
-<p>意义：传递参数和关联关系中，尽量用高层次的抽象，用接口和抽象类进行声明，返回类型声明等，而不是具体的类。要List
-而不是ArrayList或者LinkedList。从实践的角度来说，实现类应该<strong>只实现接口中有的方法</strong>，而不直接的添加额外的方法。</p>
-<p>Tips： - 高层模块和低层模块都应该依赖于抽象 -
-抽象不应该依赖于具体，具体应该依赖于抽象
-针对抽象层编程，而将实现类的对象通过DI的方式注入到其他对象中。注入的方式有：
-- 构造注入 - Setter注入 - 接口注入</p>
-<p>比如List对象，通过setter方法既可以指向ArrayList也可以指向LinkedList。而使用共有的方法不会出错</p>
-<h1 id="isp-接口隔离原则">ISP 接口隔离原则</h1>
-<p>Interface Segregation Principle，ISP
-类之间的依赖关系应该建立在最小的接口上</p>
-<p>解释：类之间的依赖关系应该通过尽量小的接口。接口要尽可能细化，接口中的方法要尽量少。
-接口隔离原则是单一职责原则的更严格的要求。单一职责强调的是业务逻辑上的，接口隔离强调更细致的分割</p>
-<p>意义：提供更好的维护性和低耦合</p>
-<h1 id="carp-合成聚合复用原则">CARP 合成/聚合复用原则</h1>
-<p>Composite/Aggregate Reuse Principle，CARP
-尽量使用合成/聚合，而不是通过继承达到复用的目的</p>
-<p>解释：在新的对象里使用一些已有的对象，使其成为新对象的一部分。通过对这些对象委派达到复用已有功能对目的，而不是通过继承实现</p>
-<p>聚合和合成的异同： - 聚合：一种较为松散的整体
-部分关系，A持有B对象，不意味着B对象由A对象管理。B的生命周期由自己管理 -
-合成：一种更严格的整体和部分的关系，A和B具有一样的生命周期</p>
-<p>意义：继承是一种很强的逻辑关系。在非要的情况，可以通过合成和聚合完成功能、逻辑的包容关系</p>
-<p>假设有一个在跑车对象上使用的工具类，还有一个更加具有包容性的汽车工具类需要复用这个跑车工具类。
-此时虽然可以使用继承来实现汽车工具类对跑车工具类的复用，但是汽车工具类只能继承一个类，而跑车工具类并不是唯一需要在汽车工具类中被复用的。所以此时使用合成、聚合复用就可以更准确的表达二者间的逻辑关系。</p>
-<h1 id="lkplod-最少知识原则迪米特法则">LKP/LOD
-最少知识原则/迪米特法则</h1>
-<p>Least Knowledge Principle，LKP Law of Demeter，LOD
-一个软件实体应当尽可能少的与其他实体发生相互作用</p>
-<p>解释：每一个单位都对其他的单位有最少的知识，而且局限于那些密切相关的单位。</p>
-<p>意义：降低类之间的耦合，从功能上相互独立，通过中间类转达，而不是直接建立联系</p>
-<p>比如老板想知道员工的总人数。老板不需要掌握员工的列表，而应该设立一个中间类（HR）来实现人数清点，而HR有员工名单是非常合理的。</p>
+    <title>互联网协议基本概念</title>
+    <url>/46936/</url>
+    <content><![CDATA[<p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
+会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
+Communication links，例如光缆，电磁波，卫星 - Packet
+switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
+networks 构成互联网传输规则的两个部分： -
+Protocols：协议定义了数据的发送，接受的过程 -
+Standards：标准，例如RFC，IETF这类标准 <span id="more"></span> ## Network
+Edge和Network core
+这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。
+Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
+<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
+<h2 id="互联网的目的数据传输">互联网的目的：数据传输</h2>
+<h3 id="数据包-packets">数据包 packets</h3>
+<ul>
+<li>这是数据在网络上传输的最小单元</li>
+<li>8 bits = 1 Bytes，位和字节用来描述Packets的大小。 ### 带宽
+指代传输的速率，单位就是B/s，b/s，注意区分 ### 物理的介质
+网络的传输有众多介质，例如</li>
+<li>以太网线缆</li>
+<li>光纤</li>
+<li>WIFI</li>
+<li>移动通信技术</li>
+<li>卫星通信</li>
+</ul>
+<h2 id="network-core">Network core</h2>
+<p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）
+### Router间传输的过程 1.
+在transportation层被分成packets，发送给第一个Router 2.
+第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送 3.
+重复2，直到到达目的地 ### Network core的两大主要功能 -
+Routing：根据目的地决定packets的传输路线 -
+Forwarding：将packets从input发送到正确的output router去</p>
+<h3 id="网络核心的生态">网络核心的生态</h3>
+<ul>
+<li>Tier
+1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
+<li>Regional
+ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
+<li>access
+ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
+<li>content
+provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
+<li>content distribution
+networks（CDN），将互联网的内容向用户端推进</li>
+</ul>
+<h2 id="延迟丢包和传输瓶颈">延迟、丢包和传输瓶颈</h2>
+<h3 id="丢包">丢包</h3>
+<p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失
+### 延迟 1.
+对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）
+2. 排队等待Router进行发送（由路由器的拥挤程度决定） 3.
+发送带宽（L/R，将Buffer中的数据发送到链路中） 4.
+光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d/s） ###
+传输速率 取决于传输过程中速率最低的那个环节</p>
+<h1 id="分层模型">分层模型</h1>
+<p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的
+## OSI七层模型 - Application - Presentation - Session - Transport -
+Network - Data link - Physical ## TCP/IP5层模型及其对应的协议 -
+Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
+<h2 id="各层对应的地址规格">各层对应的地址规格</h2>
+<ul>
+<li>link层=mac地址</li>
+<li>Logical address layer 3=IPV4和IPV6地址</li>
+<li>Port address=layer 4 端口号</li>
+<li>Application = URL</li>
+</ul>
 ]]></content>
       <categories>
         <category>计算机基础</category>
-        <category>设计模式</category>
+        <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>过拟合和欠拟合</title>
+    <url>/30534/</url>
+    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
+<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>验证损失小</th>
+<th>验证损失大</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>训练损失小</td>
+<td>结合验证损失的绝对值，小概率欠拟合</td>
+<td>大概率过拟合</td>
+</tr>
+<tr class="even">
+<td>训练损失大</td>
+<td>大概率不会发生此类情况</td>
+<td>大概率欠拟合</td>
+</tr>
+</tbody>
+</table>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
       </categories>
   </entry>
   <entry>
@@ -716,40 +760,6 @@ control：慢增快减</h3>
 <p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
 <p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。
 从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>过拟合和欠拟合</title>
-    <url>/30534/</url>
-    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
-<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
-<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>验证损失小</th>
-<th>验证损失大</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>训练损失小</td>
-<td>结合验证损失的绝对值，小概率欠拟合</td>
-<td>大概率过拟合</td>
-</tr>
-<tr class="even">
-<td>训练损失大</td>
-<td>大概率不会发生此类情况</td>
-<td>大概率欠拟合</td>
-</tr>
-</tbody>
-</table>
-<span id="more"></span>
 ]]></content>
       <categories>
         <category>计算机基础</category>
