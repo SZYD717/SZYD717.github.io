@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Test post</title>
-    <url>/43726/</url>
-    <content><![CDATA[<p>Post for testing，实验一些新的插件 <span id="more"></span> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&#x27;Hello&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><span class="math display">\[\begin{equation}\label{eq1}
-e=mc^2
-\end{equation}\]</span></p>
-]]></content>
-      <categories>
-        <category>杂七杂八</category>
-      </categories>
-  </entry>
-  <entry>
     <title>写博客有感</title>
     <url>/10132/</url>
     <content><![CDATA[<h1 id="换个思路习惯为先">换个思路，习惯为先</h1>
@@ -36,6 +24,259 @@ e=mc^2
       </categories>
   </entry>
   <entry>
+    <title>重装系统之后的软件清单</title>
+    <url>/44226/</url>
+    <content><![CDATA[<p><mark>本文旨在记录常用的软件，不对软件可能造成的任何明确的、潜在的损失负责。</mark>
+# 工具类</p>
+<h2 id="office-365-套付费">Office 365 套（付费）</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：<a href="https://www.office.com/">跳转到下载页面</a>
+<span id="more"></span></p>
+<h2 id="播放器-potplayer">播放器 Potplayer</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：<a href="http://potplayer.daum.net">跳转到下载页面</a></p>
+<h2 id="压缩软件-7zip">压缩软件 7Zip</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：<a href="https://www.7-zip.org">跳转到下载页面</a></p>
+<h2 id="pdf阅读编辑-pdfgear">PDF阅读编辑 PDFGear</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：<a href="https://www.pdfgear.com/">跳转到下载页面</a>
+在Mac上的编辑功能似乎有些问题，有时候不能使用</p>
+<h2 id="文本编辑器-notepad">文本编辑器 Notepad++</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：<a
+href="https://notepad-plus-plus.org/downloads/">跳转到下载页面</a></p>
+<h2 id="笔记软件-obisidian">笔记软件 Obisidian</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：<a href="https://obsidian.md">跳转到下载页面</a></p>
+<p>常用第三方插件列表：</p>
+<ul>
+<li>Advanced Table：快速绘制表格</li>
+<li>Lapel：各级别标题颜色调整</li>
+<li>Minimal Theme Setting：设置Obisidian主题外观</li>
+<li>Terminal：在Obisidian中直接打开博客页面进行更新</li>
+</ul>
+<h2 id="博客-hexo-next">博客 Hexo-NexT</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Hexo地址：<a href="https://hexo.io/index.html">跳转到下载页面</a>
+NexT主题地址：<a href="https://theme-next.js.org">跳转到下载页面</a></p>
+<p>插件列表：</p>
+<ul>
+<li>pandoc渲染：提供对数学公式的支持</li>
+</ul>
+<h1 id="娱乐类">娱乐类</h1>
+<h2 id="本地影音库-jellyfin">本地影音库 JellyFin</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Linux(推荐)</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Server端地址：<a
+href="https://jellyfin.org/downloads/server">跳转到下载页面</a>
+Client端下载：<a
+href="https://jellyfin.org/downloads">跳转到下载页面</a></p>
+<p>经过简单设置就可以完成局域网内影音资源的访问，结合NAS挂PT，可以有很好的体验。除了部分特殊格式，例如杜比之类依赖于客户端功能的（Apple
+TV+Infuse可以解决一部分）。资源量上没有任何单一平台可以和PT站相提并论</p>
+<h2 id="steam">Steam</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：<a href="https://store.steampowered.com">跳转到下载地址</a></p>
+<h1 id="优化美化类">优化美化类</h1>
+<h2 id="fence">Fence</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：Steam内下载</p>
+<h2 id="wallpaper-engine">Wallpaper Engine</h2>
+<table>
+<thead>
+<tr class="header">
+<th>系统</th>
+<th>可用性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mac</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Windows</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>地址：Steam内下载</p>
+]]></content>
+  </entry>
+  <entry>
     <title>使用hexo-renderer-pandoc时高亮段落文本的方法</title>
     <url>/582991/</url>
     <content><![CDATA[<p>为了实现数学公式的正确渲染，卸载了原生内置的hexo-renderer-marked，而采用pandoc渲染，从而支持mathjax。</p>
@@ -47,49 +288,6 @@ e=mc^2
 ]]></content>
       <categories>
         <category>杂七杂八</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Cross Entropy的理解</title>
-    <url>/45189/</url>
-    <content><![CDATA[<p>2024-03-13 14:03更新： - 使用了公式插件，数学公式更好看了</p>
-<p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
-<h1 id="交叉熵的计算">交叉熵的计算</h1>
-<p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
-<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马
-输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。
-<span id="more"></span></p>
-<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：</p>
-<ul>
-<li><p>A概率：<span class="math inline">\([0.4, 0.2, 0.2,
-0.2]\)</span></p></li>
-<li><p>B概率：<span class="math inline">\([0.7, 0.1, 0.1,
-0.1]\)</span></p></li>
-</ul>
-<p>那么分别计算这两组交叉熵，可以得到： - A组Cross-entropy：</p>
-<p><span class="math display">\[\begin{equation}
-\label{eq1}
--（1\times \log_{2}{0.4} +0\times \log_{2}{0.2}+0\times
-\log_{2}{0.2}+0\times \log_{2}{0.2}）
-\end{equation}\]</span></p>
-<ul>
-<li>B组Cross-entropy：</li>
-</ul>
-<p><span class="math display">\[\begin{equation}
-\label{eq2}
--（1\times \log_{2}{0.7} +0\times \log_{2}{0.1}+0\times
-\log_{2}{0.1}+0\times \log_{2}{0.1}）
-\end{equation}\]</span> 用文字描述这个计算过程，就是用真实的概率 乘以
-预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
-<h1 id="如何理解交叉熵">如何理解交叉熵</h1>
-<p>所以交叉熵可以理解为：<strong>实际情况下（真实分布作为权重），这一预测结果所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度</p>
-<p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
-<p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。
-从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
       </categories>
   </entry>
   <entry>
@@ -350,17 +548,19 @@ ICMPv6: 新版本的ICMP，支持了新的message type（Msg too big）和组管
 <h3 id="ipv6和ipv4的兼容">IPv6和IPv4的兼容</h3>
 <p>由于不是所有Router都支持IPv6的新协议，所以要确保IPv4和IPv6可以在网络内同时存在。
 解决方案就是：tunneling 当知道下一个Hop是IPv4
-Router时，IPv6的datagram作为IPv4的payload，确保IPv4 Router也可以处理 #
-浅述 Forward和SDN SDN是什么？ 是一种Routing的算法，也就是Control
-plane的控制算法。 传统的Routing方法： - 使用forwarding
-table结合longest-prefix 匹配来进行forwarding - control
-plane单机内计算forwarding table - forwarding
-table只根据packets的IP来给出forward 方向 SDN： - 可编程的Routing算法 -
-可以用packet header中的所有字段来帮助forwarding的决策 -
-基于Match+action（flow table）的匹配规则 - 中心化的控制方式</p>
-<p>得益于Match+Action的结构，Router实现的功能更丰富了，例如防火墙和NAT都可以在Router内通过规则的设定实现。
-## OpenFlow的例子（包括match+action）
-这是一种具体的SDN协议，具体有以下几个逻辑 -
+Router时，IPv6的datagram作为IPv4的payload，确保IPv4 Router也可以处理</p>
+<h1 id="浅述-forward和sdn">浅述 Forward和SDN</h1>
+<p>SDN是什么？ 是一种Routing的算法，也就是Control plane的控制算法。
+传统的Routing方法： - 使用forwarding table结合longest-prefix
+匹配来进行forwarding - control plane单机内计算forwarding table -
+forwarding table只根据packets的IP来给出forward 方向 SDN： -
+可编程的Routing算法 - 可以用packet
+header中的所有字段来帮助forwarding的决策 - 基于Match+action（flow
+table）的匹配规则 - 中心化的控制方式</p>
+<p>得益于Match+Action的结构，Router实现的功能更丰富了，例如防火墙和NAT都可以在Router内通过规则的设定实现。</p>
+<h2
+id="openflow的例子包括matchaction">OpenFlow的例子（包括match+action）</h2>
+<p>这是一种具体的SDN协议，具体有以下几个逻辑 -
 Pattern：match到符合这个pattern规定的packet -
 Actions：各类型的操作，比如丢弃，forward，修改都可以 -
 Priority：避免同样pattern引发的混淆 - Counters：记录处理的Bytes</p>
@@ -370,115 +570,6 @@ Priority：避免同样pattern引发的混淆 - Counters：记录处理的Bytes<
       <categories>
         <category>计算机基础</category>
         <category>互联网协议</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>互联网协议基本概念</title>
-    <url>/46936/</url>
-    <content><![CDATA[<p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
-会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
-Communication links，例如光缆，电磁波，卫星 - Packet
-switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
-networks 构成互联网传输规则的两个部分： -
-Protocols：协议定义了数据的发送，接受的过程 -
-Standards：标准，例如RFC，IETF这类标准 <span id="more"></span> ## Network
-Edge和Network core
-这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。
-Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
-<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
-<h2 id="互联网的目的数据传输">互联网的目的：数据传输</h2>
-<h3 id="数据包-packets">数据包 packets</h3>
-<ul>
-<li>这是数据在网络上传输的最小单元</li>
-<li>8 bits = 1 Bytes，位和字节用来描述Packets的大小。 ### 带宽
-指代传输的速率，单位就是B/s，b/s，注意区分 ### 物理的介质
-网络的传输有众多介质，例如</li>
-<li>以太网线缆</li>
-<li>光纤</li>
-<li>WIFI</li>
-<li>移动通信技术</li>
-<li>卫星通信</li>
-</ul>
-<h2 id="network-core">Network core</h2>
-<p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）
-### Router间传输的过程 1.
-在transportation层被分成packets，发送给第一个Router 2.
-第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送 3.
-重复2，直到到达目的地 ### Network core的两大主要功能 -
-Routing：根据目的地决定packets的传输路线 -
-Forwarding：将packets从input发送到正确的output router去</p>
-<h3 id="网络核心的生态">网络核心的生态</h3>
-<ul>
-<li>Tier
-1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
-<li>Regional
-ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
-<li>access
-ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
-<li>content
-provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
-<li>content distribution
-networks（CDN），将互联网的内容向用户端推进</li>
-</ul>
-<h2 id="延迟丢包和传输瓶颈">延迟、丢包和传输瓶颈</h2>
-<h3 id="丢包">丢包</h3>
-<p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失
-### 延迟 1.
-对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）
-2. 排队等待Router进行发送（由路由器的拥挤程度决定） 3.
-发送带宽（L/R，将Buffer中的数据发送到链路中） 4.
-光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d/s） ###
-传输速率 取决于传输过程中速率最低的那个环节</p>
-<h1 id="分层模型">分层模型</h1>
-<p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的
-## OSI七层模型 - Application - Presentation - Session - Transport -
-Network - Data link - Physical ## TCP/IP5层模型及其对应的协议 -
-Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
-<h2 id="各层对应的地址规格">各层对应的地址规格</h2>
-<ul>
-<li>link层=mac地址</li>
-<li>Logical address layer 3=IPV4和IPV6地址</li>
-<li>Port address=layer 4 端口号</li>
-<li>Application = URL</li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>互联网协议</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>过拟合和欠拟合</title>
-    <url>/30534/</url>
-    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
-<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
-<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>验证损失小</th>
-<th>验证损失大</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>训练损失小</td>
-<td>结合验证损失的绝对值，小概率欠拟合</td>
-<td>大概率过拟合</td>
-</tr>
-<tr class="even">
-<td>训练损失大</td>
-<td>大概率不会发生此类情况</td>
-<td>大概率欠拟合</td>
-</tr>
-</tbody>
-</table>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
       </categories>
   </entry>
   <entry>
@@ -647,6 +738,158 @@ control：慢增快减</h3>
       <categories>
         <category>计算机基础</category>
         <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>互联网协议基本概念</title>
+    <url>/46936/</url>
+    <content><![CDATA[<p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
+会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
+Communication links，例如光缆，电磁波，卫星 - Packet
+switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
+networks 构成互联网传输规则的两个部分： -
+Protocols：协议定义了数据的发送，接受的过程 -
+Standards：标准，例如RFC，IETF这类标准 <span id="more"></span> ## Network
+Edge和Network core
+这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。
+Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
+<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
+<h2 id="互联网的目的数据传输">互联网的目的：数据传输</h2>
+<h3 id="数据包-packets">数据包 packets</h3>
+<ul>
+<li>这是数据在网络上传输的最小单元</li>
+<li>8 bits = 1 Bytes，位和字节用来描述Packets的大小。 ### 带宽
+指代传输的速率，单位就是B/s，b/s，注意区分 ### 物理的介质
+网络的传输有众多介质，例如</li>
+<li>以太网线缆</li>
+<li>光纤</li>
+<li>WIFI</li>
+<li>移动通信技术</li>
+<li>卫星通信</li>
+</ul>
+<h2 id="network-core">Network core</h2>
+<p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）
+### Router间传输的过程 1.
+在transportation层被分成packets，发送给第一个Router 2.
+第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送 3.
+重复2，直到到达目的地 ### Network core的两大主要功能 -
+Routing：根据目的地决定packets的传输路线 -
+Forwarding：将packets从input发送到正确的output router去</p>
+<h3 id="网络核心的生态">网络核心的生态</h3>
+<ul>
+<li>Tier
+1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
+<li>Regional
+ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
+<li>access
+ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
+<li>content
+provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
+<li>content distribution
+networks（CDN），将互联网的内容向用户端推进</li>
+</ul>
+<h2 id="延迟丢包和传输瓶颈">延迟、丢包和传输瓶颈</h2>
+<h3 id="丢包">丢包</h3>
+<p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失
+### 延迟 1.
+对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）
+2. 排队等待Router进行发送（由路由器的拥挤程度决定） 3.
+发送带宽（L/R，将Buffer中的数据发送到链路中） 4.
+光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d/s） ###
+传输速率 取决于传输过程中速率最低的那个环节</p>
+<h1 id="分层模型">分层模型</h1>
+<p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的
+## OSI七层模型 - Application - Presentation - Session - Transport -
+Network - Data link - Physical ## TCP/IP5层模型及其对应的协议 -
+Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
+<h2 id="各层对应的地址规格">各层对应的地址规格</h2>
+<ul>
+<li>link层=mac地址</li>
+<li>Logical address layer 3=IPV4和IPV6地址</li>
+<li>Port address=layer 4 端口号</li>
+<li>Application = URL</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Cross Entropy的理解</title>
+    <url>/45189/</url>
+    <content><![CDATA[<p>2024-03-13 14:03更新： - 使用了公式插件，数学公式更好看了</p>
+<p>简单记录对交叉熵的理解，还没来得及搞公式插件，先凑合使用文本来记录。</p>
+<h1 id="交叉熵的计算">交叉熵的计算</h1>
+<p>在分类问题的情境下，我们来具体的看一下交叉熵是如何得出的</p>
+<p>假设在一个图片分类问题中，图片共有4个类别：猫、狗、熊、马
+输入训练时，使用one-hot编码来表示图片所属的类别，因为类别的真实值是100%确定的。
+<span id="more"></span></p>
+<p>假设一个真实值为猫[1,0,0,0]的图片，经过两个不同模型的训练，得到了两组不同的预测概率值（由softmax得出），如下：</p>
+<ul>
+<li><p>A概率：<span class="math inline">\([0.4, 0.2, 0.2,
+0.2]\)</span></p></li>
+<li><p>B概率：<span class="math inline">\([0.7, 0.1, 0.1,
+0.1]\)</span></p></li>
+</ul>
+<p>那么分别计算这两组交叉熵，可以得到： - A组Cross-entropy：</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq1}
+-（1\times \log_{2}{0.4} +0\times \log_{2}{0.2}+0\times
+\log_{2}{0.2}+0\times \log_{2}{0.2}）
+\end{equation}\]</span></p>
+<ul>
+<li>B组Cross-entropy：</li>
+</ul>
+<p><span class="math display">\[\begin{equation}
+\label{eq2}
+-（1\times \log_{2}{0.7} +0\times \log_{2}{0.1}+0\times
+\log_{2}{0.1}+0\times \log_{2}{0.1}）
+\end{equation}\]</span> 用文字描述这个计算过程，就是用真实的概率 乘以
+预测概率的熵值。熵表示了这个概率所包含的信息量的大小。</p>
+<h1 id="如何理解交叉熵">如何理解交叉熵</h1>
+<p>所以交叉熵可以理解为：<strong>实际情况下（真实分布作为权重），这一预测结果所包含的信息量</strong>，也就是预测值和真实值产生差异的幅度</p>
+<p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
+<p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。
+从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>过拟合和欠拟合</title>
+    <url>/30534/</url>
+    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
+<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>验证损失小</th>
+<th>验证损失大</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>训练损失小</td>
+<td>结合验证损失的绝对值，小概率欠拟合</td>
+<td>大概率过拟合</td>
+</tr>
+<tr class="even">
+<td>训练损失大</td>
+<td>大概率不会发生此类情况</td>
+<td>大概率欠拟合</td>
+</tr>
+</tbody>
+</table>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
       </categories>
   </entry>
   <entry>
