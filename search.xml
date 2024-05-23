@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Jellyfin HEVC HDR硬解问题</title>
+    <url>/24539/</url>
+    <content><![CDATA[<p>问题原因：最开始配置Jellyfin的时候手贱在SSD下设置了一个硬解后的Temp目录，但没给Jellyfin权限。所以ffmpeg的解码全部失败，导致TV端Infuse用HDR级别不高的电视强行播放HDR片源，出现了类似于白内障的效果。web端播放器甚至不能解码HDR，视频发白+偏色。
+<span id="more"></span> # 类似问题的排查
+在Jellyfin的数据目录下（数据目录和安装目录可能有所区别），直接搜索ffmpeg，即可看到调用ffmpeg的全部log。</p>
+<p>此处发现Jellyfin在解码失败的时候一共会尝试调用ffmpeg三次，因为一次播放产生了三个几乎一致的log。
+Jellyfin 10.9.X默认的ffmpeg版本为5.4.1</p>
+<p>如果log的最后一行有conversion
+failed的字样，即可确认是ffmpeg解码中出现的问题，向上浏览查看即可定位问题，也可以丢给gpt让它找到问题。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>使用hexo-renderer-pandoc时高亮段落文本的方法</title>
     <url>/582991/</url>
     <content><![CDATA[<p>为了实现数学公式的正确渲染，卸载了原生内置的hexo-renderer-marked，而采用pandoc渲染，从而支持mathjax。</p>
@@ -35,140 +47,6 @@
 ]]></content>
       <categories>
         <category>杂七杂八</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>DNS和RDNS</title>
-    <url>/6375/</url>
-    <content><![CDATA[<h1 id="dns是什么">DNS是什么？</h1>
-<p>《计算机网络：自顶向下方法》的2.4节的标题是一个很好的描述：<strong>internet的目录服务</strong>
-DNS的全称是Domain Name System
-域名系统，它负责完成从域名到IP地址的映射。</p>
-<h2
-id="为什么要有域名ip地址只留一个不行吗">为什么要有域名/IP地址，只留一个不行吗？</h2>
-<ul>
-<li>IP地址是定长的，利于路由器做规则的处理</li>
-<li>域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr/.hk/.cn往往表示了该网站的所属的国家和地区
-DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</li>
-</ul>
-<h2 id="dns的结构实现方式是什么">DNS的结构/实现方式是什么</h2>
-<p>DNS实现的具体方式：</p>
-<ul>
-<li>一个分层的DNS服务器组成的分布式数据库</li>
-<li>一个用于让主机查询分布式数据库的应用层（Layer 5）的协议</li>
-<li>DNS运行在UDP上，使用53号端口</li>
-<li>DNS一般是运行BIND软件的UNIX系统主机 <span id="more"></span></li>
-</ul>
-<h2 id="dns的流程1">DNS的流程<a href="#fn1" class="footnote-ref"
-id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
-<ol type="1">
-<li>用户主机上<strong>运行着DNS应用的客户端</strong>。<br />
-</li>
-<li>浏览器从上述URL中抽取岀主机名www.someschool.edu,并将这台主机名<strong>传给
-DNS应用的客户端</strong>。<br />
-</li>
-<li>DNS客户向DNS服务器<strong>发送一个包含主机名的请求</strong>。</li>
-<li>DNS客户最终会收到一份回答报文，其中<strong>含有对应于该主机名的IP地址</strong>。<br />
-</li>
-<li>一旦浏览器接收到来自DNS的该IP地址，它能够<strong>向位于该IP地址80端口的
-HTTP服务器进程发起一个TCP连接。</strong></li>
-</ol>
-<h2 id="除了域名服务dns还能做什么">除了域名服务，DNS还能做什么？</h2>
-<ul>
-<li>主机别名（Host
-Aliasing）：一般来说，主机拥有一个<strong>规范主机名（Canonical
-hostname）</strong>。同时可以有多个主机别名：例如google.com和www.google.com</li>
-<li>邮件服务器别名（Mail Server
-Aliasing）：和上一条类似，邮箱后缀也可以通过别名来提供更容易记忆的邮箱地址。值得注意的是，MX记录可以实现Web服务器和邮件服务器同名的功能</li>
-<li>负载分配（Load
-distribution）：有时候一个域名可能对应多个服务器，因此DNS会通过轮询这类机制，来完成简单的负载分配</li>
-</ul>
-<h1 id="dns的实现细节">DNS的实现细节</h1>
-<p>在这里主要讨论两个部分</p>
-<ol type="1">
-<li>是如何通过分布式来实现对DNS服务的要求的</li>
-<li>交互的方式是什么样的，DNS协议的具体内容</li>
-</ol>
-<h2 id="分布式的-层次的数据库">分布式的 层次的数据库</h2>
-<p>有大量的DNS服务器遍布在整个互联网上，相互间具备一定的层次结构。没有任何一台服务器具备全部的映射关系，相反，这些映射分布在所有的DNS服务器上。从层级角度来说，有三类DNS服务器：</p>
-<ol type="1">
-<li>根DNS服务器：全球有超过400个此类服务器，有13个不同的组织管理这些服务器。跟服务器提供TLD服务器的IP地址，而没有直接的域名和其服务器IP的映射</li>
-<li>顶级域名服务器（TLD）：每个顶级域名都有其TLD，TLD提供权威DNS服务器的IP地址</li>
-<li>权威DNS服务器：组织机构<strong>可以选择</strong>哪个服务器作为其权威DNS服务器来保存其域名
-IP映射。</li>
-</ol>
-<h3
-id="游离于层级之外的dns服务器本地dns服务器">游离于层级之外的DNS服务器—本地DNS服务器</h3>
-<p>Local DNS一般在每个ISP中都会存在，Local DNS的好处就是更靠近用户端。
-它的作用就是充当代理，将DNS请求转发到分为3层的DNS服务系统中。
-一个可能的DNS查询流程是：</p>
-<ol type="1">
-<li>向Local DNS发送DNS请求</li>
-<li>Local DNS向根DNS服务器发送DNS请求</li>
-<li>根DNS服务器根据域名，例如.com，返回一个对应的TLD的IP地址</li>
-<li>Local DNS向TLD发送DNS请求</li>
-<li>TLD根据具体的域名，例如google.com，返回一个对应的权威DNS的IP地址</li>
-<li>Local DNS向权威DNS发送DNS请求</li>
-<li>权威DNS根据查询的域名，例如maps.google.com，返回目标服务器的IP地址</li>
-<li>Local DNS向主机返回该IP地址</li>
-</ol>
-<p>这个过程<mark>非常麻烦</mark>，一共有8份报文产生，Local
-DNS花了很长时间来解决一个域名的查询。但其实还可能更麻烦，因为TLD对应的域名很多，所以会有中间DNS的存在。这让查询过程更加复杂+冗长！<mark>解决方案就是下一部分——DNS缓存</mark></p>
-<h2 id="dns缓存">DNS缓存</h2>
-<p>当<strong>DNS服务器</strong>收到了其他<strong>DNS的回答（主机名到IP地质的映射）时</strong>，会将这个信息存入到DNS缓存中。
-当同样的请求再次到达该DNS服务器时，它就可以直接返回，而不需要有任何时间上的浪费，去疯狂请求一圈。</p>
-<h2 id="dns协议的实现细节">DNS协议的实现细节</h2>
-<ul>
-<li>DNS服务器存储Host Name到IP地址的映射的方式是RR（Resource
-Record）</li>
-<li>DNS的回答报文里可以包含多条RR</li>
-<li>RR有四个字段：Name，Value，Type，TTL</li>
-</ul>
-<h3 id="rr的四个字段">RR的四个字段</h3>
-<h4 id="type">Type</h4>
-<p>Type事实上决定了Name和Value的类型（废话），具体来看</p>
-<ul>
-<li>Type=A，那么Name就是Host
-Name，Value则是IP地址，这是一条主机名到IP地址的一对一映射</li>
-<li>Type =
-NS，那么Name就是一个域，Value则存储了知道该域内Host的IP的DNS的Host
-Name。Value存了知道所有域内IP的DNS的主机名</li>
-<li>Type =
-CNAME，别名系统，Value里存放的就是标准主机名,Name里是别名</li>
-<li>Type=MX，邮件别名，Value中存放的是别名为Name的规范主机名</li>
-</ul>
-<h4 id="ttl">TTL</h4>
-<p>一个问题产生了：DNS服务器如何避免不断增长的RR，最终导致服务器的存储达到上限导致服务停摆呢
-<strong>TTL</strong>：指代一条RR在DNS服务器中的留存时间</p>
-<h3 id="dns的报文">DNS的报文</h3>
-<p>不在这里对DNS报文的具体结构进行梳理和总结了，随用随查吧</p>
-<ul>
-<li>nslookup，这个命令是运行在Win和Unix平台上的DNS查询程序，可以向任意DNS服务器发起DNS请求</li>
-</ul>
-<h3 id="在dns数据库中插入记录">在DNS数据库中插入记录</h3>
-<p>这里回答的问题是，域名和地址的第一次映射关系是如何进入到DNS这个系统中的？
-首先，在注册机构中注册域名，比如nameslio，需要花一些钱才可以完成。在这个过程中，你需要提供网站的权威DNS服务器的名称和IP地址</p>
-<h1 id="rdns是什么">RDNS是什么</h1>
-<p>RDNS完成从IP地址到域名的映射，通过查询存储在DNS服务器中的PTR记录，来获取到IP地址对应的域名</p>
-<p>查询的过程中有几个和DNS查询不同的点</p>
-<ul>
-<li>反转IP地址（把192.168.0.1转换为1.0.168.192）</li>
-<li>在末尾添加 .in-addr.arpa
-因为PTR记录存储在DNS的.arpa顶级域中。.arpa是一个用来管理网络基础设施的域</li>
-</ul>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Kurose, K. R. (2017). Computer networking: A top-down
-approach by james. _Kurose, Keith W. Ross. pp.84<a href="#fnref1"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>互联网协议</category>
       </categories>
   </entry>
   <entry>
@@ -428,6 +306,140 @@ TV+Infuse可以解决一部分）。资源量上没有任何单一平台可以�
       </categories>
   </entry>
   <entry>
+    <title>DNS和RDNS</title>
+    <url>/6375/</url>
+    <content><![CDATA[<h1 id="dns是什么">DNS是什么？</h1>
+<p>《计算机网络：自顶向下方法》的2.4节的标题是一个很好的描述：<strong>internet的目录服务</strong>
+DNS的全称是Domain Name System
+域名系统，它负责完成从域名到IP地址的映射。</p>
+<h2
+id="为什么要有域名ip地址只留一个不行吗">为什么要有域名/IP地址，只留一个不行吗？</h2>
+<ul>
+<li>IP地址是定长的，利于路由器做规则的处理</li>
+<li>域名是变长的，而且很多变。但是往往具备一定人类较容易理解和记忆的规律，例如后缀.fr/.hk/.cn往往表示了该网站的所属的国家和地区
+DNS把域名映射到IP地址，这样实际上查询资源的时候用的就是格式统一的IP地址，效率大大的提升了</li>
+</ul>
+<h2 id="dns的结构实现方式是什么">DNS的结构/实现方式是什么</h2>
+<p>DNS实现的具体方式：</p>
+<ul>
+<li>一个分层的DNS服务器组成的分布式数据库</li>
+<li>一个用于让主机查询分布式数据库的应用层（Layer 5）的协议</li>
+<li>DNS运行在UDP上，使用53号端口</li>
+<li>DNS一般是运行BIND软件的UNIX系统主机 <span id="more"></span></li>
+</ul>
+<h2 id="dns的流程1">DNS的流程<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
+<ol type="1">
+<li>用户主机上<strong>运行着DNS应用的客户端</strong>。<br />
+</li>
+<li>浏览器从上述URL中抽取岀主机名www.someschool.edu,并将这台主机名<strong>传给
+DNS应用的客户端</strong>。<br />
+</li>
+<li>DNS客户向DNS服务器<strong>发送一个包含主机名的请求</strong>。</li>
+<li>DNS客户最终会收到一份回答报文，其中<strong>含有对应于该主机名的IP地址</strong>。<br />
+</li>
+<li>一旦浏览器接收到来自DNS的该IP地址，它能够<strong>向位于该IP地址80端口的
+HTTP服务器进程发起一个TCP连接。</strong></li>
+</ol>
+<h2 id="除了域名服务dns还能做什么">除了域名服务，DNS还能做什么？</h2>
+<ul>
+<li>主机别名（Host
+Aliasing）：一般来说，主机拥有一个<strong>规范主机名（Canonical
+hostname）</strong>。同时可以有多个主机别名：例如google.com和www.google.com</li>
+<li>邮件服务器别名（Mail Server
+Aliasing）：和上一条类似，邮箱后缀也可以通过别名来提供更容易记忆的邮箱地址。值得注意的是，MX记录可以实现Web服务器和邮件服务器同名的功能</li>
+<li>负载分配（Load
+distribution）：有时候一个域名可能对应多个服务器，因此DNS会通过轮询这类机制，来完成简单的负载分配</li>
+</ul>
+<h1 id="dns的实现细节">DNS的实现细节</h1>
+<p>在这里主要讨论两个部分</p>
+<ol type="1">
+<li>是如何通过分布式来实现对DNS服务的要求的</li>
+<li>交互的方式是什么样的，DNS协议的具体内容</li>
+</ol>
+<h2 id="分布式的-层次的数据库">分布式的 层次的数据库</h2>
+<p>有大量的DNS服务器遍布在整个互联网上，相互间具备一定的层次结构。没有任何一台服务器具备全部的映射关系，相反，这些映射分布在所有的DNS服务器上。从层级角度来说，有三类DNS服务器：</p>
+<ol type="1">
+<li>根DNS服务器：全球有超过400个此类服务器，有13个不同的组织管理这些服务器。跟服务器提供TLD服务器的IP地址，而没有直接的域名和其服务器IP的映射</li>
+<li>顶级域名服务器（TLD）：每个顶级域名都有其TLD，TLD提供权威DNS服务器的IP地址</li>
+<li>权威DNS服务器：组织机构<strong>可以选择</strong>哪个服务器作为其权威DNS服务器来保存其域名
+IP映射。</li>
+</ol>
+<h3
+id="游离于层级之外的dns服务器本地dns服务器">游离于层级之外的DNS服务器—本地DNS服务器</h3>
+<p>Local DNS一般在每个ISP中都会存在，Local DNS的好处就是更靠近用户端。
+它的作用就是充当代理，将DNS请求转发到分为3层的DNS服务系统中。
+一个可能的DNS查询流程是：</p>
+<ol type="1">
+<li>向Local DNS发送DNS请求</li>
+<li>Local DNS向根DNS服务器发送DNS请求</li>
+<li>根DNS服务器根据域名，例如.com，返回一个对应的TLD的IP地址</li>
+<li>Local DNS向TLD发送DNS请求</li>
+<li>TLD根据具体的域名，例如google.com，返回一个对应的权威DNS的IP地址</li>
+<li>Local DNS向权威DNS发送DNS请求</li>
+<li>权威DNS根据查询的域名，例如maps.google.com，返回目标服务器的IP地址</li>
+<li>Local DNS向主机返回该IP地址</li>
+</ol>
+<p>这个过程<mark>非常麻烦</mark>，一共有8份报文产生，Local
+DNS花了很长时间来解决一个域名的查询。但其实还可能更麻烦，因为TLD对应的域名很多，所以会有中间DNS的存在。这让查询过程更加复杂+冗长！<mark>解决方案就是下一部分——DNS缓存</mark></p>
+<h2 id="dns缓存">DNS缓存</h2>
+<p>当<strong>DNS服务器</strong>收到了其他<strong>DNS的回答（主机名到IP地质的映射）时</strong>，会将这个信息存入到DNS缓存中。
+当同样的请求再次到达该DNS服务器时，它就可以直接返回，而不需要有任何时间上的浪费，去疯狂请求一圈。</p>
+<h2 id="dns协议的实现细节">DNS协议的实现细节</h2>
+<ul>
+<li>DNS服务器存储Host Name到IP地址的映射的方式是RR（Resource
+Record）</li>
+<li>DNS的回答报文里可以包含多条RR</li>
+<li>RR有四个字段：Name，Value，Type，TTL</li>
+</ul>
+<h3 id="rr的四个字段">RR的四个字段</h3>
+<h4 id="type">Type</h4>
+<p>Type事实上决定了Name和Value的类型（废话），具体来看</p>
+<ul>
+<li>Type=A，那么Name就是Host
+Name，Value则是IP地址，这是一条主机名到IP地址的一对一映射</li>
+<li>Type =
+NS，那么Name就是一个域，Value则存储了知道该域内Host的IP的DNS的Host
+Name。Value存了知道所有域内IP的DNS的主机名</li>
+<li>Type =
+CNAME，别名系统，Value里存放的就是标准主机名,Name里是别名</li>
+<li>Type=MX，邮件别名，Value中存放的是别名为Name的规范主机名</li>
+</ul>
+<h4 id="ttl">TTL</h4>
+<p>一个问题产生了：DNS服务器如何避免不断增长的RR，最终导致服务器的存储达到上限导致服务停摆呢
+<strong>TTL</strong>：指代一条RR在DNS服务器中的留存时间</p>
+<h3 id="dns的报文">DNS的报文</h3>
+<p>不在这里对DNS报文的具体结构进行梳理和总结了，随用随查吧</p>
+<ul>
+<li>nslookup，这个命令是运行在Win和Unix平台上的DNS查询程序，可以向任意DNS服务器发起DNS请求</li>
+</ul>
+<h3 id="在dns数据库中插入记录">在DNS数据库中插入记录</h3>
+<p>这里回答的问题是，域名和地址的第一次映射关系是如何进入到DNS这个系统中的？
+首先，在注册机构中注册域名，比如nameslio，需要花一些钱才可以完成。在这个过程中，你需要提供网站的权威DNS服务器的名称和IP地址</p>
+<h1 id="rdns是什么">RDNS是什么</h1>
+<p>RDNS完成从IP地址到域名的映射，通过查询存储在DNS服务器中的PTR记录，来获取到IP地址对应的域名</p>
+<p>查询的过程中有几个和DNS查询不同的点</p>
+<ul>
+<li>反转IP地址（把192.168.0.1转换为1.0.168.192）</li>
+<li>在末尾添加 .in-addr.arpa
+因为PTR记录存储在DNS的.arpa顶级域中。.arpa是一个用来管理网络基础设施的域</li>
+</ul>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Kurose, K. R. (2017). Computer networking: A top-down
+approach by james. _Kurose, Keith W. Ross. pp.84<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Transport Layer</title>
     <url>/25411/</url>
     <content><![CDATA[<p>hexo 部署测试，内容不保证准确
@@ -596,98 +608,6 @@ control：慢增快减</h3>
       </categories>
   </entry>
   <entry>
-    <title>互联网协议基本概念</title>
-    <url>/46936/</url>
-    <content><![CDATA[<p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
-会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
-Communication links，例如光缆，电磁波，卫星 - Packet
-switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
-networks 构成互联网传输规则的两个部分： -
-Protocols：协议定义了数据的发送，接受的过程 -
-Standards：标准，例如RFC，IETF这类标准 <span id="more"></span> ## Network
-Edge和Network core
-这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。
-Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
-<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
-<h2 id="互联网的目的数据传输">互联网的目的：数据传输</h2>
-<h3 id="数据包-packets">数据包 packets</h3>
-<ul>
-<li>这是数据在网络上传输的最小单元</li>
-<li>8 bits = 1 Bytes，位和字节用来描述Packets的大小。 ### 带宽
-指代传输的速率，单位就是B/s，b/s，注意区分 ### 物理的介质
-网络的传输有众多介质，例如</li>
-<li>以太网线缆</li>
-<li>光纤</li>
-<li>WIFI</li>
-<li>移动通信技术</li>
-<li>卫星通信</li>
-</ul>
-<h2 id="network-core">Network core</h2>
-<p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）
-### Router间传输的过程 1.
-在transportation层被分成packets，发送给第一个Router 2.
-第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送 3.
-重复2，直到到达目的地 ### Network core的两大主要功能 -
-Routing：根据目的地决定packets的传输路线 -
-Forwarding：将packets从input发送到正确的output router去</p>
-<h3 id="网络核心的生态">网络核心的生态</h3>
-<ul>
-<li>Tier
-1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
-<li>Regional
-ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
-<li>access
-ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
-<li>content
-provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
-<li>content distribution
-networks（CDN），将互联网的内容向用户端推进</li>
-</ul>
-<h2 id="延迟丢包和传输瓶颈">延迟、丢包和传输瓶颈</h2>
-<h3 id="丢包">丢包</h3>
-<p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失
-### 延迟 1.
-对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）
-2. 排队等待Router进行发送（由路由器的拥挤程度决定） 3.
-发送带宽（L/R，将Buffer中的数据发送到链路中） 4.
-光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d/s） ###
-传输速率 取决于传输过程中速率最低的那个环节</p>
-<h1 id="分层模型">分层模型</h1>
-<p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的
-## OSI七层模型 - Application - Presentation - Session - Transport -
-Network - Data link - Physical ## TCP/IP5层模型及其对应的协议 -
-Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
-<h2 id="各层对应的地址规格">各层对应的地址规格</h2>
-<ul>
-<li>link层=mac地址</li>
-<li>Logical address layer 3=IPV4和IPV6地址</li>
-<li>Port address=layer 4 端口号</li>
-<li>Application = URL</li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>互联网协议</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>电梯开关门按钮的相对位置</title>
-    <url>/30781/</url>
-    <content><![CDATA[<p>今天中午坐电梯的时候发现电梯开关门的按钮分布是轴对称的，所以查了一圈资料，想知道这样设计的原因。</p>
-<p>结果就是没有查到明文规定和设计的原因，只能暂且从行业内部规范的角度考量。
-<span id="more"></span>
-问题的情况是今天中午的乘坐电梯，电梯轿厢内有两套按钮系统，分布在电梯门的两侧。电梯的楼层按钮，在左右两侧是一致的，每层的相对位置完全一致。但是开门和关门的按钮是关于电梯门垂直方向轴对称的，开门按钮在更靠近电梯门的一侧。</p>
-<p>这让我很好奇，为什么会出现类似的情况？</p>
-<p>首先我查询了这个电梯协会标准《电梯操纵箱及按钮
-技术要求与测试方法》2020-12-22发布-<a
-href="http://www.elevator.org.cn/uploadfile/20201222/T_CEA%200012-2020%20电梯操纵箱及按钮技术要求与测试方法.pdf">T/CEA
-T/CEA
-0012—2020</a>中4.和5.的内容，并未发现里面有开门和关门键相对位置的要求</p>
-<p>其次阅读了几篇电梯按钮相关的博客，虽然有详尽的说明了电梯楼层按钮的排列方式、以及开关门键需要放置在楼层按钮下方等等内容。但没有提到开门键和关门键的相对位置安排。</p>
-<p>所以我只能猜测是开门靠近门的位置，更加符合开门发力方向的逻辑（从门向两侧）。当然这个逻辑可以反着理解，像mac和win的滚轮逻辑一样，没有完全统一的规定，应该是行业内约定俗成的规则。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Network Layer</title>
     <url>/62894/</url>
     <content><![CDATA[<h1 id="network-layer的概述">Network layer的概述</h1>
@@ -836,6 +756,115 @@ Priority：避免同样pattern引发的混淆 - Counters：记录处理的Bytes<
       </categories>
   </entry>
   <entry>
+    <title>互联网协议基本概念</title>
+    <url>/46936/</url>
+    <content><![CDATA[<p>hexo 部署测试，内容不保证准确 # 互联网的概念 ## 什么是互联网？ ###
+会用到的Terms - hosts=end systems 终端设备，手机，电脑，车 -
+Communication links，例如光缆，电磁波，卫星 - Packet
+switches=路由器、交换机，转发，分发数据包 ### 互联网是Network of
+networks 构成互联网传输规则的两个部分： -
+Protocols：协议定义了数据的发送，接受的过程 -
+Standards：标准，例如RFC，IETF这类标准 <span id="more"></span> ## Network
+Edge和Network core
+这是两个相对的概念，边缘Edge是说不承担数据的转移的职责。hosts内接受的数据都是自己产生或者消费的。
+Core则是说相互连接的Router这一类，主要职责是转发别人产生和消费的数据的专用网络设备</p>
+<p>终端设备通过类似5G网络，家用网络等方式来接入网络（宽带拨号，运营商和用户交互的方式是什么？）</p>
+<h2 id="互联网的目的数据传输">互联网的目的：数据传输</h2>
+<h3 id="数据包-packets">数据包 packets</h3>
+<ul>
+<li>这是数据在网络上传输的最小单元</li>
+<li>8 bits = 1 Bytes，位和字节用来描述Packets的大小。 ### 带宽
+指代传输的速率，单位就是B/s，b/s，注意区分 ### 物理的介质
+网络的传输有众多介质，例如</li>
+<li>以太网线缆</li>
+<li>光纤</li>
+<li>WIFI</li>
+<li>移动通信技术</li>
+<li>卫星通信</li>
+</ul>
+<h2 id="network-core">Network core</h2>
+<p>本质就是相互连接的路由器，组成的网络。相互间传递packets（由终端进行分包）
+### Router间传输的过程 1.
+在transportation层被分成packets，发送给第一个Router 2.
+第一个Router在完整接收到Hosts发送的packet之后，再进行向外的发送 3.
+重复2，直到到达目的地 ### Network core的两大主要功能 -
+Routing：根据目的地决定packets的传输路线 -
+Forwarding：将packets从input发送到正确的output router去</p>
+<h3 id="网络核心的生态">网络核心的生态</h3>
+<ul>
+<li>Tier
+1的ISP运营商，有比较全面的国际连接，直接拥有海缆，陆缆的资源</li>
+<li>Regional
+ISP，地区性的运营商。利用一级ISP的资源，并和其他2级ISP进行互联</li>
+<li>access
+ISP，购买更高级别的ISP提供的服务，直接向用户提供互联网的接入服务</li>
+<li>content
+provider，例如谷歌，微软。他们往往会建立一些IXP来和其他的ISP直接连接传输，以此来提供更好的数据访问性能。</li>
+<li>content distribution
+networks（CDN），将互联网的内容向用户端推进</li>
+</ul>
+<h2 id="延迟丢包和传输瓶颈">延迟、丢包和传输瓶颈</h2>
+<h3 id="丢包">丢包</h3>
+<p>产生的原因就是Router中的buffer大小有限，当buffer中没有空间的时候，packet就会丢失
+### 延迟 1.
+对包进行检查和routing，计算checksum并决定输出连接（一般小于1ms的延迟）
+2. 排队等待Router进行发送（由路由器的拥挤程度决定） 3.
+发送带宽（L/R，将Buffer中的数据发送到链路中） 4.
+光电信号传输时间的延迟（介质中传递的时间，取决于传输距离d/s） ###
+传输速率 取决于传输过程中速率最低的那个环节</p>
+<h1 id="分层模型">分层模型</h1>
+<p>Router是Network层的，Switch是link层的，Repeater（信号中继）是physical层的
+## OSI七层模型 - Application - Presentation - Session - Transport -
+Network - Data link - Physical ## TCP/IP5层模型及其对应的协议 -
+Application：HTTP，SMTP - Transport - Network - Data link - Physical</p>
+<h2 id="各层对应的地址规格">各层对应的地址规格</h2>
+<ul>
+<li>link层=mac地址</li>
+<li>Logical address layer 3=IPV4和IPV6地址</li>
+<li>Port address=layer 4 端口号</li>
+<li>Application = URL</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>互联网协议</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>过拟合和欠拟合</title>
+    <url>/30534/</url>
+    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
+<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
+<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>验证损失小</th>
+<th>验证损失大</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>训练损失小</td>
+<td>结合验证损失的绝对值，小概率欠拟合</td>
+<td>大概率过拟合</td>
+</tr>
+<tr class="even">
+<td>训练损失大</td>
+<td>大概率不会发生此类情况</td>
+<td>大概率欠拟合</td>
+</tr>
+</tbody>
+</table>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+        <category>AI</category>
+      </categories>
+  </entry>
+  <entry>
     <title>设计模式的基础原则</title>
     <url>/21019/</url>
     <content><![CDATA[<p>设计模式之所以存在，是对代码结构设计中重复出现的<strong>解决方案</strong>及其<strong>思想</strong>进行了结构化的总结。
@@ -924,6 +953,27 @@ Priority：避免同样pattern引发的混淆 - Counters：记录处理的Bytes<
       </categories>
   </entry>
   <entry>
+    <title>电梯开关门按钮的相对位置</title>
+    <url>/30781/</url>
+    <content><![CDATA[<p>今天中午坐电梯的时候发现电梯开关门的按钮分布是轴对称的，所以查了一圈资料，想知道这样设计的原因。</p>
+<p>结果就是没有查到明文规定和设计的原因，只能暂且从行业内部规范的角度考量。
+<span id="more"></span>
+问题的情况是今天中午的乘坐电梯，电梯轿厢内有两套按钮系统，分布在电梯门的两侧。电梯的楼层按钮，在左右两侧是一致的，每层的相对位置完全一致。但是开门和关门的按钮是关于电梯门垂直方向轴对称的，开门按钮在更靠近电梯门的一侧。</p>
+<p>这让我很好奇，为什么会出现类似的情况？</p>
+<p>首先我查询了这个电梯协会标准《电梯操纵箱及按钮
+技术要求与测试方法》2020-12-22发布-<a
+href="http://www.elevator.org.cn/uploadfile/20201222/T_CEA%200012-2020%20电梯操纵箱及按钮技术要求与测试方法.pdf">T/CEA
+T/CEA
+0012—2020</a>中4.和5.的内容，并未发现里面有开门和关门键相对位置的要求</p>
+<p>其次阅读了几篇电梯按钮相关的博客，虽然有详尽的说明了电梯楼层按钮的排列方式、以及开关门键需要放置在楼层按钮下方等等内容。但没有提到开门键和关门键的相对位置安排。</p>
+<p>所以我只能猜测是开门靠近门的位置，更加符合开门发力方向的逻辑（从门向两侧）。当然这个逻辑可以反着理解，像mac和win的滚轮逻辑一样，没有完全统一的规定，应该是行业内约定俗成的规则。</p>
+]]></content>
+      <categories>
+        <category>杂七杂八</category>
+        <category>迷之思考</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Cross Entropy的理解</title>
     <url>/45189/</url>
     <content><![CDATA[<p>2024-03-13 14:03更新： - 使用了公式插件，数学公式更好看了</p>
@@ -960,40 +1010,6 @@ Priority：避免同样pattern引发的混淆 - Counters：记录处理的Bytes<
 <p>假如预测结果和真实情况完全一致，那么交叉熵为0。意味着这一预测结果没有任何超乎意料、需要额外的信息来表示和正确结果的差异</p>
 <p>期望的部分是真实值，意味着实际情况是根据真实值（概率）的分布。熵里面用的是预测值，可以理解为这种预测结果<strong>使用了多少信息量</strong>才能表达出真实值。
 从正确与否的离散方式来看，可以理解为熵是一种惩罚，当且仅当真实值的类别中生效，概率越低，偏移越严重。</p>
-]]></content>
-      <categories>
-        <category>计算机基础</category>
-        <category>AI</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>过拟合和欠拟合</title>
-    <url>/30534/</url>
-    <content><![CDATA[<p>过拟合和欠拟合是验证损失较大的两个成因。</p>
-<p>如果验证损失很小，即使发生了一定的过拟合也是可以被接受的，验证损失小的情况下，如果与训练损失的差值不大，要尝试扩大模型自由度以获得更小的验证损失</p>
-<p>当验证损失较大的情况下，训练损失较小，模型很可能发生了过拟合。训练损失如果也较大，和验证损失的差值不大，模型很可能发生了欠拟合。</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>验证损失小</th>
-<th>验证损失大</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>训练损失小</td>
-<td>结合验证损失的绝对值，小概率欠拟合</td>
-<td>大概率过拟合</td>
-</tr>
-<tr class="even">
-<td>训练损失大</td>
-<td>大概率不会发生此类情况</td>
-<td>大概率欠拟合</td>
-</tr>
-</tbody>
-</table>
-<span id="more"></span>
 ]]></content>
       <categories>
         <category>计算机基础</category>
