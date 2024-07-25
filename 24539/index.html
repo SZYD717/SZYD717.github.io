@@ -27,7 +27,7 @@
 <meta property="og:description" content="问题原因：最开始配置Jellyfin的时候手贱在SSD下设置了一个硬解后的Temp目录，但没给Jellyfin权限。所以ffmpeg的解码全部失败，导致TV端Infuse用HDR级别不高的电视强行播放HDR片源，出现了类似于白内障的效果。web端播放器甚至不能解码HDR，视频发白+偏色。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-23T06:05:00.000Z">
-<meta property="article:modified_time" content="2024-05-23T06:58:50.273Z">
+<meta property="article:modified_time" content="2024-07-25T06:16:26.344Z">
 <meta property="article:author" content="Rickye">
 <meta name="twitter:card" content="summary">
 
@@ -125,7 +125,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,6 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E4%BC%BC%E9%97%AE%E9%A2%98%E7%9A%84%E6%8E%92%E6%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">类似问题的排查</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -211,9 +212,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-05-23 14:05:00 / 修改时间：14:58:50" itemprop="dateCreated datePublished" datetime="2024-05-23T14:05:00+08:00">2024-05-23</time>
+      <time title="创建时间：2024-05-23 14:05:00" itemprop="dateCreated datePublished" datetime="2024-05-23T14:05:00+08:00">2024-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-25 14:16:26" itemprop="dateModified" datetime="2024-07-25T14:16:26+08:00">2024-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">折腾记</span></a>
+        </span>
     </span>
 
   
@@ -230,7 +246,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>381</span>
+      <span>380</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -248,8 +264,9 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>问题原因：最开始配置Jellyfin的时候手贱在SSD下设置了一个硬解后的Temp目录，但没给Jellyfin权限。所以ffmpeg的解码全部失败，导致TV端Infuse用HDR级别不高的电视强行播放HDR片源，出现了类似于白内障的效果。web端播放器甚至不能解码HDR，视频发白+偏色。
-<span id="more"></span> # 类似问题的排查
-在Jellyfin的数据目录下（数据目录和安装目录可能有所区别），直接搜索ffmpeg，即可看到调用ffmpeg的全部log。</p>
+<span id="more"></span></p>
+<h1 id="类似问题的排查">类似问题的排查</h1>
+<p>在Jellyfin的数据目录下（数据目录和安装目录可能有所区别），直接搜索ffmpeg，即可看到调用ffmpeg的全部log。</p>
 <p>此处发现Jellyfin在解码失败的时候一共会尝试调用ffmpeg三次，因为一次播放产生了三个几乎一致的log。
 Jellyfin 10.9.X默认的ffmpeg版本为5.4.1</p>
 <p>如果log的最后一行有conversion
